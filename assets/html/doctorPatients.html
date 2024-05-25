@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- font icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- css -->
+  <link rel="stylesheet" href="../css/doctorPaients.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <title>Paients</title>
+</head>
+
+<body>
+  <div class="container-grid">
+    <!--header-->
+    <nav class="navbar navbar-expand-lg light-navbar">
+      <div class="container-fluid">
+        <div class=" navbar-brand adminInfo">
+          <div class="adminImage">
+            <img src="../img/images.jpeg">
+          </div>
+          <div class="adminName">
+            <p>Doctor Name</p>
+          </div>
+        </div>
+        <div class="search"> <i class="fas fa-search"></i> Search for an appointment or Paients Name</div>
+        <button class="navbar-toggler" type="button" id="navbarToggle">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="account.html">
+                <div class="icon-wrapper">
+                  <i class="fas fa-user iconcolor"></i>
+                  <p class="icon-title">Manage Account</p>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">
+                <div class="icon-wrapper"><i class="fas fa-sign-out-alt iconcolor"></i>
+                  <p class="icon-title">Log Out</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="flex-container">
+      <!--sidebar-->
+      <div class="sidebar">
+        <ul>
+          <li>
+            <a href="doctorDashboard.html" class="sidebarList" data-title="Dashboard"><i class="fas fa-home"></i></a>
+          </li>
+          <li>
+            <a href="doctorAppointments.html" class="sidebarList" data-title="Appointments"><i
+                class="fas fa-calendar-check"></i></a>
+          </li>
+          <li>
+            <a href="doctorPatients.html" class="sidebarList" data-title="Patients"><i class="fas fa-users"></i></a>
+          </li>
+          <li>
+            <a href="doctorCard.html" class="sidebarList" data-title="My Card"><i class="fas fa-id-card"></i> </a>
+          </li>
+          <li>
+            <a href="doctorFeedback.html" class="sidebarList" data-title="Feedback"><i class="fas fa-comment-alt"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="container dashboard">
+        <div class="table-content">
+          <table class="tbl" id="filter">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th colspan="2">Check History</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Name">John Doe</td>
+                <td data-label="Email">example@gmail.com</td>
+                <td data-label="Phone">76782908</td>
+                <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Name">John Doe</td>
+                <td data-label="Email">example@gmail.com</td>
+                <td data-label="Phone">76782908</td>
+                <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Name">John Doe</td>
+                <td data-label="Email">example@gmail.com</td>
+                <td data-label="Phone">76782908</td>
+                <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
+                </td>
+              </tr>
+              <tr>
+                <td data-label="Name">John Doe</td>
+                <td data-label="Email">example@gmail.com</td>
+                <td data-label="Phone">76782908</td>
+                <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div> 
+        
+          <div class="patient-history-container" id="patient-history-container">
+          
+            <div class="patient-details">
+              <div>
+                <p><strong>Name:</strong> John Doe</p>
+              <p><strong>Age:</strong> 45</p>
+            </div>
+             <div style="margin-left: 20%;">
+              <p><strong>Gender:</strong> Male</p>
+              <p><strong>Blood Type:</strong> B+</p>
+            </div> 
+            </div>
+            <div class="appointment-history">
+              <h5>Appointment History</h5>
+              <table class="appointment-table">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>01/10/2024</td>
+                    <td>10:00 AM</td>
+                    <td>Routine check-up</td>
+                  </tr>
+                  <tr>
+                    <td>02/15/2024</td>
+                    <td>11:30 AM</td>
+                    <td>Follow-up on blood test results</td>
+                  </tr>
+                  <tr>
+                    <td>03/20/2024</td>
+                    <td>2:00 PM</td>
+                    <td>Consultation for knee pain</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+       
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>
+<script>
+  // Get all elements with the class name "btn-check"
+var buttons = document.querySelectorAll(".btn-edit");
+
+// Add event listener to each button
+buttons.forEach(function(button) {
+  button.addEventListener("click", function() {
+    var patientWindow = document.getElementById("patient-history-container");
+    patientWindow.style.visibility="visible";
+  });
+});
+  </script>
+   <script src="../js/doctorDashboard.js"></script>

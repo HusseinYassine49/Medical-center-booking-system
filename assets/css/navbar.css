@@ -1,0 +1,243 @@
+/*navbar:*/
+.light-navbar {
+    background: #2262b1;
+}
+
+.navbar {
+    padding: 0 !important;
+    font-family: 'Roboto', sans-serif;
+    height: fit-content;
+    border-bottom-left-radius: 0%;
+    z-index: 1;
+    border-bottom-right-radius: 5%;
+    box-shadow: 0 4px 8px rgba(27, 18, 70, 0.993);
+}
+
+.navbarPadding {
+    margin: 0% !important;
+}
+
+.adminInfo {
+    width: 20%;
+    height: 5%;
+    color: #ffffff;
+    display: flex;
+}
+
+.adminImage {
+    height: fit-content;
+    width: 30%;
+    padding-left: 12%;
+}
+
+.adminImage img {
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(27, 18, 70, 0.993);
+    border: 2px solid #ddd;
+    width: 100%;
+    margin-left: 25%;
+    margin-bottom: 2%;
+    height: 60%;
+}
+
+.adminName {
+    height: fit-content;
+    margin-left: 8%;
+    width: 60%;
+}
+
+.adminName p {
+    font-size: 1rem;
+    padding-top: 8%;
+}
+
+.search {
+    color: rgb(255, 255, 255);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.navbar-toggler {
+    border: #ffffff;
+    padding: 1% 2%;
+    margin-left: 45%;
+    margin-bottom: 4%;
+    border-radius: 5px;
+    margin-top: 2%;
+    background-color: #253d4b;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.navbar-nav {
+    margin-top: 0.5% !important;
+}
+
+.nav-item {
+    padding: 0 10px;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-family: "Montserrat-Light";
+}
+
+.nav-link:hover {
+    transform: scale(1) !important;
+}
+
+
+.icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.icon-title {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.iconcolor {
+    color: #ffffff;
+}
+
+.nav-item:hover {
+    transform: scale(1.2) !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+/* container */
+.flex-container {
+    display: flex;
+}
+
+/*sidebar*/
+.sidebar {
+    background: #2262b1 !important;
+    width: 5%;
+    height: 100vh;
+    color: #ffffff !important;
+    z-index: 0;
+    box-shadow: 0 4px 8px rgba(27, 18, 70, 0.993);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem !important;
+
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 100%;
+    width: 100%;
+}
+
+.sidebar li {
+    width: 100%;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.sidebar li a {
+    color: white;
+    font-size: 1.2rem;
+    display: block;
+    width: 100%;
+}
+
+.sidebar li a::after {
+    content: attr(data-title);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    background-color: rgba(34, 98, 177, 0.9);
+    border-radius: 5px;
+    position: absolute;
+    left: 50px;
+    white-space: nowrap;
+}
+
+.sidebar li a:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar li:hover {
+    transform: scale(1.1);
+    color: #ffffff !important;
+}
+
+@media (max-width: 576px) {
+    .nav {
+        border-radius: 0% !important;
+    }
+
+    .adminInfo {
+        margin-left: 20%;
+        width: 100%;
+    }
+
+    .adminImage {
+        width: 25%;
+
+    }
+
+    .search {
+        width: 100%;
+        margin-left: 10%;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        height: fit-content;
+        padding: 0;
+    }
+
+    .sidebar ul {
+        margin-top: 0;
+        display: flex;
+    }
+
+    .sidebar li {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .sidebar li a {
+        font-size: 1.2rem;
+    }
+
+    .sidebar li a::after {
+        content: attr(data-title);
+        opacity: 0;
+        display: flex;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        background-color: rgba(34, 98, 177, 0.9);
+        border-radius: 5px;
+        position: absolute;
+        left: 10px;
+    }
+}

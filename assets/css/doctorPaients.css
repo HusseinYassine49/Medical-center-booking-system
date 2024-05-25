@@ -1,0 +1,165 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f6fd;
+}
+
+/* dashboard*/
+ .dashboard {
+    padding-top: 1%;padding-left: 2%;
+    margin-left: 0%;
+    width: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.table-content{margin-top: 5%;width: 60%;
+}
+.container{
+    width: 100% !important;
+}
+.tbl{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5%;
+}
+
+.tbl thead{
+    background: #2262b1;
+    color: #fff;
+}
+
+.tbl thead tr th{
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    letter-spacing: 0.2rem;
+    vertical-align: top;
+    border: 1px solid #aab7b8;
+}
+
+.tbl tbody tr td{
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid #aab7b8;
+    padding: 0.8rem;
+}
+
+.tbl tr:nth-child(even){
+    background: #ccc;
+}
+
+.tbl tr:hover td{
+    background: #7da5d6;
+    color: #000;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.tbl button{
+    display: inline-block;
+    border: none;
+    margin: 0 auto;
+    padding: 0.4rem;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+} 
+
+.btn-edit{
+    background-color: #756402;
+    color: #fff;
+}
+
+
+b{
+    font-size: 2rem;
+}
+input{
+    width: 50vh;
+    height: 4vh;
+}
+
+
+
+/* *,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62,5%;
+} */
+
+@media(max-width: 768px){
+    .tbl thead{
+        display: none;
+    }
+    .tbl tr, .tbl td{
+        display: block;
+        width: 100%;
+    }
+    .tbl tr{
+        margin-bottom: 1rem;
+    }
+
+    .tbl tbody tr td{
+        text-align: right;
+        position: relative;
+        width: 95%;
+        
+    }
+
+    .tbl td:before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        text-align: left;
+        padding-left: 1.2rem;
+    }
+}
+.patient-history-container {
+   width: 35%;
+    margin-left: 4%;visibility: hidden;
+    padding: 1rem;height: fit-content;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+
+
+.patient-details{
+    display: flex;
+}
+  .patient-details,
+  .appointment-history {
+    margin-bottom: 1rem;
+  }
+
+  .patient-details h5,
+  .appointment-history h5 {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .appointment-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .appointment-table th,
+  .appointment-table td {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    text-align: left;
+  }
+
+  .appointment-table th {
+    background: #2262b1;
+    color: #fff;
+  }
+
+  .appointment-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  } 

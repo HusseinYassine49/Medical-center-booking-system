@@ -1,0 +1,138 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f6fd;
+}
+.dashboard {
+  padding-top: 1%;
+  width: 100%;display: flex;
+  z-index: -1;
+}
+.container{
+  max-width:100% !important;
+  margin: 0% !important;
+}
+.card{margin-top: 2%;
+  margin-left: 2%;
+height: fit-content;border: none;
+}
+.info{margin-left: 2%;
+  height: fit-content;
+}
+
+.image-content,
+.card-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+.image-content{
+  position: relative;
+  row-gap: 5px;
+  background-color: #ffffff;
+  padding: 25px 0; border-radius: 225px 225px 0 0px !important;
+}
+.overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #2262b15e;
+    border-radius: 25px 25px 0 25px;
+  }
+  .overlay::before,
+  .overlay::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -40px;
+    height: 40px;
+    width: 40px;
+    background-color: #2262b15e;
+  }
+  .overlay::after{
+    border-radius: 0 25px 0 0;
+    background-color: #FFF;
+  }
+  .card-image{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #FFF;
+    padding: 3px;
+  }
+  .card-image .card-img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #2262b15e;
+  }
+  .name{
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+  }
+  .description{
+    font-size: 14px;
+    color: #707070;
+    text-align: center;
+  }
+  .button{
+    border: none;
+    font-size: 1rem;
+    color: #555;font-weight: bolder;
+    padding: 8px 16px;
+    background-color: #2262b15e;
+    border-radius: 6px;
+    margin: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .button:hover{
+    background: #265DF2;
+  }
+  .card-content .major, .card-content .certification {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .card-content .major span, .card-content .certification span {
+    font-weight: bold;
+  }
+  .availability-picker {
+    margin-top: 20px;
+  }
+  
+  .availability-picker label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .availability-picker input[type="date"],
+  .availability-picker input[type="time"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .availability-picker button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .availability-slot {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+  }
