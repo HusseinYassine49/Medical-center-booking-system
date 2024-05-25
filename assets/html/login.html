@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/login.css" rel="stylesheet">
+    <link href="../css/info.css" rel="stylesheet">
+    <script src="../java/java.js" defer></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input class="invisible" type="checkbox" id="checkbox-cover">
+    <input class="invisible" type="checkbox" id="checkbox-page1">
+    <input class="invisible" type="checkbox" id="checkbox-page2">
+    <input class="invisible" type="checkbox" id="checkbox-page3">
+
+    <div class="container">
+        <div class="cover">
+           
+            <label for="checkbox-cover"></label>
+        </div>
+
+
+        <div class="page" id="page1"> 
+            <div class="front-page">
+
+                <div class="outer">
+                    <div class="content">
+                        <div class="form-wrapper">
+                            <h1 class="heading">Welcome Back</h1>
+                            <p class="login-link">
+                                Need a account
+                                <!--The arrow in the bottow-->
+                                <label class="next" for="checkbox-page1">Register
+                                    <i class="fa-solid fa-chevron-right"></i></label>                
+                            </p>
+                            <div class="social-logins">
+                                <a href="" class="social-login facebook">
+                                    <img src="f.png" alt="">
+                                    <span>Login with Facebook</span>
+                                </a>
+                                <a href="" class="social-login google">
+                                    <img src="g.png" alt="">
+                                    <span>Login with Google</span>
+                                </a>
+                            </div>
+                            <div class="or"></div>
+                            <form action="" id="register">
+                                <div class="item">
+                                    <label for="login-email">Email address</label>
+                                    <div class="input">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                        <input type="text" id="login-email" placeholder="example@gmail.com">
+                                    </div>
+                                    <p class="error-msg">
+                                        Please enter a valid email address
+                                    </p>
+                                </div>
+
+                                <div class="item">
+                                    <label for="login-password">Password</label>
+                                    <div class="input">
+                                        <ion-icon name="lock-closed-outline"></ion-icon>
+                                        <input type="password" id="login-password" placeholder="............">
+                                        <ion-icon class="eye" name="eye-off-outline"></ion-icon>
+                                    </div>
+                                    <p class="error-msg">
+                                        Password or Email is incorrect
+                                    </p>
+                                </div>
+                                <div class="item terms">
+                                    <div class="input checkbox">
+                                        <input type="checkbox" name="" id="remember">
+                                    <label for="remember">
+                                       Remember me
+                                    </label>
+                                    </div>   
+                                </div>
+                                
+                                <div class="item">
+                                    <button class="btn">Register</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+
+            </div>
+            <div class="back-page">
+                <h1>hello im the back to page 1</h1>
+                
+            </div>
+        </div>
+
+        <div class="page" id="page2"> 
+            <div class="front-page">
+
+                <div class="outer">
+                    <div class="content">
+                        <div class="form-wrapper">
+                            <h1 class="heading">Get's Started</h1>
+                            <p class="login-link">
+                                Already have an account
+                                <label  class="prev" for="checkbox-page1">Register
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </label>
+                            
+                            </p>
+                            <div class="social-logins">
+                                <a href="" class="social-login facebook">
+                                    <img src="f.png" alt="">
+                                    <span>Login with Facebook</span>
+                                </a>
+                                <a href="" class="social-login google">
+                                    <img src="g.png" alt="">
+                                    <span>Login with Google</span>
+                                </a>
+                            </div>
+                            <div class="or"></div>
+                            <form action="" id="register">
+                                <div class="item">
+                                    <label for="login-email">Email address</label>
+                                    <div class="input">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                        <input type="text" id="login-email" placeholder="example@gmail.com">
+                                    </div>
+                                    <p class="error-msg">
+                                        Please enter a valid email address
+                                    </p>
+                                </div>
+
+                                <div class="item">
+                                    <label for="login-password">Password</label>
+                                    <div class="input">
+                                        <ion-icon name="lock-closed-outline"></ion-icon>
+                                        <input type="password" id="login-password" placeholder="............">
+                                        <ion-icon class="eye" name="eye-off-outline"></ion-icon>
+                                    </div>
+                                    <p class="error-msg">
+                                        Password or Email is incorrect
+                                    </p>
+                                </div>
+                                <div class="item terms">
+                                    <div class="input checkbox">
+                                        <input type="checkbox" name="" id="accept">
+                                    <label for="accept">
+                                        I accept the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
+                                    </label>
+                                    </div>
+                                    <p class="error-msg">
+                                        You must accept the terms and conditions
+                                    </p>
+                                </div>
+                                <div class="item">
+                                    <button class="btn">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+
+            </div>
+            <div class="back-page">
+                <h1>hello im the back to page 1</h1>
+                <label  class="prev" for="checkbox-page1">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </label>
+            </div>
+        </div>
+        
+
+
+       
+
+        
+
+
+        <div class="back-cover"></div>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+
+/* body{
+    margin: 1% 12%;
+    font-family: sans-serif;
+} */
+.selection ul li{
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 5px;
+    color: #2262b1;
+    height: 100px;
+    width: 30%;
+    padding: 20px 15px;  
+    position: relative; 
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.selection .active{
+    background-color: #2262b1;
+    color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.selection ul {
+    margin: 0;
+    padding: 0;
+    display: flex; /* Add flex display to the ul */
+    justify-content: space-between; /* Distribute items evenly */
+}
+.selection span{
+    content: "\A";
+    white-space: pre;
+    display: block;
+    width: 100%;
+    text-wrap: wrap;    
+    cursor: pointer;
+}
+label{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.selection i{
+    font-size:40px;
+    position: relative;
+    margin-bottom: 20px;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.summary-container{
+    margin-top: 30px;
+    height: fit-content;
+    width: 66%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.summary-container h3{
+    margin: 0px 0px;
+    padding: 20px 0px 0px 20px;
+    min-height: 45px;
+  }
+  .table-content{
+    min-width: 670px;
+  }
+  
+
+  .donut-graph{
+    height: 580px;
+    width: 30%;
+    background-color: #fff;
+    margin-top: 30px;
+    padding: 10px 15px; 
+    position: relative;
+    font-family: "Rubik", sans-serif;
+    align-items: center;
+    gap: 24px;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+    color: #023047;
+    transition: all 400ms ease;
+  }
+  .bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+
+
+
+
+
+  /*-----------------------------------------------------------------------------*/
+  /*THIS IS THE PART FOR THE PIE CHART THAT IS CONNECTED TO JAVA ASWELL*/
+  .chart-heading {
+    font-family: "Rubik", sans-serif;
+    color: #023047;
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .chart-container {
+    width: 300px;
+    height: 300px;
+  }
+  .programming-stats {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .programming-stats .details ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .programming-stats .details ul li {
+    font-size: 26px;
+    margin: 12px 0;
+    text-transform: uppercase;
+  }
+  
+  .programming-stats .details .percentage {
+    font-weight: 700;
+    color: #e63946;
+  }
+  
+
+
+
+  
+  
+  
+
+
+/*----------------------------------------------------------------------------------------------------*/
+/* TABLE PART*/
+.container{
+    max-width: 1440px;
+    width: 100%;
+    height: fit-content;
+    background: #fff;
+    border-radius: 5px;
+    margin: 30px;
+}
+.container::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+  }
+  
+  .container::-webkit-scrollbar-track {
+    background: #ccc;        /* color of the tracking area */
+  }
+  
+  .container::-webkit-scrollbar-thumb {
+    background-color: #aaa;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid #aaa;  /* creates padding around scroll thumb */
+  }
+
+.container h2{
+    padding: 2rem 1rem;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+.tbl{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.tbl thead{
+    background: #2262b1;
+    color: #fff;
+}
+
+.tbl thead tr th{
+    font-size: 0.9rem;
+    padding: 0.8rem;
+    letter-spacing: 0.2rem;
+    vertical-align: top;
+    border: 1px solid #aab7b8;
+}
+.tbl tbody tr td{
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid #aab7b8;
+    padding: 0.8rem;
+}
+
+.tbl tr:nth-child(even){
+    background: #ccc;
+}
+
+.tbl tr:hover td{
+    background: #7da5d6;
+    color: #000;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+}
+
+.tbl button{
+    display: inline-block;
+    border: none;
+    margin: 0 auto;
+    padding: 0.4rem;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-trash{
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-edit{
+    background-color: #1e8449;
+    color: #fff;
+}
+
+
+b{
+    font-size: 2rem;
+}
+input{
+    width: 50vh;
+    height: 4vh;
+}
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62,5%;
+}
+
+
+.form__label {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2rem;
+  margin-left: -35.5%;
+  display: block;
+  transition: all 0.3s;
+  transform: translateY(-7rem);
+  color: #2262b1;
+}
+
+.form__input {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 1.2rem;
+	margin: 0 auto;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  width: 90%;
+  display: block;
+  border: 0.2rem solid transparent; 
+  transition: all 0.3s;
+  position: relative;
+  outline: none;
+}
+
+.form__input:placeholder-shown + .form__label {
+  opacity: 1;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+  color: #2262b1;
+}
+
+.form__input:focus,
+.form__input:not(:placeholder-shown) {
+    border-color: #2262b1; 
+}
+
+.table-content{
+    margin-top: 47px;
+    min-width: none;
+}
+
+
+@media(max-width: 1450px){
+    .bottom{
+        flex-direction: column;
+    }
+    .selection ul li{
+      width: 25%;
+    }
+   
+    .container{
+        padding: 0p;
+        margin: 0;
+    }
+    .donut-graph{
+        width: 90%;
+        padding: 0px;
+        height: 500px;
+    }
+    .summary-container{
+        flex-direction: column;
+        width: 90%;
+    }
+    .selection{
+      width: 90%;
+    }
+    .chart-container {
+      width: 400px;
+      height: 400px;
+    }
+    .programming-stats {
+      flex-direction: row;
+    }
+    .programming-stats .details ul li {
+      font-size: 36px;
+      margin: 42px 20px;
+      text-transform: uppercase;
+    }
+   
+    
+}
+
+@media(max-width: 950px){
+    
+    .tbl thead{
+        display: none;
+    }
+    .tbl tr, .tbl td{
+        display: block;
+        width: 100%;
+    }
+    .tbl tr{
+        margin-bottom: 1rem;
+    }
+
+    .tbl tbody tr td{
+        text-align: right;
+        position: relative;
+        width: 95%;
+        
+    }
+
+    .tbl td:before{
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        text-align: left;
+        padding-left: 1.2rem;
+    }
+    .form__label {
+        margin-top: -0.5rem;
+        display: block;
+        transform: translateY(-5rem);
+        margin-left: -10.5%;
+        
+      }
+      .form__input{
+        padding: 10px;
+      }
+    .summary-container{
+        flex-direction: column;
+    }
+    .table-content{
+        min-width: 300px;
+    }
+    .donut {
+        top: 3%;
+        left: 10%;
+    }
+    .chart-container {
+      width: 300px;
+      height: 300px;
+    }
+    .programming-stats {
+      flex-direction: column;
+      margin-top: 50px;
+    }
+    .programming-stats .details ul li {
+      font-size: 16px;
+      margin: 22px 20px;
+      text-transform: uppercase;
+    }
+
+}
+
+@media(max-width: 570px){
+
+    .tbl tbody tr td{
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    font-weight: normal;
+    }
+    .form__label{
+      font-size: 1rem;
+      margin-left: 12px;
+    }
+    .container{
+      min-width: 300px;
+    }
+    .form__input{
+      padding: 3px;
+    }
+    .chart-container {
+      width: 200px;
+      height: 200px;
+    }  
+
+    
+}

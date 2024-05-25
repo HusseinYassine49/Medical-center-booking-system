@@ -1,0 +1,130 @@
+body{
+    background-color: #2e3537;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 500px;
+    height: 642px;
+    position: relative;
+    transition-duration: 0.8s;
+    perspective: 1500px;
+}
+.cover, .back-cover{
+    background-color: #2262b1;;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 25px 25px 0;
+    box-shadow: 0 0 5px rgb(41, 41, 41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cover{
+    position: absolute;
+    z-index: 4;
+    transform-origin: center left;
+    transition: transform 0.8s ease-in-out;
+}
+.cover label{
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.back-cover{
+    position: relative;
+    z-index: -1;
+}
+.page{
+    background-color: white;
+    position: absolute;
+    width: 470px;
+    height: 610px;
+    border-radius: 0 15px 15px 0;
+    margin-top: 15px;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition-duration: 1.5s;
+    perspective: 1500px;
+}
+
+.page img{
+    width: 100%;
+    height: 100%;
+    border-radius:  15px 0 0 15px ;
+}
+.front-page{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+.back-page{
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    z-index: 99;
+}
+.next, .prev{
+    
+    cursor: pointer;
+}
+.next{
+    right: 1rem;
+}
+.prev{
+    left: 1rem;
+}
+
+#page1{
+    z-index: 3;
+}
+#page2{
+    z-index: 2;
+}
+#page3{
+    z-index: 1;
+}
+
+
+.invisible{
+    display: none;
+}
+
+
+#checkbox-cover:checked ~ .container{
+    transform: translateX(200px);
+}
+
+#checkbox-cover:checked ~ .container .cover{
+    transform: rotateY(-180deg);
+    transition: transform 1.5s, z-index 0.5s 0.5s ;
+    z-index: 1;
+}
+
+#checkbox-page1:checked ~ .container #page1{
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+#checkbox-page2:checked ~ .container #page2{
+    transform: rotateY(-180deg);
+    z-index: 3;
+}
+
+
+#checkbox-cover:checked ~ .container .page{
+    box-shadow: 0 0 3px rgb(99, 98, 98);
+}
+
+
+
+
+
+
