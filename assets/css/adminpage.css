@@ -5,6 +5,17 @@
     box-sizing: border-box;
     font-family:'poppins',sans-serif;
 }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-size: 62,5%;
+}
+
+
 :root{
     /* --clr: #14161e; */
     --clr: #708090;
@@ -13,6 +24,61 @@ body{
     min-height: 100vh;
     background-color: var(--clr);
 }
+
+
+/*-----------------------------------------------------------------------------------------*/
+/*THIS THE CODE FOR THE BREADCRUMBS ON TOP OF THE PAGES*/
+.bread-container{
+    width: 100%;
+    background-color: #Fff;
+    max-width: 1440px;
+    height: fit-content;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    }
+
+    .breadcrumbs{
+      padding: 10px;
+    }
+    .breadcrumbs-item{
+      display: inline-block;
+    }
+
+    .breadcrumbs-item:not(:last-of-type)::after{
+      content: '/';
+      margin: 0px 5px;
+      color: #ccc;
+    }
+
+    .breadcrumbs-link{
+      text-decoration: none;
+      color: #999999;
+    }
+    .breadcrumbs-link:hover{
+      text-decoration: underline;
+    }
+    .breadcrumbs-link.active{
+      color: #009578;
+      font-weight: 500;
+    }
+
+    .breadcrumbs i{
+        font-size: 20px;
+    }
+    .breadcrumbs li:nth-child(1){
+        padding-left: 20px;
+    }
+
+
+
+
+
+
+
 .navigation{
     display: none;
 }
@@ -46,7 +112,7 @@ body{
 
 
 
-
+/*-----------------------------------------------------------------------------------------*/
 /*the transparent background for the buttons
 with it curves*/
 .h-navigation ul li.h-active{
@@ -137,7 +203,7 @@ with it curves*/
 
 
 
-
+/*-----------------------------------------------------------------------------------------*/
 /*THE BLUE BOX IN THE CORNER THAT TOGGLES THE NAV BAR */
 .toggle{
     position: absolute;
@@ -188,9 +254,13 @@ with it curves*/
 
 }
 
+
 @media(max-width: 1450px){
     .main-page{
-        margin-left: 30%;
+        margin-left: 20%;
+    }
+    .bread-container{
+        width: 90%;
     }
 }
 
@@ -206,32 +276,32 @@ with it curves*/
         margin-left: 20%;
         width: 82%;
     }
+    
 
 }
 
 /*-----------------------------------------------------------------------------------------*/
 /*THIS THE CODE FOR THE PAGE BELOW 500PX THAT PUT A NEW BAR THAT IS ON TOP*/
-@media(max-width: 500px){
+@media(max-width: 520px){
     .main-page{
+        padding-top: 0px;
         margin-left: 0%;
         width: 100%;
         transition: margin 0.5s ease;
     }
-
     .h-navigation{
         display: none;
     }
-    
 
 .navigation{
     position: relative;
-    width: 400px;
+    width: 100%;
     height: 85px;
     background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-    left: 8%;
+    left: 4%;
     border-radius: 10px;
     margin-top: 100px;
     transition: width 0.5s ease;

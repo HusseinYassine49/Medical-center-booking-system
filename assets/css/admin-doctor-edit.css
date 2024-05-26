@@ -1,6 +1,5 @@
 
 .add-doctor{
-    margin-top: 40px;
     width: 100%;
     background-color: #Fff;
     max-width: 1440px;
@@ -53,13 +52,14 @@
         padding: .3em;
         width:35vw;
         height: 6vh;
-        
+        max-width: 650px;
       }
       
       input[type="date"]{
         padding: .3em;
         width:35vw;
         height: 6vh;
+        max-width: 650px;
       }
       input[type="submit"]{
         padding: .3em;
@@ -90,4 +90,41 @@
 
       .container .circle i{
         font-size: 24px;
+      }
+     .bread-container{
+      margin-top: 40px;
+      width: 100%;
+      background-color: #Fff;
+      max-width: 1440px;
+      height: fit-content;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      padding-top: 20px;
+      box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      }
+
+      .breadcrumbs{
+        padding: 10px;
+      }
+      .breadcrumbs-item{
+        display: inline-block;
+      }
+
+      .breadcrumbs-item:not(:last-of-type)::after{
+        content: '/';
+        margin: 0px 5px;
+        color: #ccc;
+      }
+
+      .breadcrumbs-link{
+        text-decoration: none;
+        color: #999999;
+      }
+      .breadcrumbs-link:hover{
+        text-decoration: underline;
+      }
+      .breadcrumbs-link.active{
+        color: #009578;
+        font-weight: 500;
       }
