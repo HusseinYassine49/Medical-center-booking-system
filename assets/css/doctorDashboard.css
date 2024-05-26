@@ -10,27 +10,34 @@ body {
     width: 100%;
     z-index: -1;
 }
-.container{
-    max-width:100% !important;
-    margin: 0% !important;
+
+.container {
+    max-width: 100% !important;
+    margin: 2% 0% 0% 2%!important;
+
 }
+
 /* hello doctor section */
 .hello {
     width: fit-content;
     height: fit-content;
-    border-radius: 3%;margin-left: 5%;
+    border-radius: 3%;
+    margin-left: 10%;
     box-shadow: 0 4px 8px rgba(27, 18, 70, 0.993);
-    display: flex;flex-direction: column;
+    display: flex;
+    flex-direction: column;
     color: #475a99;
     background-color: #eaeaf8;
 
 }
-.img-fluid{
-    width:105%;
+
+.img-fluid {
+    width: 90%;
     height: 110%;
     margin-top: 3%;
     margin-left: 8%;
 }
+
 .card-body {
     padding-top: 3%;
 }
@@ -38,7 +45,7 @@ body {
 .card-body h3 {
     text-align: left;
     line-height: 1 !important;
-    font-size: 1.5rem;
+    font-size: 1.5rem;padding-top: 3%;
     font-family: cursive;
     margin-bottom: 1%;
     color: rgba(27, 18, 70, 0.993);
@@ -51,8 +58,10 @@ body {
     font-size: 1.1rem;
 
 }
+
 /* column 1 */
-.col1 {padding-left: 5%;
+.col1 {
+    padding-left: 5%;
     margin-top: 2%;
     width: 100%;
     display: flex;
@@ -60,7 +69,7 @@ body {
 }
 
 /* calendar */
-.calendar{
+.calendar {
     display: flex;
     height: 30%;
     width: 40%;
@@ -70,20 +79,21 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(27, 18, 70, 0.993);
 }
-.header{
+
+.header {
     display: flex;
     justify-content: space-between;
     padding: 10px;
 
 }
 
-.monthYear{
+.monthYear {
     text-align: center;
     font-weight: 600;
     width: 150px;
 }
 
-.header button{
+.header button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,23 +106,26 @@ body {
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 
 }
-.days{
+
+.days {
     display: grid;
-    grid-template-columns: repeat(7,1fr);
+    grid-template-columns: repeat(7, 1fr);
 }
-.day{
+
+.day {
     text-align: center;
     padding: 5px;
     columns: #999FA6;
     font-weight: 500;
 }
 
-.dates{
+.dates {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     gap: 5px;
 }
-.date{
+
+.date {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,16 +140,17 @@ body {
     transition: 0.2s;
 }
 
-.date:hover, .date.active{
+.date:hover,
+.date.active {
     background-color: #2262b1;
     color: #fff;
 }
 
-.date.inactive{
+.date.inactive {
     color: #d2d2d2;
 }
 
-.date.inactive:hover{
+.date.inactive:hover {
     color: #ffff;
 }
 
@@ -144,11 +158,14 @@ body {
 /* Appointments */
 .upcomingApp {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width:50%;
+    width: 50%;
     height: fit-content;
     margin-left: 5%;
 }
-
+.upcomingApp h5{
+    font-size: 1.5rem;
+    color: #850f0f;
+}
 .tbl {
     margin-top: 3%;
     width: 100%;
@@ -221,27 +238,33 @@ input {
 }
 
 @media (max-width: 606px) {
+
     /* hello doctor section */
     .hello {
         margin-left: 0;
         text-align: center;
-        width: 100%;display: flex;
+        width: 100%;
+        display: flex;
     }
+
     .hello img {
-        width: 20%;
+        width: 90%;
         height: auto;
         margin: 0 auto;
     }
+
     .hello .card-body {
         padding: 1%;
     }
+
     .hello .card-body h3 {
         font-size: 1.2rem;
     }
+
     .hello .card-body p {
         font-size: 0.9rem;
     }
-    
+
     /* col1 */
     .col1 {
         flex-direction: column;
@@ -251,7 +274,7 @@ input {
     /* calendar */
     .calendar {
         width: 100%;
-        margin-bottom: 10px;margin-left: 2%;
+        margin-bottom: 10px;
     }
 
     .calendar .header button {
@@ -266,12 +289,14 @@ input {
     /* Appointments */
     .upcomingApp {
         width: 100%;
-        margin-left: 2%;padding: 0%;
+        margin-left: 2%;
+        padding: 0%;
         margin-top: 10px;
     }
 }
+
 @media(max-width: 568px) {
-    
+
     .tbl thead {
         display: none;
     }
@@ -282,12 +307,15 @@ input {
         width: 90%;
     }
 
-    .tbl tr {width: 100%;
+    .tbl tr {
+        width: 100%;
         margin-bottom: 2rem;
     }
+
     .tbl tr:nth-child(even) {
         background: #ccc;
     }
+
     .tbl tbody tr td {
         text-align: right;
         position: relative;

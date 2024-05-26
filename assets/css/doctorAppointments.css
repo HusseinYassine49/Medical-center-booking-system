@@ -16,7 +16,7 @@ body {
 .container {
     max-width: 100% !important;
     padding-top: 3% !important;
-    margin: 0%;
+    margin-left: 3%;
 }
 
 .tbl {
@@ -25,7 +25,10 @@ body {
     border-collapse: collapse;
     margin-top: 10px;
 }
-
+h5{
+ font-size: 1.3rem;
+ color: #850f0f;;
+}
 .tbl thead {
     background: #2262b1;
     color: #fff;
