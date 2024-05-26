@@ -11,6 +11,8 @@ menuToggle.onclick = function () {
 }
 
 
+
+
 let listItems = document.querySelectorAll('.h-navigation ul li');
 
 listItems.forEach((item, index) => {
@@ -35,4 +37,4 @@ $(document).ready(function () {
 });
 
 // Trigger click event on menuToggle to expand navigation bar by default
-// menuToggle.click();
+menuToggle.click();
