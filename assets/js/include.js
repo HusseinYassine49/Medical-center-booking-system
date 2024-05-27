@@ -36,5 +36,3 @@ $(document).ready(function () {
   });
 });
 
-// Trigger click event on menuToggle to expand navigation bar by default
-menuToggle.click();

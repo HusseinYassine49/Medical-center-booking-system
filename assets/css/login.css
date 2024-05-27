@@ -24,7 +24,7 @@ body{
 }
 .cover{
     position: absolute;
-    z-index: 4;
+    z-index: 5;
     transform-origin: center left;
     transition: transform 0.8s ease-in-out;
 }
@@ -83,14 +83,15 @@ body{
     left: 1rem;
 }
 
-#page1{
-    z-index: 3;
+#page1 {
+    transform: rotateY(0deg); /* Initial state for page 1 */
+    z-index: 4; /* Ensure page 1 is initially visible */
 }
 #page2{
-    z-index: 2;
+    z-index: 3;
 }
 #page3{
-    z-index: 1;
+    z-index: 2;
 }
 
 
@@ -109,6 +110,9 @@ body{
     z-index: 1;
 }
 
+
+
+
 #checkbox-page1:checked ~ .container #page1{
     transform: rotateY(-180deg);
     z-index: 2;
@@ -117,6 +121,16 @@ body{
     transform: rotateY(-180deg);
     z-index: 3;
 }
+#checkbox-page3:checked ~ .container #page2 {
+    transform: rotateY(-180deg); /* Flip from page 2 to page 3 */
+    z-index: 1; /* Ensure page 3 appears on top */
+}
+#checkbox-page4:checked ~ .container #page2 {
+    transform: rotateY(0deg); /* Flip back from page 3 to page 2 */
+    z-index: 3; /* Ensure page 2 appears on top */
+}
+
+
 
 
 #checkbox-cover:checked ~ .container .page{

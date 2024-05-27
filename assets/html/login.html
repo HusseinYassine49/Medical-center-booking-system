@@ -16,6 +16,7 @@
     <input class="invisible" type="checkbox" id="checkbox-page1">
     <input class="invisible" type="checkbox" id="checkbox-page2">
     <input class="invisible" type="checkbox" id="checkbox-page3">
+    <input class="invisible" type="checkbox" id="checkbox-page4">
 
     <div class="container">
         <div class="cover">
@@ -90,7 +91,6 @@
 
             </div>
             <div class="back-page">
-                <h1>hello im the back to page 1</h1>
                 
             </div>
         </div>
@@ -102,13 +102,21 @@
                     <div class="content">
                         <div class="form-wrapper">
                             <h1 class="heading">Get's Started</h1>
+
                             <p class="login-link">
                                 Already have an account
                                 <label  class="prev" for="checkbox-page1">Register
                                     <i class="fa-solid fa-chevron-left"></i>
                                 </label>
-                            
                             </p>
+                            <p class="login-link">
+                                Need an account
+                                <!-- The arrow at the bottom -->
+                                <label class="next" for="checkbox-page3">Register
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </label>
+                            </p>
+
                             <div class="social-logins">
                                 <a href="" class="social-login facebook">
                                     <img src="f.png" alt="">
@@ -164,10 +172,82 @@
 
             </div>
             <div class="back-page">
-                <h1>hello im the back to page 1</h1>
+                
                 <label  class="prev" for="checkbox-page1">
                     <i class="fa-solid fa-chevron-left"></i>
                 </label>
+            </div>
+        </div>
+
+
+
+        <div class="page" id="page3"> 
+            <div class="front-page">
+
+                <div class="outer">
+                    <div class="content">
+                        <div class="form-wrapper">
+                            <h1 class="heading">Welcome Back</h1>
+                            <p class="login-link">
+                                Already have an account
+                                <label class="prev" for="checkbox-page4">Back to Login
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </label>
+                            </p>
+                            <div class="social-logins">
+                                <a href="" class="social-login facebook">
+                                    <img src="f.png" alt="">
+                                    <span>Login with Facebook</span>
+                                </a>
+                                <a href="" class="social-login google">
+                                    <img src="g.png" alt="">
+                                    <span>Login with Google</span>
+                                </a>
+                            </div>
+                            <div class="or"></div>
+                            <!-- <form action="" id="register">
+                                <div class="item">
+                                    <label for="login-email">Email address</label>
+                                    <div class="input">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                        <input type="text" id="login-email" placeholder="example@gmail.com">
+                                    </div>
+                                    <p class="error-msg">
+                                        Please enter a valid email address
+                                    </p>
+                                </div>
+
+                                <div class="item">
+                                    <label for="login-password">Password</label>
+                                    <div class="input">
+                                        <ion-icon name="lock-closed-outline"></ion-icon>
+                                        <input type="password" id="login-password" placeholder="............">
+                                        <ion-icon class="eye" name="eye-off-outline"></ion-icon>
+                                    </div>
+                                    <p class="error-msg">
+                                        Password or Email is incorrect
+                                    </p>
+                                </div>
+                                <div class="item terms">
+                                    <div class="input checkbox">
+                                        <input type="checkbox" name="" id="remember">
+                                    <label for="remember">
+                                       Remember me
+                                    </label>
+                                    </div>   
+                                </div>
+                                
+                                <div class="item">
+                                    <button class="btn">Register</button>
+                                </div>
+                            </form> -->
+                        </div>
+                    </div>
+            </div>
+
+            </div>
+            <div class="back-page">
+                
             </div>
         </div>
         
