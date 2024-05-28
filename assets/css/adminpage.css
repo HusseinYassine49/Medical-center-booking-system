@@ -289,7 +289,7 @@ body{
     background-color: var(--clr);
     margin-left:  18%;
     padding: 20px;
-    padding-top: 80px;
+    padding-top: 50px;
 
 }
 
@@ -399,7 +399,7 @@ body{
     top: -50%;
     width: 70px;
     height: 70px;
-    background-color: #2262b1;
+    background-color: #850f0f;
     border-radius: 50%;
     border: 6px solid var(--clr);
     transition: width 0.5s ease; /* Add transition for smooth animation */

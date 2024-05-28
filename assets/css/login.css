@@ -1,16 +1,16 @@
 body{
     background-color: #2e3537;
-    height: 100vh;
+    height: 130vh; /* Adjusted height */
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 .container{
-    width: 500px;
-    height: 642px;
+    width: 650px; /* Adjusted width */
+    height: 836px; /* Adjusted height */
     position: relative;
     transition-duration: 0.8s;
     perspective: 1500px;
+    margin-top: 30px;
 }
 .cover, .back-cover{
     background-color: #2262b1;;
@@ -40,8 +40,8 @@ body{
 .page{
     background-color: white;
     position: absolute;
-    width: 470px;
-    height: 610px;
+    width: 611px; /* Adjusted width */
+    height: 793px; /* Adjusted height */
     border-radius: 0 15px 15px 0;
     margin-top: 15px;
     transform-origin: left center;
@@ -62,7 +62,7 @@ body{
     height: 100%;
     backface-visibility: hidden;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 1.3rem; /* Adjusted padding */
 }
 .back-page{
     transform: rotateY(180deg);
@@ -77,21 +77,21 @@ body{
     cursor: pointer;
 }
 .next{
-    right: 1rem;
+    right: 1.3rem; /* Adjusted position */
 }
 .prev{
-    left: 1rem;
+    left: 1.3rem;
 }
 
 #page1 {
     transform: rotateY(0deg); /* Initial state for page 1 */
-    z-index: 4; /* Ensure page 1 is initially visible */
+    z-index: 3; /* Ensure page 1 is initially visible */
 }
 #page2{
-    z-index: 3;
+    z-index: 2;
 }
 #page3{
-    z-index: 2;
+    z-index: 1;
 }
 
 
@@ -101,7 +101,7 @@ body{
 
 
 #checkbox-cover:checked ~ .container{
-    transform: translateX(200px);
+    transform: translateX(260px);
 }
 
 #checkbox-cover:checked ~ .container .cover{
@@ -109,10 +109,6 @@ body{
     transition: transform 1.5s, z-index 0.5s 0.5s ;
     z-index: 1;
 }
-
-
-
-
 #checkbox-page1:checked ~ .container #page1{
     transform: rotateY(-180deg);
     z-index: 2;
@@ -121,14 +117,14 @@ body{
     transform: rotateY(-180deg);
     z-index: 3;
 }
-#checkbox-page3:checked ~ .container #page2 {
+#checkbox-page3:checked ~ .container #page3 {
     transform: rotateY(-180deg); /* Flip from page 2 to page 3 */
-    z-index: 1; /* Ensure page 3 appears on top */
+    z-index: 4; /* Ensure page 3 appears on top */
 }
-#checkbox-page4:checked ~ .container #page2 {
-    transform: rotateY(0deg); /* Flip back from page 3 to page 2 */
-    z-index: 3; /* Ensure page 2 appears on top */
-}
+/* #checkbox-page4:checked ~ .container #page2 {
+    transform: rotateY(0deg); 
+    z-index: 3; 
+} */
 
 
 
@@ -138,7 +134,47 @@ body{
 }
 
 
+.page .form-wrapper label{
+    color: #2262b1;
+}
+
+.trapezoid{
+    position: absolute;
+    top: 100px;
+    right: -100px; /* Adjust as needed */
+    border-bottom: 50px solid #2262b1;
+	border-left: 25px solid transparent;
+	border-right: 25px solid transparent;
+    transform: rotate(90deg); /* Rotate 90 degrees to the left */
+	height: 0;
+	width: 125px;
+}
 
 
+.trapezoid::before,
+.trapezoid::after {
+    content: '';
+    position: absolute;
+    top: -10px; /* Adjust distance from top */
+    width: 120px; /* Full width */
+    height: 30px; /* Height of rounded edges */
+    border-radius: 200px; /* Half of the height */
+    background-color: #2262b1; /* Adjust color */
+}
 
+.trapezoid::before {
+    left: 5px; /* Align with left side of trapezoid */
+}
 
+.trapezoid::after {
+    right: 5px; /* Align with right side of trapezoid */
+}
+
+#cover-img{
+    opacity: 0.5;
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}

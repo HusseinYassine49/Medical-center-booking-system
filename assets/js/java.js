@@ -13,18 +13,35 @@ function validateForm(e) {
     let inputs = form.querySelectorAll("input");
     let valid = true;
 
-    if (!validateEmail(inputs[0].value)) { // Corrected email validation regex
+    if (!Info(inputs[0].value)) { 
         valid = false;
         inputs[0].parentElement.classList.add("error");
     }
-    if (!validatePassword(inputs[1].value)) {
+    if (!Info(inputs[1].value)) {
         valid = false;
         inputs[1].parentElement.classList.add("error");
     }
-
-    if (form.id === "register" && !inputs[2].checked) { // Corrected checkbox validation
+    if (!Info(inputs[2].value)) { 
         valid = false;
         inputs[2].parentElement.classList.add("error");
+    }
+    if (!validateEmail(inputs[3].value)) {
+        valid = false;
+        inputs[3].parentElement.classList.add("error");
+    }
+    if (!validatePassword(inputs[4].value)) {
+        valid = false;
+        inputs[4].parentElement.classList.add("error");
+    }
+    if (!validatePassword(inputs[5].value)) {
+        valid = false;
+        inputs[5].parentElement.classList.add("error");
+    }
+    
+
+    if (form.id === "register" && !inputs[6].checked) { // Corrected checkbox validation
+        valid = false;
+        inputs[6].parentElement.classList.add("error");
     }
     if (valid) {
         alert("Form submitted");
@@ -48,6 +65,18 @@ function validatePassword(password) {
     return password.length >= 8; // Simplified password validation
 }
 
+function Info(password) {
+    password = password.trim();
+    return password.length >= 1; // Simplified Naming validation
+}
+
+function mobile(phoneNumber) {
+    var re = /^\d{2}\s\d{3}\s\d{3}$/;
+    return re.test(phoneNumber);
+}
+
+
+
 const eyes = document.querySelectorAll(".eye");
 
 eyes.forEach((eye) => {
@@ -61,4 +90,17 @@ eyes.forEach((eye) => {
             e.target.setAttribute("name", "eye-off-outline")
         }
     });
+});
+
+
+// JavaScript to toggle checkbox state when cover image is clicked
+document.addEventListener('DOMContentLoaded', function() {
+    const coverImage = document.getElementById('cover-img');
+    const checkboxCover = document.getElementById('checkbox-cover');
+
+    if (coverImage && checkboxCover) {
+        coverImage.addEventListener('click', function() {
+            checkboxCover.checked = !checkboxCover.checked;
+        });
+    }
 });

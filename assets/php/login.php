@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,12 +53,16 @@
                                 </a>
                             </div>
                             <div class="or"></div>
-                            <form action="" id="register">
+
+
+
+
+                            <form action="login-verification.php" method="post" id="login-form" >
                                 <div class="item">
                                     <label for="login-email">Email address</label>
                                     <div class="input">
                                         <ion-icon name="mail-outline"></ion-icon>
-                                        <input type="text" id="login-email" placeholder="example@gmail.com">
+                                        <input type="text" id="login-email" name="login-email" placeholder="example@gmail.com">
                                     </div>
                                     <p class="error-msg">
                                         Please enter a valid email address
@@ -64,7 +73,7 @@
                                     <label for="login-password">Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input type="password" id="login-password" placeholder="............">
+                                        <input type="password" id="login-password" name="login-pasword" placeholder="............">
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
@@ -81,7 +90,7 @@
                                 </div>
                                 
                                 <div class="item">
-                                    <button class="btn">Register</button>
+                                    <button type="submit" name="login" class="btn">Login</button>
                                 </div>
                             </form>
                         </div>

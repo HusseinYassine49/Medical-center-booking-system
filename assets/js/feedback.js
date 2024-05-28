@@ -1,7 +1,8 @@
 const feedbackData = [
-    { id: 1, text: "Great Doctor!", status: "pending", patient: "John Doe" },
-    { id: 2, text: "This Website Could use more features.", status: "pending", patient: "Alice Smith" },
-    { id: 3, text: "I Never Felt any Better.", status: "pending", patient: "Bob Johnson" }
+    { id: 1, text: "Great Team!", status: "pending", patient: "Ali hoteit" },
+    { id: 2, text: "Fix Your Shitty Website.", status: "pending", patient: "Hussein Yassine" },
+    { id: 3, text: "I Never Felt any Better.", status: "pending", patient: "Mohamad Mazih" },
+    { id: 4, text: "Study Flutter, You can do it XD", status: "pending", patient: "Fatima Atwi" }
 ];
 
 
