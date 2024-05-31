@@ -37,8 +37,6 @@ function validateForm(e) {
         valid = false;
         inputs[5].parentElement.classList.add("error");
     }
-    
-
     if (form.id === "register" && !inputs[6].checked) { // Corrected checkbox validation
         valid = false;
         inputs[6].parentElement.classList.add("error");
@@ -46,6 +44,8 @@ function validateForm(e) {
     if (valid) {
         alert("Form submitted");
     }
+
+
 }
 
 allInputs.forEach((input) => {
@@ -75,6 +75,17 @@ function mobile(phoneNumber) {
     return re.test(phoneNumber);
 }
 
+// JavaScript to toggle checkbox state when cover image is clicked
+document.addEventListener('DOMContentLoaded', function() {
+    const coverImage = document.getElementById('cover-img');
+    const checkboxCover = document.getElementById('checkbox-cover');
+
+    if (coverImage && checkboxCover) {
+        coverImage.addEventListener('click', function() {
+            checkboxCover.checked = !checkboxCover.checked;
+        });
+    }
+});
 
 
 const eyes = document.querySelectorAll(".eye");
@@ -90,17 +101,4 @@ eyes.forEach((eye) => {
             e.target.setAttribute("name", "eye-off-outline")
         }
     });
-});
-
-
-// JavaScript to toggle checkbox state when cover image is clicked
-document.addEventListener('DOMContentLoaded', function() {
-    const coverImage = document.getElementById('cover-img');
-    const checkboxCover = document.getElementById('checkbox-cover');
-
-    if (coverImage && checkboxCover) {
-        coverImage.addEventListener('click', function() {
-            checkboxCover.checked = !checkboxCover.checked;
-        });
-    }
 });

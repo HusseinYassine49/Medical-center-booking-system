@@ -11,8 +11,6 @@ menuToggle.onclick = function () {
 }
 
 
-
-
 let listItems = document.querySelectorAll('.h-navigation ul li');
 
 listItems.forEach((item, index) => {

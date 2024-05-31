@@ -1,59 +1,54 @@
-
 <?php
 
 session_start();
 
+
 require "connection.php";
 
-   if(isset($_POST['login'])) // check whether user submits the form
-   {
-        $email_b = $_POST['login-email'];
-        $password_b = $_POST['login-password'];
+if (isset($_POST['enter'])) {
+    $email = $_POST['login-email'];
+    $password = $_POST['login-password'];
 
-        $email = mysqli_real_escape_string($con,$email_b); // escaping special characters
-        $password = mysqli_real_escape_string($con,$password_b);
+    $hashed_password = md5($password);
+    echo $hashed_password;
 
-        $query = "SELECT isAdmin FROM user WHERE ( username, pass, Fullname) VALUES ('$name','$password','$fname') LIMIT 1 ";
-        $result = mysqli_query($con, $query);
+    $query = "SELECT * FROM users WHERE Email = ? AND Password = ? LIMIT 1";
+    $stmt = mysqli_prepare($con, $query);
+    mysqli_stmt_bind_param($stmt, "ss", $email, $hashed_password);
+    mysqli_stmt_execute($stmt);
 
-        if($result)
-        {
-          $row = mysqli_fetch_assoc($result);
+    $result = mysqli_stmt_get_result($stmt);
 
-        $user_type = $row['isAdmin']; // you get user type here whether he's admin or login
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $user_type = $row['Role'];
+        $stored_hashed_password = $row['Password'];
 
-        if ($user_type == 1) { 
-
-             // this use is admin
-            // do stuff here or redirect to admin panel or wherever you want
-            header ("location: admin.php");
-        }
-
-        elseif ($user_type == 0) {
-            // this user is member
-            // do stuff here or redirect wherever you want
-            header ("location: view.php");
-        }
-
-        else
-        {
-            // if there's some other value, simplyredirect to login page again
-        }
-      } // close of if($result)
-     else
-     {
-        echo "query failed"; // redirect to login page again
-      }
-
+            if ($user_type == 1) {
+                // Admin user
+                echo "Redirecting to admin dashboard...";
+                header("Location: admin-dashboard.php");
+                exit();
+            } elseif ($user_type == 0) {
+                // Member user
+                echo "Redirecting to index page...";
+                header("Location: ../../index.html");
+                exit();
+            } else {
+                // Handle other cases
+                echo "Unknown user role.";
+            }
+       
+    } else {
+        echo "Invalid username or password";
     }
 
-    else
-    {
-        // redirect to login page again         
-    }
-$_SESSION['username']=$name;
-$_SESSION['pass']=$password;
-$_SESSION['Fullname']=$fname;
+    // Close the statement
+    mysqli_stmt_close($stmt);
+} else {
+    // Redirect to login page if not logged in
+    header("Location: login.php");
+    exit();
+}
 
-
- ?>
+?>

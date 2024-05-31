@@ -201,4 +201,10 @@ form .btn{
     border-radius: 5px;
     font-size: 15px;
 }
+.frgt-pass label{
+    text-decoration: underline;
+    color: #2262b1;
+    cursor: pointer;
+    font-size: 15px;
+}
 
