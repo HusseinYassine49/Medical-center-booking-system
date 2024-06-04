@@ -3,45 +3,6 @@
   </div>
 
 
-  <!-- <div class="navigation">
-    <ul>
-      <div class="logo" style="--bg:#333;">
-        <a href="#">
-        </a>
-      </div>
-      <li class="list active" style="--bg:#2262b1;">
-        <a href="#">
-          <span class="h-icon"><ion-icon name="home-outline"></ion-icon> </span>
-          <span class="h-title">Home</span>
-        </a>
-      </li>
-      <li class="list" style="--bg:#2262b1;">
-        <a href="#">
-          <span class="h-icon"><ion-icon name="person-outline"></ion-icon></span>
-          <span class="h-title">Profile</span>
-        </a>
-      </li>
-      <li class="list" style="--bg:#2262b1;">
-        <a href="#">
-          <span class="h-icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
-          <span class="h-title">Message</span>
-        </a>
-      </li>
-      <li class="list" style="--bg:#2262b1;">
-        <a href="#">
-          <span class="h-icon"><ion-icon name="search-outline"></ion-icon></span>
-          <span class="h-title">Search</span>
-        </a>
-      </li>
-      <li class="list" style="--bg:#2262b1;">
-        <a href="#">
-          <span class="h-icon"><ion-icon name="exit-outline"></ion-icon></span>
-          <span class="h-title">Exit</span>
-        </a>
-      </li>
-    </ul>
-  </div> -->
-
 
   <?php
 $current_page = basename($_SERVER['PHP_SELF']);

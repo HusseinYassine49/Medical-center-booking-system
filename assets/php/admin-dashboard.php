@@ -1,3 +1,18 @@
+<?php 
+require "connection.php";
+
+
+$sql = "SELECT * FROM users";
+$result = $con->query($sql);
+
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,46 +101,25 @@
                   <td data-label="Edit"><Button class="btn-edit"><i class="fa-solid fa-pencil"></i></Button></td>
                   <td data-label="Delete"><Button class="btn-trash"><i class="fa-solid fa-trash"></i></Button></td>
                 </tr>
-                <tr>
-                  <td data-label="Doctor ID">0002</td>
-                  <td data-label="Doctor Name">Ronny Halabi</td>
-                  <td data-label="Doctor Email">ronnydoctor@gmail.com</td>
-                  <td data-label="Major">surgeon</td>
-                  <td data-label="Edit"><Button class="btn-edit"><i class="fa-solid fa-pencil"></i></Button></td>
-                  <td data-label="Delete"><Button class="btn-trash"><i class="fa-solid fa-trash"></i></Button></td>
-                </tr>
-                <tr>
-                  <td data-label="Doctor ID">0003</td>
-                  <td data-label="Doctor Name">Taylor Eid</td>
-                  <td data-label="Doctor Email">Taylor@gmail.com</td>
-                  <td data-label="Major">Heart</td>
-                  <td data-label="Edit"><Button class="btn-edit"><i class="fa-solid fa-pencil"></i></Button></td>
-                  <td data-label="Delete"><Button class="btn-trash"><i class="fa-solid fa-trash"></i></Button></td>
-                </tr>
-                <tr>
-                  <td data-label="Doctor ID">0004</td>
-                  <td data-label="Doctor Name">Eyad Saber</td>
-                  <td data-label="Doctor Email">saber@gmail.com</td>
-                  <td data-label="Major">Plastic</td>
-                  <td data-label="Edit"><Button class="btn-edit"><i class="fa-solid fa-pencil"></i></Button></td>
-                  <td data-label="Delete"><Button class="btn-trash"><i class="fa-solid fa-trash"></i></Button></td>
-                </tr>
-                <tr>
-                  <td data-label="Doctor ID">0005</td>
-                  <td data-label="Doctor Name">Will Smith</td>
-                  <td data-label="Doctor Email">willsmith@gmail.com</td>
-                  <td data-label="Major">Scientist</td>
-                  <td data-label="Edit"><Button class="btn-edit"><i class="fa-solid fa-pencil"></i></Button></td>
-                  <td data-label="Delete"><Button class="btn-trash"><i class="fa-solid fa-trash"></i></Button></td>
-                </tr>
-                <tr>
-                  <td data-label="Doctor ID">0006</td>
-                  <td data-label="Doctor Name">Kevin Heart</td>
-                  <td data-label="Doctor Email">kevinheart@gmail.com</td>
-                  <td data-label="Major">OB/GYN</td>
-                  <td data-label="Edit"><Button class="btn-edit"><i class="fa-solid fa-pencil"></i></Button></td>
-                  <td data-label="Delete"><Button class="btn-trash"><i class="fa-solid fa-trash"></i></Button></td>
-                </tr>
+
+                <?php
+                if ($result->num_rows > 0) {
+                  // Output data of each row
+                  while($row = $result->fetch_assoc()) {
+                    echo "<tr>";
+                    echo "<td data-label='Doctor ID'>" . $row["id"] . "</td>";
+                    echo "<td data-label='Doctor Name'>" . $row["Fname"] . "</td>";
+                    echo "<td data-label='Doctor Email'>" . $row["Email"] . "</td>";
+                    echo "<td data-label='Major'>" . $row["Gender"] . "</td>";
+                    echo "<td data-label='Edit'><Button class='btn-edit'><i class='fa-solid fa-pencil'></i></Button></td>";
+                    echo "<td data-label='Delete'><Button class='btn-trash'><i class='fa-solid fa-trash'></i></Button></td>";
+                    echo "</tr>";
+                  }
+                } else {
+                  echo "<tr><td colspan='6'>No results found</td></tr>";
+                }
+                $con->close();                
+                 ?>
               </tbody>
             </table>
           </div>
