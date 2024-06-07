@@ -267,12 +267,12 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 25px;
     color: #2c4964;
     white-space: nowrap;
     transition: 0.3s;
     border-bottom: 2px solid #fff;
-    padding: 5px 2px;
+    padding: 5px 15px;
 }
 
 .navbar a i,

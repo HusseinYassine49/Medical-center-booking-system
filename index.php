@@ -1,3 +1,6 @@
+<?php
+require "assets/php/connection.php"
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,7 +86,8 @@
             </nav>
             <!-- .navbar -->
 
-            <a href="assets/html/login.html" class="btn btn-primary me-md-2"><span class=" d-md-inline">Login</span> </a>
+            <a href="assets/html/login.html" class="btn btn-primary me-md-2"><span class=" d-md-inline">Login</span>
+            </a>
 
         </div>
     </header>
@@ -123,20 +127,21 @@
                     <div class="container">
                         <div class="carousel-caption text-end">
                             <h1>Get access </h1>
-                            <p>to top-quality healthcare services from the comfort of your home with our online booking system..</p>
+                            <p>to top-quality healthcare services from the comfort of your home with our
+                                online booking system..</p>
                             <!--    <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p> -->
                         </div>
                     </div>
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-              </button>
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
             <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-              </button>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
     <main id="main">
@@ -158,10 +163,13 @@
 
                     <div style="background-color: #2262b1; color: aliceblue;" class="col-xl-6 col-lg-6 icon-boxes  flex-column align-items-stretch justify-content-center py-5 px-lg-5">
                         <h3>Mission:</h3>
-                        <p>"To provide accessible, efficient, and reliable healthcare services by connecting patients with qualified healthcare professionals through an intuitive and user-friendly online booking platform.".</p>
+                        <p>"To provide accessible, efficient, and reliable healthcare services by connecting patients
+                            with qualified healthcare professionals through an intuitive and user-friendly online
+                            booking platform.".</p>
 
                         <h3>Vision:</h3>
-                        <p>"To revolutionize the way healthcare services are accessed and delivered, making quality healthcare available to everyone, anytime, anywhere."</p>
+                        <p>"To revolutionize the way healthcare services are accessed and delivered, making quality
+                            healthcare available to everyone, anytime, anywhere."</p>
 
                     </div>
                 </div>
@@ -225,8 +233,8 @@
 
                         <div class="nav-item dropdown js-example-basic-single">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-mdb-dropdown-init aria-expanded="false">
-                           Type Doctors
-                          </a>
+                                Type Doctors
+                            </a>
                             <!-- Dropdown menu -->
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Action</a></li>
@@ -248,8 +256,8 @@
 
                             </div>
                             <button type="button" class="btn btn-primary" data-mdb-ripple-init>
-                          <i class="fas fa-search"></i>
-                        </button>
+                                <i class="fas fa-search"></i>
+                            </button>
                         </div>
                     </div>
                     <!-- Collapsible wrapper -->
@@ -312,7 +320,9 @@
 
                 <div class="section-title">
                     <h2>Doctors</h2>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi
+                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
+                        sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
+                        ea. Quia fugiat sit in iste officiis commodi
                         quidem hic quas.</p>
                 </div>
 
