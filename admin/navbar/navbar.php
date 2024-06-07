@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="navbar.css">
+
+<link rel="stylesheet" href="../css/adminpage.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="toggle">
@@ -70,5 +73,7 @@ if ($current_page == 'admin-dashboard.php') {
 </body>
 </html>
 
-
+<!-- Icon SCRIPT-->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script src="include.js"></script>

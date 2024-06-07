@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    
+  
+    <link rel="stylesheet" href="css/adminpage.css">
     <link href="css/admin-user-edit.css" rel="stylesheet">
     <link href="css/admin-doctor-edit.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
@@ -259,3 +262,7 @@
 
 </script>
 
+<!--SCRIPT FOR PIE CHART-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/chart.js"></script>
+<script src="navbar/include.js"></script>

@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../css/login.css" rel="stylesheet">
-    <link href="../css/info.css" rel="stylesheet">
-    <script src="../js/eye.js" defer></script>
+    <link href="css/login.css" rel="stylesheet">
+    <link href="css/info.css" rel="stylesheet">
+    <script src="js/eye.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>

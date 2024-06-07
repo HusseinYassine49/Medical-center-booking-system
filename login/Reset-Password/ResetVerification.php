@@ -4,7 +4,7 @@ $token = $_POST["token"];
 
 $token_hash = hash("md5", $token);
 
-$con  = require "../connection.php";
+$con  = require "../../include/connection.php";
 
 $sql = "SELECT * FROM users WHERE reset_token_hash = ?";
 

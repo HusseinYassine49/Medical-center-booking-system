@@ -4,7 +4,7 @@ $token = $_GET["token"];
 
 $token_hash = hash("md5",$token);
 
-$con  = require "../connection.php";
+$con  = require "../../include/connection.php";
 
 $sql = "SELECT * FROM users WHERE reset_token_hash = ?";
 
@@ -42,8 +42,8 @@ echo
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../../css/ResetPassword.css" rel="stylesheet">
-    <script src="../../js/eye.js" defer></script>
+    <link href="../css/ResetPassword.css" rel="stylesheet">
+    <script src="../js/eye.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>

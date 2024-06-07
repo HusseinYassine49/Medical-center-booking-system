@@ -1,0 +1,210 @@
+.outer{
+    width: 100%;
+    overflow: hidden;
+   z-index: 999;
+}
+.content{
+    width: 100%;
+    background-color: #fff;
+}
+.form-wrapper{
+    width: 85%;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.heading{
+    font-size: 1.56em;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: 0px;
+}
+.login-link{
+    font-size: 14px;
+    font-weight: 300;
+    color: #808080;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+a{
+    color: #5ea4ff;
+    text-decoration: none;
+}
+.social-logins{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    white-space: nowrap;
+}
+.social-logins a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 12px;
+    padding: 12px;
+    cursor: pointer;
+}
+.social-logins img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.facebook{
+    color: #fff;
+    background-color: #3b5998;
+}
+.google{
+    color: #303030;
+    background-color: #fff;
+    border: 1px solid #cfcfcf;
+}
+.or{
+    position: relative;
+    width: 100%;
+    height: 1px;
+    background-color: #cfcfcf;
+    margin: 10px 0;
+}
+.or::before{
+    content: "or";
+    position: absolute;
+    top: -10px;
+    left: 50;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #808080;
+}
+
+
+/*Problem fixx */
+
+.row-item {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1;
+}
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+form .input:not(.checkbox){
+    width: 100%;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #cfcfcf;
+    border-radius: 5px;
+    font-size: 14px;
+}
+form label{
+    width: 100%;
+    font-size: 12px;
+    line-height: 3;
+}
+.row-item input[type="text"],
+.row-item input[type="password"],
+.row-item input[type="date"],
+.row-item input[type="email"]
+{
+    min-width: 150px;
+    display: block;
+    width:8.5vw;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+}
+form input:not([type="checkbox"]){
+    display: block;
+    width:100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+}
+form ion-icon{
+    font-size: 20px;
+    color: #808080;
+}
+form .input:not(.checkbox):focus-within{
+    border-color: #5ea4ff;
+}
+form .input:not(.checkbox).error{
+    border-color: #ff5e5e;
+}
+form .error-msg{
+    color: #ff5e5e;
+    font-size: 10px;
+    margin-top: 4px;
+    position: absolute;
+    display: none;
+}
+form .input.error ~ .error-msg{
+    display: block;
+}
+form ion-icon.eye{
+    cursor: pointer;
+}
+form .terms{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+form .terms .error-msg{
+    bottom: -10px;
+}
+form .terms input[type="checkbox"]{
+    cursor: pointer;
+}
+form .btn{
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5ea4ff;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400 ;
+    cursor: pointer;
+}
+
+.row-item select
+{
+    min-width: 200px;
+    display: block;
+    width:10vw;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    flex: 1;
+    color: #fff;
+    background-color: #5ea4ff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.frgt-pass label{
+    text-decoration: underline;
+    color: #2262b1;
+    cursor: pointer;
+    font-size: 15px;
+}
+

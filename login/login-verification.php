@@ -3,7 +3,7 @@
 session_start();
 
 
-require "connection.php";
+require "../include/connection.php";
 
 if (isset($_POST['enter'])) {
     $email = $_POST['login-email'];
@@ -27,12 +27,12 @@ if (isset($_POST['enter'])) {
             if ($user_type == 1) {
                 // Admin user
                 echo "Redirecting to admin dashboard...";
-                header("Location: admin-dashboard.php");
+                header("Location: ../admin/admin-dashboard.php");
                 exit();
             } elseif ($user_type == 0) {
                 // Member user
                 echo "Redirecting to index page...";
-                header("Location: ../../index.html");
+                header("Location: ../index.html");
                 exit();
             } else {
                 // Handle other cases

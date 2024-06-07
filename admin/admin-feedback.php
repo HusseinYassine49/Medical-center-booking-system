@@ -6,6 +6,8 @@
     <title>Feedback System</title>
     <link rel="stylesheet" href="css/adminfeedback.css">
     
+  
+    <link rel="stylesheet" href="css/adminpage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -62,3 +64,7 @@
     <script src="js/feedback.js"></script>
 </body>
 </html>
+<!--SCRIPT FOR PIE CHART-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/chart.js"></script>
+<script src="navbar/include.js"></script>

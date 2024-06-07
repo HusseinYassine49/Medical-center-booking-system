@@ -8,8 +8,7 @@ $token_hash = hash("md5", $token);
 
 
 $expiry = date("Y-m-d H:i:s", time() + 60 * 30);
-
-$con = require "../connection.php";
+$con  = require "../../include/connection.php";
 
 if (!$con) {
     die("Connection failed: " . $con->connect_error);
@@ -40,7 +39,7 @@ if($con->affected_rows){
     $mail->Subject = 'Password Reset ';
     $mail->Body    = <<<END
 
-    Click <a href="http://localhost/ESAproject/Medical-center-booking-system/assets/php/Reset-Password/ResetPassword.php?token=$token">Here </a> To Reset Your Password.
+    Click <a href="http://localhost/ESAproject/Medical-center-booking-system/login/Reset-Password/ResetPassword.php?token=$token">Here </a> To Reset Your Password.
     
     END;
 
