@@ -15,10 +15,5 @@
             email <input type="email" name="email" value=""><br>
             <button type="submit" name="send">Send</button>
         </form>
-
-        <!-- <form class="" action="../sendEmail.php" method="post">
-            email <input type="email" name="email" value=""><br>
-            <button type="submit" name="send">Send</button>
-        </form> -->
     </body>
     </html>

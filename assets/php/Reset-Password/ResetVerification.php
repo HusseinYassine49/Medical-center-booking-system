@@ -51,7 +51,7 @@ $stmt->bind_param("ss", $password_hash, $user["id"]);
 $stmt->execute();
 
 echo "<script>
-alert('Password Changed Successfully');
-document.location.href = '../login.php';
+alert('Password Changed Successfully'); 
+    document.location.href = '../login.php';
 </script>"; 
 ?>

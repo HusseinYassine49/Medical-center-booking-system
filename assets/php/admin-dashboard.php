@@ -93,15 +93,6 @@ $result = $con->query($sql);
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td data-label="Doctor ID">0001</td>
-                  <td data-label="Doctor Name">John Doe</td>
-                  <td data-label="Doctor Email">example@gmail.com</td>
-                  <td data-label="Major">Dentist</td>
-                  <td data-label="Edit"><Button class="btn-edit"><i class="fa-solid fa-pencil"></i></Button></td>
-                  <td data-label="Delete"><Button class="btn-trash"><i class="fa-solid fa-trash"></i></Button></td>
-                </tr>
-
                 <?php
                 if ($result->num_rows > 0) {
                   // Output data of each row
