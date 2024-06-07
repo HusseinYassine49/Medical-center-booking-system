@@ -92,7 +92,8 @@
 
                                 <div class="frgt-pass">
                                 <label>
-                                    Forgot you Password
+                                    <a href="Reset-Password/forget-password.php">Forgot you Password</a>
+                                    
                                 </label>
                                 </div>
                                 

@@ -267,12 +267,20 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
+<<<<<<< HEAD
     font-size: 25px;
+=======
+    font-size: 30px;
+>>>>>>> 00a3dd5f83cf2a3a17f606007e350d778e925cec
     color: #2c4964;
     white-space: nowrap;
     transition: 0.3s;
     border-bottom: 2px solid #fff;
     padding: 5px 15px;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 00a3dd5f83cf2a3a17f606007e350d778e925cec
 }
 
 .navbar a i,
@@ -644,7 +652,12 @@ section {
     .breadcrumbs h2 {
         margin: 0 0 10px 0;
     }
+    
+    .me-md-2{
+    margin-right: 30px !important;
 }
+}
+
 
 .breadcrumbs ol {
     display: flex;
@@ -675,6 +688,13 @@ section {
     }
     .breadcrumbs ol li {
         display: inline-block;
+    }
+    .loginBtn{
+        font-size: 15px;
+        padding: 10px;
+    }
+    .d-none{
+        display: block !important;
     }
 }
 

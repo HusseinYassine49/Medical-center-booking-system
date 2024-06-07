@@ -123,7 +123,7 @@ function declineFeedback(id) {
 
 
 function viewFeedbackInfo() {
-    window.location.href = "feedbackinfo.html";
+    window.location.href = "feedbackinfo.php";
 }
 
 renderFeedbackItems();
