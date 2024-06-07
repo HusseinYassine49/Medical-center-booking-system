@@ -1,17 +1,8 @@
 <?php 
-require "connection.php";
-
-
+require "../include/connection.php";
 $sql = "SELECT * FROM users";
 $result = $con->query($sql);
-
-
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +11,8 @@ $result = $con->query($sql);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  
-  <link rel="stylesheet" href="../css/adminpage.css">
-  <link rel="stylesheet" href="../css/adminsummary.css">
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="css/adminsummary.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,7 +20,7 @@ $result = $con->query($sql);
 
 <body>
 
-<?php include 'navbar.php';?>
+<?php include 'navbar/navbar.php';?>
   
   <div class="main-page" id="main-page">
 
@@ -149,14 +139,9 @@ $result = $con->query($sql);
 </body>
 
 </html>
-
-
-
-
-<script src="../js/include.js"></script>
 <!-- Icon SCRIPT-->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!--SCRIPT FOR PIE CHART-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="../js/chart.js"></script>
+<script src="js/chart.js"></script>

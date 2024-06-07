@@ -5,20 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="../css/doctoradmin.css" rel="stylesheet">
-    <link href="../css/adminpage.css" rel="stylesheet">
-    <link href="../css/admin-doctor-edit.css" rel="stylesheet">
+    <link href="css/doctoradmin.css" rel="stylesheet">
+    <link href="css/admin-doctor-edit.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    
-
-
 </head>
-
-
 <body>
-
-<?php include 'navbar.php';?>
+<?php include 'navbar/navbar.php';?>
 
   <div class="main-page" id="main-page">
 
@@ -229,8 +222,6 @@
 
 </html>
 
-
-<script src="../js/include.js"></script>
 <script>
     
     $(document).ready(function () {
