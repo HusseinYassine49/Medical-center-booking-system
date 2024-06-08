@@ -267,20 +267,13 @@ h6 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-<<<<<<< HEAD
-    font-size: 25px;
-=======
     font-size: 30px;
->>>>>>> 00a3dd5f83cf2a3a17f606007e350d778e925cec
     color: #2c4964;
     white-space: nowrap;
     transition: 0.3s;
     border-bottom: 2px solid #fff;
     padding: 5px 15px;
-<<<<<<< HEAD
-=======
 
->>>>>>> 00a3dd5f83cf2a3a17f606007e350d778e925cec
 }
 
 .navbar a i,
