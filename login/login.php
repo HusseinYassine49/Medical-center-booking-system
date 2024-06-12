@@ -7,6 +7,7 @@
     <link href="css/login.css" rel="stylesheet">
     <link href="css/info.css" rel="stylesheet">
     <script src="js/eye.js" defer></script>
+    <script src="js/sendlogin.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
@@ -33,7 +34,6 @@
                             <h1 class="heading">Welcome Back</h1>
                             <p class="login-link">
                                 Need a account
-                                <!--The arrow in the bottow-->
                                 <label class="next" for="checkbox-page1">Register</label>
                                                    
                             </p>
@@ -50,8 +50,7 @@
                             <div class="or"></div>
 
 
-
-
+                            <!--THE START OF THE FORM INSIDE OF PAGE 1 LOGIN PAGE -->
                             <form action="login-verification.php" method="post" id="login-form" >
                                 <div class="item">
                                     <label for="login-email">Email address</label>
@@ -97,11 +96,14 @@
                                 </div>
                                 
                             </form>
+
+                            <!--HERE THE END OF THE FORM-->
                         </div>
                     </div>
             </div>
 
             </div>
+            <!--HERE THE BACK PAGE WHERE U FIND THE PING IN PAGE 2-->
             <div class="back-page">
                 <img src="images/Hospital bed-cuate.png">
             </div>
@@ -141,7 +143,7 @@
                             <div class="row-item">
                             <div class="item">
                                 <label for="register-date">Date of Birth</label>
-                                <div class="input"><input type="date"  name="dob" placeholder="12-345-678"></div>
+                                <div class="input"><input type="date"  name="dob"></div>
                                 <p class="error-msg">Enter Your Birth Date</p>
                             </div>
                             <div class="item">
@@ -179,7 +181,7 @@
                                 <label>Confirm Password</label>
                                 <div class="input">
                                     <ion-icon name="lock-closed-outline"></ion-icon>
-                                    <input type="password" name="confirm-register-password" placeholder="............">
+                                    <input type="password" name="confirm-password" placeholder="............">
                                     <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                 </div>
                                 <p class="error-msg">Password or Email is incorrect</p>
@@ -197,9 +199,10 @@
                                     </p>
                                 </div>
                                 <div class="item">
-                                    <button type="submit" name="login">REGISTER</button>
+                                    <button type="submit" name="login" class="btn">REGISTER</button>
                                 </div>
                             </form>
+                            <!--HERE THE END OF THE FORM PAGE 2-->
 
 
                         </div>
@@ -207,12 +210,11 @@
             </div>
 
             </div>
+            <!--HERE THE BACK PAGE WHERE U FIND THE PING IN PAGE 2-->
             <div class="back-page">
                 <img src="images/Online Doctor-cuate.png">
             </div>
         </div>
-
-
 
         <div class="page" id="page3"> 
             <div class="front-page">
@@ -228,13 +230,12 @@
                             </p>
                             <div class="or"></div>
 
-                            <form action="" id="doctor-register">
+                            <!--THE START OF THE FORM INSIDE OF PAGE 3 DOCTOR REGISTRATION PAGE -->
+                            <form id="doctor-register" action="doc-reg-valid.php" method="POST">
                                 <div class="row-item">
                                 <div class="item">
                                     <label for="doctor-Fname">First Name</label>
-                                    <div class="input">
-                                        <input type="text" id="dcotor-Fname" placeholder="John">
-                                    </div>
+                                    <div class="input"><input type="text" name="doctor-Fname" placeholder="First Name" required></div>
                                     <p class="error-msg">
                                         Please enter The info required
                                     </p>
@@ -242,10 +243,7 @@
 
                                 <div class="item">
                                     <label for="doctor-Lname">Last Name</label>
-                                    <div class="input">
-                                        
-                                        <input type="password" id="doctor-Lname" placeholder="Doe">
-                                    </div>
+                                    <div class="input"> <input type="text" name="doctor-Lname" placeholder="Last Name" required></div>
                                     <p class="error-msg">
                                         Please enter The info required
                                     </p>
@@ -258,7 +256,7 @@
                             <div class="item">
                                 <label for="doctor-date">Date of Birth</label>
                                 <div class="input">
-                                    <input type="Date" id="register-date" placeholder="12-345-678">
+                                <input type="date" name="doctor-dob" placeholder="Date of Birth" required>
                                 </div>
                                 <p class="error-msg">
                                     Enter Your Birth Date
@@ -267,7 +265,7 @@
                             </div>
                             <div class="item">
                                 <label for="doctor-gender" >Gender</label>     
-                                    <select class="select" id="doctor-gender">
+                                    <select class="select" name="doctor-gender">
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="others">Others</option>
@@ -282,10 +280,8 @@
                             
                                 <div class="item">
                                     <label for="doctor-email">Email address</label>
-                                    <div class="input">
-                                        <ion-icon name="mail-outline"></ion-icon>
-                                        <input type="text" id="doctor-email" placeholder="example@gmail.com">
-                                    </div>
+                                    <div class="input"><ion-icon name="mail-outline"></ion-icon>
+                                        <input type="email" name="doctor-email" placeholder="Email" required></div>
                                     <p class="error-msg">
                                         Please enter a valid email address
                                     </p>
@@ -297,7 +293,7 @@
                                     <label for="doctor-password">Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input type="password" id="doctor-password" placeholder="............">
+                                        <input type="password" name="doctor-password" placeholder="............" required>
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
@@ -309,7 +305,7 @@
                                     <label>Confirm Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input type="text" id="doctor-confimr-password" placeholder="............">
+                                        <input type="password" name="doctor-confirm-password" placeholder="............" required>
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
@@ -331,9 +327,10 @@
                                     </p>
                                 </div>
                                 <div class="item">
-                                    <button class="btn">Login</button>
+                                    <button type="submit" name="doctor-reg" class="btn">Register as a Doctor</button>
                                 </div>
                             </form>
+                            <!--THE END OF THE FORM OF DOCTOR REGISTERATION -->
                            
                         </div>
                     </div>
@@ -344,11 +341,6 @@
                 
             </div>
         </div>
-        
-
-
-       
-
         
 
 

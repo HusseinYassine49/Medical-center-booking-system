@@ -62,7 +62,7 @@ if ($current_page == 'admin-dashboard.php') {
           </a>
       </li>
       <li class="list" style="--bg:#2262b1;">
-          <a href="../login/login.php">
+          <a href="../login/logout.php">
               <span class="h-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
               <span class="h-title">Exit</span>
           </a>

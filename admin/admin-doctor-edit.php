@@ -43,12 +43,8 @@ $result = $con->query($sql);
           <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a> 
         </li>
         <li class="breadcrumbs-item">
-          <a href="#" class="breadcrumbs-link">Doctor</a>
+          <a href="#" class="breadcrumbs-link active">Doctor</a>
         </li>
-        <li class="breadcrumbs-item">
-          <a href="#" class="breadcrumbs-link active">Add Doctor</a>
-        </li>
-    
       </ul>
     </div>
     
@@ -59,98 +55,79 @@ $result = $con->query($sql);
 
             <!--THE FORM TO SEND THE DATA TO BE VERIFIED TO BE INSERTED TO THE DATABASE -->
             <form action="A-D-Reg.php" method="post">
-    
-                <div class="input-row">
-                    <div class="input-group">
-                      <label>Fist Name</label>
-                      <input type = "text" name="fname"/>
-                    </div>
-                
-                    <div class="input-group">
-                      <label>Last Name</label>
-                      <input type="text" />
-                    </div>
-                  </div>
-                  
-                  <div class="input-row">
-                    <div class="input-group">
-                    <label for="register-gender">Gender</label>
-                    <select class="select" name="gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="others">Others</option>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Fist Name</label>
+            <input type="text" name="fname" />
+          </div>
+
+          <div class="input-group">
+            <label>Last Name</label>
+            <input type="text" name="lname" />
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label for="register-gender">Gender</label>
+
+            <select class="select" name="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="others">Others</option>
             </select>
-                    </div>
-                
-                    <div class="input-group">
-                      <label>Mobile</label>
-                      <input type="number" />
-                    </div>
-                  </div>
-    
-                  <div class="input-row">
-                    <div class="input-group">
-                      <label>Designation</label>
-                      <input type = "text" />
-                    </div>
-                
-                    <div class="input-group">
-                  <label for="register-gender">Departments</label>
-                  <select class="select" name="department">
-                    <option value="male">Cardio</option>
-                    <option value="female">Dentist</option>
-                  </select>
-                    </div>
-                  </div>
-    
-                  <div class="input-row">
-                    <div class="input-group">
-                      <label>Date</label>
-                      <input type = "date" />
-                    </div>
-                
-                    <div class="input-group">
-                      <label>Email</label>
-                      <input type="email" />
-                    </div>
-                  </div>
-    
-                  <div class="input-row">
-                    <div class="input-group">
-                      <label>Password</label>
-                      <input type = "password" />
-                    </div>
-                
-                    <div class="input-group">
-                      <label>Confirm</label>
-                      <input type="password" />
-                    </div>
-                  </div>
-    
-                  <div class="input-row">
-                  <div class="input-group">
-                  <label for="register-gender">City Address</label>
-                  <select class="select" name="address">
-                    <option value="male">Beirut</option>
-                    <option value="female">Saida</option>
-                    <option value="others">Tyre</option>
-                  </select>
-                    </div>
-                  </div>
-    
-                  <div class="input-row">
-                    
-                    <div class="input-group">
-                        <label></label>
-                        <input type = "submit" />
-                      </div>
-                  </div>
-    
-    
-                </div>
-    
-    
-            </form>
+
+          </div>
+
+          <div class="input-group">
+            <label for="register-gender">City Address</label>
+            <select class="select" name="address">
+              <option value="male">Beirut</option>
+              <option value="female">Saida</option>
+              <option value="others">Tyre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Date</label>
+            <input type="date" name="dob" />
+          </div>
+
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" name="email" />
+          </div>
+        </div>
+
+        <div class="input-row">
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" name="password" />
+          </div>
+
+          <div class="input-group">
+            <label>Confirm</label>
+            <input type="password" name="confirm-password" />
+          </div>
+        </div>
+
+
+        <div class="input-row">
+
+          <div class="input-group">
+            <label></label>
+            <input type="submit" name="insert" />
+          </div>
+        </div>
+
+
+    </div>
+
+
+    </form>
       
     
     
@@ -182,6 +159,7 @@ $result = $con->query($sql);
                             <th>Doctor FirstName</th>
                             <th>Doctor LastName</th>
                             <th>Doctor Email</th>
+                            <th>Date of Birth</th>
                             <th>Major</th>
                             <th colspan="2">Action</th>
                         </tr>
@@ -192,13 +170,14 @@ $result = $con->query($sql);
                   // Output data of each row
                   while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-                    echo "<td data-label='Patient ID'>" . $row["id"] . "</td>";
-                    echo "<td data-label='Patient Name'>" . $row["Fname"] . "</td>";
-                    echo "<td data-label='Patient Name'>" . $row["Lname"] . "</td>";
-                    echo "<td data-label='Patient Email'>" . $row["Email"] . "</td>";
+                    echo "<td data-label='Doctor ID' class='user-id'>" . $row["id"] . "</td>";
+                    echo "<td data-label='Doctor Name'>" . $row["Fname"] . "</td>";
+                    echo "<td data-label='Doctor Name'>" . $row["Lname"] . "</td>";
+                    echo "<td data-label='Doctor Email'>" . $row["Email"] . "</td>";
+                    echo "<td data-label='DoB'>" . $row["DOB"] . "</td>";
                     echo "<td data-label='Gender'>" . $row["Gender"] . "</td>";
-                    echo "<td data-label='Edit'><Button class='btn-edit'><i class='fa-solid fa-pencil'></i></Button></td>";
-                    echo "<td data-label='Delete'><Button class='btn-trash'><i class='fa-solid fa-trash'></i></Button></td>";
+                    echo "<td data-label='Edit'><a href='edit-doctor.php?id=" . $row["id"] . "&fname=" . $row["Fname"] . "&lname=" . $row["Lname"] . "&dob=" . $row["DOB"]  . "&email=" . $row["Email"] . "&gender=" . $row["Gender"] . "' class='btn-edit'><i class='fa-solid fa-pencil'></i></a></td>";
+                  echo "<td data-label='Delete'><button class='btn-trash'><i class='fa-solid fa-trash'></i></button></td>";
                     echo "</tr>";
                   }
                 } else {
@@ -223,4 +202,4 @@ $result = $con->query($sql);
 <!--SCRIPT FOR PIE CHART-->
 <script src="navbar/include.js"></script>
 <script src="js/addbtn.js"></script>
-
+<script src="js/deletebtn.js"></script>

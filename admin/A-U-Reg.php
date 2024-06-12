@@ -11,7 +11,7 @@ if(isset($_POST['insert'])){
     $gender = $_POST['gender'];
     $city = $_POST['address'];
 
-    // Hash the password
+
     $hashed_password = md5($password);
     $role = 0;
 
@@ -19,7 +19,6 @@ if(isset($_POST['insert'])){
         die("Passwords must match");
     }
 
-    // Prepare and bind the statement
     $sql = "INSERT INTO users (Fname, Lname, Email, Password, DOB, Gender, Role) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("ssssssi", $fname, $lname, $email, $hashed_password, $date, $gender, $role);
@@ -27,6 +26,8 @@ if(isset($_POST['insert'])){
     // Execute the statement
     if ($stmt->execute()) {
         echo "<script>alert('Data inserted successfully')</script>";
+        header('Location: admin-user-edit.php');
+        exit;
     } else {
         echo "<script>alert('Error: " . $stmt->error . "')</script>";
     }

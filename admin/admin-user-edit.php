@@ -40,10 +40,7 @@ $result = $con->query($sql);
           <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>
         </li>
         <li class="breadcrumbs-item">
-          <a href="#" class="breadcrumbs-link">Patient</a>
-        </li>
-        <li class="breadcrumbs-item">
-          <a href="#" class="breadcrumbs-link active">Add Patient</a>
+          <a href="#" class="breadcrumbs-link active">Patient</a>
         </li>
 
       </ul>
@@ -170,7 +167,7 @@ $result = $con->query($sql);
                 // Output data of each row
                 while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                  echo "<td data-label='Patient ID'>" . $row["id"] . "</td>";
+                  echo "<td data-label='Patient ID' class='user-id'>" . $row["id"] . "</td>";
                   echo "<td data-label='Patient Name'>" . $row["Fname"] . "</td>";
                   echo "<td data-label='Patient Name'>" . $row["Lname"] . "</td>";
                   echo "<td data-label='Patient Email'>" . $row["Email"] . "</td>";
@@ -208,3 +205,4 @@ $result = $con->query($sql);
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="navbar/include.js"></script>
 <script src="js/addbtn.js"></script>
+<script src="js/deletebtn.js"></script>
