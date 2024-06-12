@@ -40,7 +40,7 @@ if(isset($_POST['login'])){
     $stmt->bind_param("ssssssi", $fname, $lname, $email, $hashed_password, $date, $gender, $role);
 
     if ($stmt->execute()) {
-        echo "<script>alert('Data inserted successfully')</script>";
+        echo "<script>alert('Data inserted successfully'); window.location.href='login.php';</script>";
     } else {
         echo "<script>alert('Error: " . $stmt->error . "')</script>";
     }

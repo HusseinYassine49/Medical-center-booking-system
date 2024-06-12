@@ -58,7 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a> 
         </li>
         <li class="breadcrumbs-item">
+<<<<<<< HEAD
           <a href="#" class="breadcrumbs-link">Doctor</a>
+=======
+          <a href="admin-doctor-edit.php" class="breadcrumbs-link">Doctor</a>
+>>>>>>> ali
         </li>
         <li class="breadcrumbs-item">
           <a href="#" class="breadcrumbs-link active">Edit Doctor</a>
@@ -68,8 +72,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
 
+<<<<<<< HEAD
     <div class="edit-user" id="edit-user">
       <h1>Edit Doctor</h1>
+=======
+
+    <div class="edit-doctor" id="edit-doctor">
+      <h1>Edit doctors</h1>
+>>>>>>> ali
       <form action="edit-doctor.php" method="post">
         <input type="hidden" name="id" value="<?php echo $id; ?>" />
         <div class="input-row">
