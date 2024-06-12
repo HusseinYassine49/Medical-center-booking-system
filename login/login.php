@@ -143,11 +143,7 @@
                             <div class="row-item">
                             <div class="item">
                                 <label for="register-date">Date of Birth</label>
-<<<<<<< HEAD
                                 <div class="input"><input type="date"  name="dob"></div>
-=======
-                                <div class="input"><input type="date"  name="dob" placeholder="12-345-678" required></div>
->>>>>>> ali
                                 <p class="error-msg">Enter Your Birth Date</p>
                             </div>
                             <div class="item">
@@ -185,11 +181,7 @@
                                 <label>Confirm Password</label>
                                 <div class="input">
                                     <ion-icon name="lock-closed-outline"></ion-icon>
-<<<<<<< HEAD
                                     <input type="password" name="confirm-password" placeholder="............">
-=======
-                                    <input type="password" name="confirm-register-password" placeholder="............" required>
->>>>>>> ali
                                     <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                 </div>
                                 <p class="error-msg">Password or Email is incorrect</p>
@@ -238,22 +230,12 @@
                             </p>
                             <div class="or"></div>
 
-<<<<<<< HEAD
                             <!--THE START OF THE FORM INSIDE OF PAGE 3 DOCTOR REGISTRATION PAGE -->
                             <form id="doctor-register" action="doc-reg-valid.php" method="POST">
                                 <div class="row-item">
                                 <div class="item">
                                     <label for="doctor-Fname">First Name</label>
                                     <div class="input"><input type="text" name="doctor-Fname" placeholder="First Name" required></div>
-=======
-                            <form action="doctor-register.php" method="POST" id="doctor-register">
-                                <div class="row-item">
-                                <div class="item">
-                                    <label for="doctor-Fname">First Name</label>
-                                    <div class="input">
-                                    <input type="text" name="doctor-Fname" placeholder="John" required>
-                                    </div>
->>>>>>> ali
                                     <p class="error-msg">
                                         Please enter The info required
                                     </p>
@@ -261,13 +243,7 @@
 
                                 <div class="item">
                                     <label for="doctor-Lname">Last Name</label>
-<<<<<<< HEAD
                                     <div class="input"> <input type="text" name="doctor-Lname" placeholder="Last Name" required></div>
-=======
-                                    <div class="input">    
-                                    <input type="text" name="doctor-Lname" placeholder="Doe" required>
-                                    </div>
->>>>>>> ali
                                     <p class="error-msg">
                                         Please enter The info required
                                     </p>
@@ -304,15 +280,10 @@
                             
                                 <div class="item">
                                     <label for="doctor-email">Email address</label>
-<<<<<<< HEAD
-                                    <div class="input"><ion-icon name="mail-outline"></ion-icon>
-                                        <input type="email" name="doctor-email" placeholder="Email" required></div>
-=======
                                     <div class="input">
                                         <ion-icon name="mail-outline"></ion-icon>
                                         <input type="email" name="doctor-email" placeholder="example@gmail.com" required>
                                     </div>
->>>>>>> ali
                                     <p class="error-msg">
                                         Please enter a valid email address
                                     </p>
@@ -324,11 +295,7 @@
                                     <label for="doctor-password">Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-<<<<<<< HEAD
                                         <input type="password" name="doctor-password" placeholder="............" required>
-=======
-                                        <input type="password" name="doctor-password" placeholder="............" required> 
->>>>>>> ali
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
@@ -340,11 +307,7 @@
                                     <label>Confirm Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-<<<<<<< HEAD
                                         <input type="password" name="doctor-confirm-password" placeholder="............" required>
-=======
-                                        <input type="pass" name="doctor-confirm-password" placeholder="............" required>
->>>>>>> ali
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
@@ -366,11 +329,7 @@
                                     </p>
                                 </div>
                                 <div class="item">
-<<<<<<< HEAD
                                     <button type="submit" name="doctor-reg" class="btn">Register as a Doctor</button>
-=======
-                                    <button class="btn" type="submit" name="doctor-reg">Register For Doctor</button>
->>>>>>> ali
                                 </div>
                             </form>
                             <!--THE END OF THE FORM OF DOCTOR REGISTERATION -->
