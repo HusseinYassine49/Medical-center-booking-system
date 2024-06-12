@@ -25,7 +25,7 @@ if(isset($_POST['insert'])){
 
     // Execute the statement
     if ($stmt->execute()) {
-        echo "<script>alert('Data inserted successfully')</script>";
+        echo "<script>alert('Data inserted successfully'); window.location.href='admin-doctor-edit.php';</script>";
     } else {
         echo "<script>alert('Error: " . $stmt->error . "')</script>";
     }

@@ -126,13 +126,13 @@
                                 <div class="row-item">
                                 <div class="item">
                                     <label for="register-Fname">First Name</label>
-                                    <div class="input"><input type="text"  name="fname" placeholder="John"></div>
+                                    <div class="input"><input type="text"  name="fname" placeholder="John" required></div>
                                     <p class="error-msg">Please enter The info required</p>
                                 </div>
                                 
                                 <div class="item">
                                     <label for="register-Lname">Last Name</label>
-                                    <div class="input"><input type="text"  name="lname" placeholder="Doe"></div>
+                                    <div class="input"><input type="text"  name="lname" placeholder="Doe" required></div>
                                     <p class="error-msg">Please enter The info required </p>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                             <div class="row-item">
                             <div class="item">
                                 <label for="register-date">Date of Birth</label>
-                                <div class="input"><input type="date"  name="dob" placeholder="12-345-678"></div>
+                                <div class="input"><input type="date"  name="dob" placeholder="12-345-678" required></div>
                                 <p class="error-msg">Enter Your Birth Date</p>
                             </div>
                             <div class="item">
@@ -160,7 +160,7 @@
                                 <label for="register-email">Email address</label>
                                 <div class="input">
                                     <ion-icon name="mail-outline"></ion-icon>
-                                    <input type="mail" name="email" placeholder="example@gmail.com">
+                                    <input type="mail" name="email" placeholder="example@gmail.com" required>
                                 </div>
                                 <p class="error-msg">Please enter a valid email address</p>
                             </div>
@@ -169,7 +169,7 @@
                                 <label for="register-password">Password</label>
                                 <div class="input">
                                     <ion-icon name="lock-closed-outline"></ion-icon>
-                                    <input type="password" name="password" placeholder="............">
+                                    <input type="password" name="password" placeholder="............" required>
                                     <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                 </div>
                                 <p class="error-msg">Password or Email is incorrect</p>
@@ -179,7 +179,7 @@
                                 <label>Confirm Password</label>
                                 <div class="input">
                                     <ion-icon name="lock-closed-outline"></ion-icon>
-                                    <input type="password" name="confirm-register-password" placeholder="............">
+                                    <input type="password" name="confirm-register-password" placeholder="............" required>
                                     <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                 </div>
                                 <p class="error-msg">Password or Email is incorrect</p>
@@ -197,7 +197,7 @@
                                     </p>
                                 </div>
                                 <div class="item">
-                                    <button type="submit" name="login">REGISTER</button>
+                                    <button type="submit" name="login" class="btn">REGISTER</button>
                                 </div>
                             </form>
 
@@ -211,8 +211,6 @@
                 <img src="images/Online Doctor-cuate.png">
             </div>
         </div>
-
-
 
         <div class="page" id="page3"> 
             <div class="front-page">
@@ -228,12 +226,12 @@
                             </p>
                             <div class="or"></div>
 
-                            <form action="" id="doctor-register">
+                            <form action="doctor-register.php" method="POST" id="doctor-register">
                                 <div class="row-item">
                                 <div class="item">
                                     <label for="doctor-Fname">First Name</label>
                                     <div class="input">
-                                        <input type="text" id="dcotor-Fname" placeholder="John">
+                                    <input type="text" name="doctor-Fname" placeholder="John" required>
                                     </div>
                                     <p class="error-msg">
                                         Please enter The info required
@@ -242,9 +240,8 @@
 
                                 <div class="item">
                                     <label for="doctor-Lname">Last Name</label>
-                                    <div class="input">
-                                        
-                                        <input type="password" id="doctor-Lname" placeholder="Doe">
+                                    <div class="input">    
+                                    <input type="text" name="doctor-Lname" placeholder="Doe" required>
                                     </div>
                                     <p class="error-msg">
                                         Please enter The info required
@@ -258,7 +255,7 @@
                             <div class="item">
                                 <label for="doctor-date">Date of Birth</label>
                                 <div class="input">
-                                    <input type="Date" id="register-date" placeholder="12-345-678">
+                                <input type="date" name="doctor-dob" placeholder="Date of Birth" required>
                                 </div>
                                 <p class="error-msg">
                                     Enter Your Birth Date
@@ -267,7 +264,7 @@
                             </div>
                             <div class="item">
                                 <label for="doctor-gender" >Gender</label>     
-                                    <select class="select" id="doctor-gender">
+                                    <select class="select" name="doctor-gender">
                                         <option value="male">Male</option>
                                         <option value="female">Female</option>
                                         <option value="others">Others</option>
@@ -284,7 +281,7 @@
                                     <label for="doctor-email">Email address</label>
                                     <div class="input">
                                         <ion-icon name="mail-outline"></ion-icon>
-                                        <input type="text" id="doctor-email" placeholder="example@gmail.com">
+                                        <input type="email" name="doctor-email" placeholder="example@gmail.com" required>
                                     </div>
                                     <p class="error-msg">
                                         Please enter a valid email address
@@ -297,7 +294,7 @@
                                     <label for="doctor-password">Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input type="password" id="doctor-password" placeholder="............">
+                                        <input type="password" name="doctor-password" placeholder="............" required> 
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
@@ -309,7 +306,7 @@
                                     <label>Confirm Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input type="text" id="doctor-confimr-password" placeholder="............">
+                                        <input type="pass" name="doctor-confirm-password" placeholder="............" required>
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
@@ -331,7 +328,7 @@
                                     </p>
                                 </div>
                                 <div class="item">
-                                    <button class="btn">Login</button>
+                                    <button class="btn" type="submit" name="doctor-reg">Register For Doctor</button>
                                 </div>
                             </form>
                            

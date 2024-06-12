@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   $con->close();
-  header("Location: admin-user-edit.php");
+  header("Location: admin-doctor-edit.php");
   exit();
 } else {
   $id = $_GET["id"];
@@ -49,26 +49,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <div class="main-page" id="main-page">
 
-    <div class="bread-container">
+  <div class="bread-container">
       <ul class="breadcrumbs">
         <li class="breadcrumbs-item">
-          <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+          <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>     
         </li>
         <li class="breadcrumbs-item">
-          <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>
+          <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a> 
         </li>
         <li class="breadcrumbs-item">
-          <a href="admin-user-edit.php" class="breadcrumbs-link">Patient</a>
+          <a href="admin-doctor-edit.php" class="breadcrumbs-link">Doctor</a>
         </li>
         <li class="breadcrumbs-item">
-          <a href="#" class="breadcrumbs-link active">Edit Patient</a>
+          <a href="#" class="breadcrumbs-link active">Edit Doctor</a>
         </li>
+    
       </ul>
     </div>
 
-    <div class="edit-user" id="edit-user">
-      <h1>Edit Users</h1>
-      <form action="edit-user.php" method="post">
+
+
+    <div class="edit-doctor" id="edit-doctor">
+      <h1>Edit doctors</h1>
+      <form action="edit-doctor.php" method="post">
         <input type="hidden" name="id" value="<?php echo $id; ?>" />
         <div class="input-row">
           <div class="input-group">
