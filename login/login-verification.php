@@ -31,11 +31,7 @@ if (isset($_POST['enter'])) {
             header("Location: ../../index.html");
             exit();
         } else {
-<<<<<<< HEAD
             header("Location: ../doctor/doctorDashboard.php");
-=======
-            echo "Unknown user role.";
->>>>>>> ali
         }
     } else {
         echo "Invalid username or password";

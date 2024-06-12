@@ -3,10 +3,6 @@ session_start();
 
 require "../include/connection.php";
 
-<<<<<<< HEAD
-// Check if user is logged in and has the admin role
-=======
->>>>>>> ali
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 1) {
     header("Location: ../login/login.php");
     exit();
