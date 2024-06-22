@@ -1,0 +1,197 @@
+.main-page{
+    width: 85% !important;
+    height: 100% !important;
+    background-color: var(--clr) !important;
+    margin-left:  15% !important;
+    padding: 20px !important;
+    padding-top: 0px !important;
+
+}
+       
+        body.show-sidebar .sidebar {
+            display: block;
+        }
+
+        body.show-sidebar .navbar  {
+             display: none;
+               }
+
+
+        body.show-sidebar .main-content {
+            margin-left: 250px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #f4f4f9;
+        }
+
+.navbar {
+    width: 100%;
+    background-color: #007bff;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar ul li {
+    padding: 14px 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.navbar ul li a i {
+    margin-right: 8px;
+}
+
+.main-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    transition: margin-left 0.3s;
+}
+
+.sidebar {
+    display: none;
+    width: 250px;
+    background-color: #007bff;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 14px 20px;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+.sidebar ul li a i {
+    margin-right: 8px;
+}
+
+.sidebar-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+* {box-sizing: border-box;}
+.card-header * {list-style-type: none;}
+.required:after{
+    content:"*";
+    font-weight:bold;
+    color: red;
+    margin-left: 5px;
+}
+.card-header {
+    padding: 50px 25px;
+    width: 100%;
+}
+.card-header ul {
+    margin: 0;
+    padding: 0;
+}
+.card-header ul li {
+    color: white;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+}
+.days {
+    padding: 10px 0;
+}
+.badge1 {
+    position:relative;
+}
+.badge1[data-badge]:after {
+    content: attr(data-badge);
+    position: absolute;
+    top: -0.5px;
+    right: -0.5px;
+    font-size: .7em;
+    background: red;
+    color: white;
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+    box-shadow: 0 0 1px #333;
+}
+@media screen and (max-width:720px) {
+    .weekdays td,
+    .days td {
+        width: 13.1%;
+    }
+}
+@media screen and (max-width: 420px) {
+    .weekdays td,
+    .days td {
+        width: 12.5%;
+    }
+    .days td .active {
+        padding: 2px;
+    }
+}
+@media screen and (max-width: 290px) {
+    .weekdays td,
+    .days td {
+        width: 12.2%;
+    }
+}
