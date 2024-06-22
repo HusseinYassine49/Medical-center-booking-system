@@ -49,11 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <div class="main-page" id="main-page">
 
-<<<<<<< HEAD
-  <div class="bread-container">
-=======
     <div class="bread-container">
->>>>>>> ali
       <ul class="breadcrumbs">
         <li class="breadcrumbs-item">
           <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
@@ -62,19 +58,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>
         </li>
         <li class="breadcrumbs-item">
-<<<<<<< HEAD
-          <a href="#" class="breadcrumbs-link">Patient</a>
-=======
           <a href="admin-user-edit.php" class="breadcrumbs-link">Patient</a>
->>>>>>> ali
         </li>
         <li class="breadcrumbs-item">
           <a href="#" class="breadcrumbs-link active">Edit Patient</a>
         </li>
-<<<<<<< HEAD
-
-=======
->>>>>>> ali
       </ul>
     </div>
 

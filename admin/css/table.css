@@ -1,4 +1,7 @@
-
+body{
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 
 .container{
     max-width: 1440px;
@@ -6,6 +9,8 @@
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    z-index: 4;
+    position: relative;
 }
 
 .container h2{

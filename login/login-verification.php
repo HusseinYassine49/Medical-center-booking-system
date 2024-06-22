@@ -28,10 +28,31 @@ if (isset($_POST['enter'])) {
             header("Location: ../admin/admin-dashboard.php");
             exit();
         } elseif ($user_type == 0) {
-            header("Location: ../../index.html");
+            header("Location: ../index.html");
             exit();
-        } else {
-            header("Location: ../doctor/doctorDashboard.php");
+        } elseif ($user_type == 2) {
+            $doctor_id = $row['id']; 
+            $query_doctor = "SELECT verified FROM doctors WHERE UserID = ? LIMIT 1";
+            $stmt_doctor = mysqli_prepare($con, $query_doctor);
+            mysqli_stmt_bind_param($stmt_doctor, "i", $doctor_id);
+            mysqli_stmt_execute($stmt_doctor);
+            $result_doctor = mysqli_stmt_get_result($stmt_doctor);
+
+            if ($result_doctor && mysqli_num_rows($result_doctor) > 0) {
+                $doctor_row = mysqli_fetch_assoc($result_doctor);
+                if ($doctor_row['verified'] == 'verified') {
+                    header("Location: ../doctor/doctorDashboard.php");
+                    exit();
+                } else {
+                    header("Location: apply.php");
+                    exit();
+                }
+            } else {
+                header("Location: apply.php");
+                exit();
+            }
+
+            mysqli_stmt_close($stmt_doctor);
         }
     } else {
         echo "Invalid username or password";

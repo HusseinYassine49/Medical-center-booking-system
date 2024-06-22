@@ -174,16 +174,21 @@ form .terms input[type="checkbox"]{
     cursor: pointer;
 }
 form .btn{
-    width: 100%;
+    width: 107%;
     height: 50px;
     border: none;
     border-radius: 5px;
     background-color: #5ea4ff;
     color: #fff;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400 ;
     cursor: pointer;
 }
+form .btn:disabled{
+    background-color: #7291b9;
+    cursor:default;
+}
+
 
 .row-item select
 {
