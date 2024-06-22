@@ -13,7 +13,7 @@ $result = $con->query($sql);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="navbar/navbar.css">
-  <link href="css/admin-user-edit.css" rel="stylesheet">
+  <link href="css/table.css" rel="stylesheet">
   <link href="css/admin-doctor-edit.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -22,6 +22,10 @@ $result = $con->query($sql);
   <?php include 'navbar/navbar.php';?>
 
   <div class="main-page" id="main-page">
+
+  <div class="sphere top-left-sphere"></div>
+  <div class="sphere bottom-right-sphere"></div>
+  
     <div class="bread-container">
       <ul class="breadcrumbs">
         <li class="breadcrumbs-item">
@@ -31,11 +35,7 @@ $result = $con->query($sql);
           <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>
         </li>
         <li class="breadcrumbs-item">
-<<<<<<< HEAD
-          <a href="#" class="breadcrumbs-link active">Patient</a>
-=======
           <a href="#" class="breadcrumbs-link active">Add Patient</a>
->>>>>>> ali
         </li>
       </ul>
     </div>
@@ -152,6 +152,9 @@ $result = $con->query($sql);
       </div>
     </div>
   </div>
+  
+<script src="js/addbtn.js"></script>
+<script src="js/deletebtn.js"></script>
 
 </body>
 </html>
@@ -161,9 +164,4 @@ $result = $con->query($sql);
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="navbar/include.js"></script>
-<script src="js/addbtn.js"></script>
-<<<<<<< HEAD
-<script src="js/deletebtn.js"></script>
-=======
-<script src="js/deletebtn.js"></script>
->>>>>>> ali
+

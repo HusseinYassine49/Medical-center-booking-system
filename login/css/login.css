@@ -1,5 +1,5 @@
 body{
-    background-color: #2e3537;
+    background-color: #fff;
     height: 130vh; /* Adjusted height */
     display: flex;
     justify-content: center;
@@ -141,11 +141,11 @@ body{
 .trapezoid{
     position: absolute;
     top: 100px;
-    right: -100px; /* Adjust as needed */
+    right: -100px;
     border-bottom: 50px solid #2262b1;
 	border-left: 25px solid transparent;
 	border-right: 25px solid transparent;
-    transform: rotate(90deg); /* Rotate 90 degrees to the left */
+    transform: rotate(90deg); 
 	height: 0;
 	width: 125px;
 }
@@ -155,19 +155,19 @@ body{
 .trapezoid::after {
     content: '';
     position: absolute;
-    top: -10px; /* Adjust distance from top */
-    width: 120px; /* Full width */
-    height: 30px; /* Height of rounded edges */
-    border-radius: 200px; /* Half of the height */
-    background-color: #2262b1; /* Adjust color */
+    top: -10px; 
+    width: 120px; 
+    height: 30px; 
+    border-radius: 200px; 
+    background-color: #2262b1; 
 }
 
 .trapezoid::before {
-    left: 5px; /* Align with left side of trapezoid */
+    left: 5px; 
 }
 
 .trapezoid::after {
-    right: 5px; /* Align with right side of trapezoid */
+    right: 5px;
 }
 
 #cover-img{

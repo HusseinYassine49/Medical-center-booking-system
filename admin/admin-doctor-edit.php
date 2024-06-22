@@ -16,9 +16,8 @@ $result = $con->query($sql);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/adminpage.css">
-    <link href="css/admin-doctor-edit.css" rel="stylesheet">
-    <link href="css/doctoradmin.css" rel="stylesheet">
+    <link href="css/admin-doctor-edit.css?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="css/table.css?v=<?php echo time(); ?>" rel="stylesheet">
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
@@ -29,10 +28,13 @@ $result = $con->query($sql);
 
 <body>
 
+
 <?php include 'navbar/navbar.php';?>
 
   <div class="main-page" id="main-page">
 
+   <div class="top-sphere"></div>
+   <div class="bottom-sphere"></div>
 
     <div class="bread-container">
       <ul class="breadcrumbs">
@@ -43,14 +45,9 @@ $result = $con->query($sql);
           <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a> 
         </li>
         <li class="breadcrumbs-item">
-<<<<<<< HEAD
-          <a href="#" class="breadcrumbs-link active">Doctor</a>
-        </li>
-=======
           <a href="#" class="breadcrumbs-link active">Add Doctor</a>
         </li>
     
->>>>>>> ali
       </ul>
     </div>
     
@@ -177,7 +174,6 @@ $result = $con->query($sql);
                   // Output data of each row
                   while($row = $result->fetch_assoc()) {
                     echo "<tr>";
-<<<<<<< HEAD
                     echo "<td data-label='Doctor ID' class='user-id'>" . $row["id"] . "</td>";
                     echo "<td data-label='Doctor Name'>" . $row["Fname"] . "</td>";
                     echo "<td data-label='Doctor Name'>" . $row["Lname"] . "</td>";
@@ -185,16 +181,7 @@ $result = $con->query($sql);
                     echo "<td data-label='DoB'>" . $row["DOB"] . "</td>";
                     echo "<td data-label='Gender'>" . $row["Gender"] . "</td>";
                     echo "<td data-label='Edit'><a href='edit-doctor.php?id=" . $row["id"] . "&fname=" . $row["Fname"] . "&lname=" . $row["Lname"] . "&dob=" . $row["DOB"]  . "&email=" . $row["Email"] . "&gender=" . $row["Gender"] . "' class='btn-edit'><i class='fa-solid fa-pencil'></i></a></td>";
-=======
-                    echo "<td data-label='Patient ID'>" . $row["id"] . "</td>";
-                  echo "<td data-label='Patient Name'>" . $row["Fname"] . "</td>";
-                  echo "<td data-label='Patient Name'>" . $row["Lname"] . "</td>";
-                  echo "<td data-label='Patient Email'>" . $row["Email"] . "</td>";
-                  echo "<td data-label='DoB'>" . $row["DOB"] . "</td>";
-                  echo "<td data-label='Gender'>" . $row["Gender"] . "</td>";
-                  echo "<td data-label='Edit'><a href='edit-doctor.php?id=" . $row["id"] . "&fname=" . $row["Fname"] . "&lname=" . $row["Lname"] . "&dob=" . $row["DOB"]  . "&email=" . $row["Email"] . "&gender=" . $row["Gender"] . "' class='btn-edit'><i class='fa-solid fa-pencil'></i></a></td>";
->>>>>>> ali
-                  echo "<td data-label='Delete'><button class='btn-trash'><i class='fa-solid fa-trash'></i></button></td>";
+                    echo "<td data-label='Delete'><button class='btn-trash'><i class='fa-solid fa-trash'></i></button></td>";
                     echo "</tr>";
                   }
                 } else {
@@ -220,7 +207,3 @@ $result = $con->query($sql);
 <script src="navbar/include.js"></script>
 <script src="js/addbtn.js"></script>
 <script src="js/deletebtn.js"></script>
-<<<<<<< HEAD
-=======
-
->>>>>>> ali

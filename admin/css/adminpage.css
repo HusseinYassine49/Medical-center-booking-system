@@ -41,6 +41,8 @@ body{
     padding-top: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
+    z-index: 4;
+    position: relative;
     }
 
     .breadcrumbs{
@@ -94,6 +96,7 @@ body{
         transition: width 0.5s;
         padding-left: 10px;
         overflow: hidden;
+        z-index: 5;
     
     }
     .h-navigation.h-active{
@@ -145,10 +148,10 @@ body{
     }
     
     .h-navigation ul li.h-active .h-icon{
-        color: #850f0f;
+        color: #ff6f61;
     }
     .h-navigation ul li.h-active .h-title{
-        color: #850f0f;
+        color: #ff6f61;
     }
     .h-navigation ul li a{
         position: relative;
@@ -178,7 +181,7 @@ body{
         letter-spacing: 0.05em;
         transition: 0.5s;
     }.h-navigation ul li:hover a .h-icon, .h-navigation ul li:hover a .h-title{
-        color: #850f0f;
+        color: #ff6f61;
     }
     
     
@@ -207,7 +210,7 @@ body{
         right: 0px;
         width: 50px;left: 1%;
         height: 50px;
-        background: #850f0f;
+        background: #ff6f61;
         z-index: 1000;
         cursor: pointer;
         display: flex;
@@ -250,7 +253,7 @@ body{
     width: 50px;
     height: 50px;
     left: 1%;
-    background: #850f0f;
+    background: #ff6f61;
     z-index: 1000;
     cursor: pointer;
     display: flex;
@@ -287,19 +290,21 @@ body{
     width: 75%;
     height: 870px;
     background-color: var(--clr);
-    margin-left:  18%;
+    margin-left:  13%;
     padding: 20px;
     padding-top: 50px;
-
+    z-index: -1;
 }
 
 
 @media(max-width: 1450px){
     .main-page{
-        margin-left: 25%;
+        margin-left: 13%;
+        transform: scale(0.9);
+
     }
     .bread-container{
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -312,7 +317,7 @@ body{
         width: 80px;
     }
     .main-page{
-        margin-left: 20%;
+        margin-left: 10%;
         width: 82%;
     }
     
@@ -399,7 +404,7 @@ body{
     top: -50%;
     width: 70px;
     height: 70px;
-    background-color: #850f0f;
+    background-color: #ff6f61;
     border-radius: 50%;
     border: 6px solid var(--clr);
     transition: width 0.5s ease; /* Add transition for smooth animation */

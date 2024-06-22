@@ -1,8 +1,8 @@
 
-/* body{
-    margin: 1% 12%;
-    font-family: sans-serif;
-} */
+body{
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 .selection ul li{
     display: inline-block;
     background-color: #fff;
@@ -14,6 +14,8 @@
     position: relative; 
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 4;
+    position: relative;
 }
 .selection .active{
     background-color: #2262b1;
@@ -64,10 +66,34 @@ label{
     padding: 20px 0px 0px 20px;
     min-height: 45px;
   }
-  .table-content{
-    min-width: 670px;
+
+  .summary-container h4{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+
+
+  .table-content {
+    min-width: 670px; /* Adjust this value based on the height of your search container */
+    max-height: 400px; /* Adjust this value as needed */
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .search-and-table-container {
+    position: relative;
+    padding-top: 40px;
+    margin-top: 10px;
   }
   
+  .search-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+
+
 
   .donut-graph{
     height: 580px;
@@ -87,6 +113,8 @@ label{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    z-index: 4;
+    position: relative;
   }
 
 
@@ -159,20 +187,21 @@ label{
     height: fit-content;
     background: #fff;
     border-radius: 5px;
-    margin: 30px;
+    margin: 0px;
+    margin-bottom: 30px;
 }
 .container::-webkit-scrollbar {
-    width: 10px;               /* width of the entire scrollbar */
+    width: 10px;              
   }
   
   .container::-webkit-scrollbar-track {
-    background: #ccc;        /* color of the tracking area */
+    background: #ccc;        
   }
   
   .container::-webkit-scrollbar-thumb {
-    background-color: #aaa;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-    border: 3px solid #aaa;  /* creates padding around scroll thumb */
+    background-color: #aaa;    
+    border-radius: 20px;       
+    border: 3px solid #aaa;  
   }
 
 .container h2{
@@ -306,48 +335,39 @@ input{
 }
 
 
+
+.sphere {
+      position: fixed;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .top-left-sphere {
+      top: -200px;
+      left: -200px;
+      width: 800px;
+      height: 800px;
+      background-color: #ff6f61;
+    }
+
+    .bottom-right-sphere {
+      bottom: -40%;
+      right: -150px;
+      width: 600px;
+      height: 600px;
+      background-color: #2262b1;
+    }
+ 
+
+
 @media(max-width: 1450px){
-    .bottom{
-        flex-direction: column;
-    }
-    .selection ul li{
-      width: 25%;
-    }
-   
-    .container{
-        padding: 0p;
-        margin: 0;
-    }
-    .donut-graph{
-        width: 90%;
-        padding: 0px;
-        height: 500px;
-    }
-    .summary-container{
-        flex-direction: column;
-        width: 90%;
-    }
-    .selection{
-      width: 90%;
-    }
-    .chart-container {
-      width: 400px;
-      height: 400px;
-    }
-    .programming-stats {
-      flex-direction: row;
-    }
-    .programming-stats .details ul li {
-      font-size: 36px;
-      margin: 42px 20px;
-      text-transform: uppercase;
-    }
-    
-   
+  .container{
+    transform: scale(0.85);
+    margin: 0px;
+  }
     
 }
-
-@media(max-width: 950px){
+@media(max-width: 1250px){
     
     .tbl thead{
         display: none;
@@ -385,9 +405,6 @@ input{
       .form__input{
         padding: 10px;
       }
-    .summary-container{
-        flex-direction: column;
-    }
     .table-content{
         min-width: 300px;
     }
@@ -408,8 +425,32 @@ input{
       margin: 22px 20px;
       text-transform: uppercase;
     }
-
-
+    .bottom{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .selection ul li{
+    width: 25%;
+    }
+ 
+  .container{
+    transform: scale(1);
+      padding: 0p;
+      margin: 0;
+  }
+  .donut-graph{
+      width: 90%;
+      padding: 0px;
+      height: 500px;
+  }
+  .summary-container{
+      flex-direction: column;
+      width: 90%;
+  }
+  .selection{
+    width: 100%;
+  }
 }
 
 @media(max-width: 570px){

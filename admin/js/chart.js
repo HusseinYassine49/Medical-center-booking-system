@@ -14,7 +14,7 @@ const chartInstance = new Chart(myChart, {
           label: "Departments",
           data: chartData.data,
           backgroundColor: [
-            'rgb(255, 99, 132)',
+            'rgb(255, 111, 97)',
             'rgb(54, 162, 235)',
             'rgb(133, 15, 15)'
           ],
