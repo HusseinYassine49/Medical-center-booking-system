@@ -1,10 +1,15 @@
-<?php 
+<?php
+session_start();
+
 require "../include/connection.php";
+
+if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 1) {
+    header("Location: ../login/login.php");
+    exit();
+}
 
 $sql = "SELECT * FROM department";
 $result = $con->query($sql);
-
-
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +22,8 @@ $result = $con->query($sql);
     <link href="css/table.css?v=<?php echo time(); ?>" rel="stylesheet">
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     
 </head>
 <body>
@@ -25,8 +32,8 @@ $result = $con->query($sql);
 
 <div class="main-page" id="main-page">
 
-<div class="top-sphere"></div>
-<div class="bottom-sphere"></div>
+<div class="sphere top-sphere"></div>
+<div class="sphere bottom-sphere"></div>
 
 <div class="bread-container">
       <ul class="breadcrumbs">
@@ -46,29 +53,26 @@ $result = $con->query($sql);
     <div class="add-department" id="add-department">
             <h1>ADD Department</h1>
 
-            <!--THE FORM TO SEND THE DATA TO BE VERIFIED TO BE INSERTED TO THE DATABASE -->
-    <form action="depart-Reg.php" method="post">
-
+    <!--THE FORM TO SEND THE DATA TO BE VERIFIED TO BE INSERTED TO THE DATABASE -->
+    <form id="departmentForm">
         <div class="input-row">
-          <div class="input-group">
-            <label>Department Name</label>
-            <input type="text" name="name" />
-          </div>
+            <div class="input-group">
+                <label>Department Name</label>
+                <input type="text" id="department-name" name="name" required />
+            </div>
 
-          <div class="input-group">
-            <label>Department Description</label>
-            <input type="text" name="description" />
-          </div>
+            <div class="input-group">
+                <label>Department Description</label>
+                <input type="text" id="department-description" name="description" required />
+            </div>
         </div>
 
         <div class="input-row">
-
-          <div class="input-group">
-            <label></label>
-            <input type="submit" name="insert" />
-          </div>
+            <div class="input-group">
+                <label></label>
+                <input type="submit" value="Insert" onclick="departmentInsertion(event)" />
+            </div>
         </div>
-
     </form>
     </div>
 
@@ -79,13 +83,7 @@ $result = $con->query($sql);
 
     <div class="container">
             <div class="table-content">
-    
-                
-                <div class="top-circle" >
-                 
-    
                 <h2>Department Table</h2>
-    
     
                 <table class="tbl" id="filter">
                     <thead>
@@ -122,9 +120,9 @@ $result = $con->query($sql);
 
 </div>
 
+<script src="js/addbtn.js"></script>
+<script src="js/deletebtn.js"></script>
+<script src="js/department-AJAX.js"></script>
 
 </body>
 </html>
-
-<script src="js/addbtn.js"></script>
-<script src="js/deletebtn.js"></script>

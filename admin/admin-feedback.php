@@ -1,5 +1,12 @@
 <?php 
+session_start();
 require "../include/connection.php";
+
+if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 1) {
+    header("Location: ../login/login.php");
+    exit();
+}
+
 
 $sql = "SELECT users.Fname, feedback.rating , feedback.comment , feedback.status, feedback.id
         FROM users
@@ -28,11 +35,7 @@ $result = $con->query($sql);
 <div class="main-page" id="main-page">
 
   <div class="sphere top-sphere"></div>
-  <div class="sphere bottom-sphere"></div>
   <div class="sphere mid-sphere-left"></div>
-  <div class="sphere mid-sphere-right"></div>
-  <div class="sphere small-sphere"></div>
-  <div class="sphere tiny-sphere"></div>
 
 
     <div class="bread-container">

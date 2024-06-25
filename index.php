@@ -1,5 +1,5 @@
 <?php
-require "assets/php/connection.php"
+require "include/connection.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">

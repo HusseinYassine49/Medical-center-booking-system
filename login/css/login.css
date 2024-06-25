@@ -10,7 +10,7 @@ body{
     position: relative;
     transition-duration: 0.8s;
     perspective: 1500px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 .cover, .back-cover{
     background-color: #2262b1;;
@@ -101,7 +101,7 @@ body{
 
 
 #checkbox-cover:checked ~ .container{
-    transform: translateX(260px);
+    transform: translateX(300px);
 }
 
 #checkbox-cover:checked ~ .container .cover{
@@ -177,4 +177,25 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
+}
+
+@media(max-width: 1400px){
+    .container{
+        transform: scale(0.8);
+    }
+    #checkbox-cover:checked ~ .container {
+        transform: scale(0.8) translateX(300px);
+        transition: transform 0.5s ease-in-out; 
+    }
+    
+}
+
+@media(max-width: 1000px){
+    .container{
+        transform: scale(0.6);
+    }
+    #checkbox-cover:checked ~ .container{
+        transform: scale(0.6) translateX(330px); 
+        transition: transform 0.5s ease-in-out; 
+    }
 }

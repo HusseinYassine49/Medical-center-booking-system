@@ -24,9 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
             email.parentElement.classList.remove("error");
             isEmailValid = true;
         }
-        if(isEmailValid && isPasswordValid){
-            button.disabled = false;
-          } 
+        updateLoginButton();
     });
 
     password.addEventListener('blur', function() {
@@ -39,11 +37,18 @@ document.addEventListener('DOMContentLoaded', function() {
             password.parentElement.classList.remove("error");
             isPasswordValid = true;
         }
-        if(isEmailValid && isPasswordValid){
-          button.disabled = false;
-        }
+        updateLoginButton();
     });
+
+    function updateLoginButton() {
+        if (isEmailValid && isPasswordValid) {
+            button.disabled = false;
+        } else {
+            button.disabled = true;
+        }
+    }
 });
+
 
 
 /* HERE THE CODE FOR THE REIGSTER FORM VALIDATION */

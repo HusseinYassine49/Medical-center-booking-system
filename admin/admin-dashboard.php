@@ -88,7 +88,6 @@ $result = $con->query($sql);
                 <th>Doctor Name</th>
                 <th>Doctor Email</th>
                 <th>Major</th>
-                <th colspan="2">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -101,8 +100,6 @@ $result = $con->query($sql);
                   echo "<td data-label='Doctor Name'>" . $row["Fname"] . "</td>";
                   echo "<td data-label='Doctor Email'>" . $row["Email"] . "</td>";
                   echo "<td data-label='Major'>" . $row["Gender"] . "</td>";
-                  echo "<td data-label='Edit'><Button class='btn-edit'><i class='fa-solid fa-pencil'></i></Button></td>";
-                  echo "<td data-label='Delete'><Button class='btn-trash'><i class='fa-solid fa-trash'></i></Button></td>";
                   echo "</tr>";
                 }
               } else {
