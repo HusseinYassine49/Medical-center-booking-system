@@ -86,7 +86,7 @@ require "include/connection.php"
             </nav>
             <!-- .navbar -->
 
-            <a href="assets/html/login.html" class="btn btn-primary me-md-2"><span class=" d-md-inline">Login</span>
+            <a href="login/login.php" class="btn btn-primary me-md-2"><span class=" d-md-inline">Login</span>
             </a>
 
         </div>
