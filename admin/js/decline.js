@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('btn-accept') || event.target.closest('.btn-accept')) {
-            const button = event.target.closest('.btn-accept');
+        if (event.target.classList.contains('btn-decline') || event.target.closest('.btn-decline')) {
+            const button = event.target.closest('.btn-decline');
             const doctorId = button.getAttribute('data-doctorid');
             const userId = button.getAttribute('data-userid');
 
-            if (confirm('Are you sure you want to verify this doctor?')) {
-                fetch('verify_doctor.php', {
+            if (confirm('Are you sure you want to decline this doctor?')) {
+                fetch('decline_doctor.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        alert('Doctor has been verified');
-                        location.reload(); // Reload the page after successful verification
+                        alert('Doctor has been declined');
+                        location.reload(); // Reload the page after successful decline
                     } else {
-                        alert('Failed to verify doctor');
+                        alert('Failed to decline doctor');
                     }
                 })
                 .catch(error => console.error('Error:', error));
@@ -27,12 +27,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-
-
-document.querySelectorAll('.description').forEach(description => {
-    description.addEventListener('click', function() {
-        this.classList.toggle('expanded');
-    });
-});
-

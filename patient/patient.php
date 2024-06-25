@@ -1,3 +1,19 @@
+<?php
+session_start(); // Start the session
+if (isset($_GET['userID'])) {
+    $userID = $_GET['userID'];
+    echo "Welcome to Patient Dashboard, UserID: $userID";
+
+    if (isset($_SESSION['user_email'])) {
+        $userEmail = $_SESSION['user_email'];
+        echo "<br>Your email: $userEmail";
+    }
+} else {
+    header("Location: login.php");
+    exit(); 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

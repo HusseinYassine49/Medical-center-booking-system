@@ -181,6 +181,9 @@ p {
     font-size: 26px;
     color: white;
 }
+.declined{
+  background-color: #bb2727 !important;
+}
 
 .button {
     display: inline-block;

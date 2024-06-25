@@ -1,25 +1,30 @@
 <?php
 require "../include/connection.php";
 
-if(isset($_POST['insert'])){
-    $name = $_POST['name'];
-    $desc = $_POST['description'];
+// Get the JSON input
+$data = json_decode(file_get_contents('php://input'), true);
+
+$response = array('success' => false, 'message' => '');
+
+if (isset($data['name']) && isset($data['description'])) {
+    $name = $data['name'];
+    $desc = $data['description'];
 
     $sql = "INSERT INTO department (Department_name, Description) VALUES (?, ?)";
     $stmt = $con->prepare($sql);
     $stmt->bind_param("ss", $name, $desc);
 
-    // Execute the statement
     if ($stmt->execute()) {
-        echo "<script>alert('Data inserted successfully'); window.location.href=depart-Reg.php';</script>";
+        $response['success'] = true;
+        $response['message'] = 'Data inserted successfully';
     } else {
-        echo "<script>alert('Error: " . $stmt->error . "')</script>";
+        $response['message'] = 'Error: ' . $stmt->error;
     }
 
-    // Close the statement
     $stmt->close();
 }
 
-// Close the connection
 $con->close();
+
+echo json_encode($response);
 ?>

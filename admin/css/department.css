@@ -1,5 +1,6 @@
 body{
     overflow: hidden;
+    min-height: 100vh;
   }
   body::-webkit-scrollbar {
     display: none;
@@ -83,28 +84,39 @@ body{
       }
 
 
-      .top-sphere {
+      .sphere {
         position: fixed;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .top-sphere {
         top: 65%;         
         right: -400px;     
         width: 1000px;      
         height: 1000px;     
         background-color: #2262b1;
-        border-radius: 50%;
-        z-index: 1;
         transform: translateY(-50%); 
     }
 
     .bottom-sphere {
-        position: fixed;
         bottom: 700px; 
         left: -200px; 
         width: 600px;  
         height: 600px; 
         background-color: #ff6f61;
-        border-radius: 50%;
-        z-index: 1; 
     }
     
+    @media (max-width: 768px) {
+      .top-sphere {
+          right: -200px;
+          width: 800px;
+          height: 800px;
+      }
     
+      .bottom-sphere {
+          left: -100px;
+          width: 400px;
+          height: 400px;
+      }
+    }
     
