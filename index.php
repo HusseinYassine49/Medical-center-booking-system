@@ -1,5 +1,5 @@
 <?php
-require "assets/php/connection.php"
+require "include/connection.php"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,7 +86,7 @@ require "assets/php/connection.php"
             </nav>
             <!-- .navbar -->
 
-            <a href="assets/html/login.html" class="btn btn-primary me-md-2"><span class=" d-md-inline">Login</span>
+            <a href="login/login.php" class="btn btn-primary me-md-2"><span class=" d-md-inline">Login</span>
             </a>
 
         </div>
