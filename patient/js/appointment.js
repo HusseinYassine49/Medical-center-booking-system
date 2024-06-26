@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     var today = new Date();
     var currentMonth = today.getMonth();
     var currentYear = today.getFullYear();
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('previous').addEventListener('click', previous);
     document.getElementById('next').addEventListener('click', next);
+
 });
 
 

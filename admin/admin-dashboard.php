@@ -30,6 +30,11 @@ $result = $con->query($sql);
 <?php include 'navbar/navbar.php';?>
   
 <div class="main-page" id="main-page">
+
+<div class="sphere top-left-sphere"></div>
+  <div class="sphere bottom-right-sphere"></div>
+
+
   <div class="bread-container">
     <ul class="breadcrumbs">
       <li class="breadcrumbs-item">
@@ -65,11 +70,13 @@ $result = $con->query($sql);
 
   <div class="bottom">
     <div class="summary-container">
+    
       <div class="container">
         <h4>TABLE INFORMATION</h4>
+        <div class="search-and-table-container">
         <div class="table-content">
           <b>
-            <div class="form__group">
+            <div class="form__group search-container">
               <input type="text" class="form__input" id="gfg" placeholder="Search the table for Doctor's Name, Major, or ID:" required="" />
               <label for="name" class="form__label">Search the table for Doctor's Name, Major, or ID:</label>
             </div>
@@ -81,7 +88,6 @@ $result = $con->query($sql);
                 <th>Doctor Name</th>
                 <th>Doctor Email</th>
                 <th>Major</th>
-                <th colspan="2">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -94,8 +100,6 @@ $result = $con->query($sql);
                   echo "<td data-label='Doctor Name'>" . $row["Fname"] . "</td>";
                   echo "<td data-label='Doctor Email'>" . $row["Email"] . "</td>";
                   echo "<td data-label='Major'>" . $row["Gender"] . "</td>";
-                  echo "<td data-label='Edit'><Button class='btn-edit'><i class='fa-solid fa-pencil'></i></Button></td>";
-                  echo "<td data-label='Delete'><Button class='btn-trash'><i class='fa-solid fa-trash'></i></Button></td>";
                   echo "</tr>";
                 }
               } else {
@@ -107,6 +111,8 @@ $result = $con->query($sql);
           </table>
         </div>
       </div>
+      </div>
+
     </div>
 
     <div class="donut-graph">

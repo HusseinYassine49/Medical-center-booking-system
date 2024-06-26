@@ -1,4 +1,7 @@
+<<<<<<< HEAD
+=======
 
+>>>>>>> 5da5aa01e2ca472cb437f460d32d3d5932b80ff1
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +15,19 @@
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="feedback.css" rel="stylesheet">
+<<<<<<< HEAD
+
+
+</head>
+
+<body>
+    <div class="toggle"></div>
+
+
+
+    <?php
+    require "navbar/navbar.php"; ?>
+=======
     <link href="nav.css" rel="stylesheet">
         
 </head>
@@ -96,6 +112,7 @@
             </li>
         </ul>
     </div>
+>>>>>>> 5da5aa01e2ca472cb437f460d32d3d5932b80ff1
 
     <div class="main-page">
         <h1>Feedback Management</h1>
@@ -110,7 +127,11 @@
                 </tr>
             </thead>
             <tbody>
+<<<<<<< HEAD
+
+=======
               
+>>>>>>> 5da5aa01e2ca472cb437f460d32d3d5932b80ff1
             </tbody>
         </table>
         <button class="button" onclick="showForm('add')">Add Feedback</button>
@@ -132,7 +153,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../java/chart.js"></script>
     <script src="feedback.js"></script>
+<<<<<<< HEAD
+
+</body>
+
+</html>
+=======
    
 </body>
 
 </html>
+>>>>>>> 5da5aa01e2ca472cb437f460d32d3d5932b80ff1

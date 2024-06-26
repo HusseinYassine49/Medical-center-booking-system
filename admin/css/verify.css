@@ -1,0 +1,162 @@
+body{
+    overflow: auto;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+.container{
+    padding: 0px 20px;
+    padding-bottom:20px;
+    width: calc(100% - 40px);
+    margin-bottom: 40px;
+
+}
+
+.cards-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    gap: 1%;
+    row-gap: 20px;
+}
+
+.card {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(30.55% - 20px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card p {
+    margin: 10px 0;
+}
+
+.card .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    cursor: pointer;
+    min-height: 55px;
+}
+
+.card .description.expanded {
+    -webkit-line-clamp: unset;
+}
+
+.btn-download, .btn-accept, .btn-decline {
+    display: inline-block;
+    margin: 10px 5px 0 0;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    background: #4da6ff;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 4px #297bcd;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-accept {
+    background: #23ac43;
+    box-shadow: 0 4px #0a621e;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-decline {
+    background: #db0b0b;
+    box-shadow: 0 4px #570303;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.btn-download:active{
+    box-shadow: 0 2px #175da3;
+    transform: translateY(4px);
+}
+.btn-accept:active{
+    box-shadow: 0 2px #044914;
+    transform: translateY(4px);
+}
+.btn-decline:active{
+    box-shadow: 0 2px #480202;
+    transform: translateY(4px);
+}
+
+
+.btn-download:hover, .btn-accept:hover, .btn-decline:hover {
+    opacity: 0.8;
+}
+
+.space-down{
+    margin-top: 40px;
+    width: 100%;
+    height: 10px;
+}
+
+
+.top-sphere {
+    position: fixed;
+    top: 20%;         
+    right: -200px;     
+    width: 800px;      
+    height: 800px;     
+    background-color: #ff6f61;
+    border-radius: 50%;
+    z-index: 1;
+    transform: translateY(-50%); 
+}
+
+/* Second bottom sphere */
+.bottom-sphere {
+    position: fixed;
+    bottom: 520px; 
+    left: -300px; 
+    width: 700px;  
+    height: 700px; 
+    background-color: #2262b1;
+    opacity: 0.93;
+    border-radius: 50%;
+    z-index: 1; 
+}
+
+.pdf-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1;
+}
+
+.pdf-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1450px) {
+    .cards-content {
+        justify-content: space-between; 
+    }
+
+    .card {
+        width: calc(46% - 20px); 
+    }
+}
+
+@media (max-width: 900px) {
+    .cards-content {
+        justify-content: center; 
+    }
+
+    .card {
+        width: calc(100% - 20px);
+    }
+}

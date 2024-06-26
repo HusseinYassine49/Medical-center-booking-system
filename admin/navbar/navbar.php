@@ -17,7 +17,8 @@ $dashboard_active = '';
 $doctor_active = '';
 $user_active = '';
 $feedback_active = '';
-
+$department_active = '';
+$verify= '';
 
 
 if ($current_page == 'admin-dashboard.php') {
@@ -28,6 +29,10 @@ if ($current_page == 'admin-dashboard.php') {
   $user_active = 'h-active';
 } elseif ($current_page == 'admin-feedback.php') {
   $feedback_active = 'h-active';
+}elseif ($current_page == 'admin-department.php') {
+  $department_active = 'h-active';
+}elseif ($current_page == 'admin-verify.php') {
+  $verify_active = 'h-active';
 }
 ?>
 
@@ -61,6 +66,20 @@ if ($current_page == 'admin-dashboard.php') {
               <span class="h-title">Feedback</span>
           </a>
       </li>
+      <li class="list <?php echo $department_active; ?>" style="--bg:#2262b1;">
+          <a href="../admin/admin-department.php">
+              <span class="h-icon"><i class="fa-solid fa-house-chimney-medical"></i></span>
+              <span class="h-title">Department</span>
+          </a>
+      </li>
+
+      <li class="list <?php echo $verify_active; ?>" style="--bg:#2262b1;">
+          <a href="../admin/admin-verify.php">
+              <span class="h-icon"><i class="fa-solid fa-certificate"></i></span>
+              <span class="h-title">Verify</span>
+          </a>
+      </li>
+
       <li class="list" style="--bg:#2262b1;">
           <a href="../login/logout.php">
               <span class="h-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
@@ -76,4 +95,4 @@ if ($current_page == 'admin-dashboard.php') {
 <!-- Icon SCRIPT-->
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <script src="include.js"></script>
+<script src="navbar/include.js"></script>

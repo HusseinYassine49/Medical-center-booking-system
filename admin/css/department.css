@@ -1,0 +1,122 @@
+body{
+    overflow: hidden;
+    min-height: 100vh;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+.add-department{
+    width: 100%;
+    background-color: #Fff;
+    max-width: 1440px;
+    height: fit-content;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    z-index: 4;
+    position: relative;
+  }
+.add-department h1{
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+  }
+  .add-department input{
+    margin-top: 5px;
+    margin-left: 30px;
+  }
+  .add-department input[type="text"]{
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    }
+  
+    form {
+        margin: 0;
+    }
+    .input-row{
+        display:flex;
+      }
+      .input-group{
+        display:flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-evenly;
+        margin-bottom: 10px;
+      }
+      .input-group input {
+        display: inline-block;
+      }
+      .input-group input, select {
+        /* padding: .3em; */
+        width:34vw;
+        height: 6vh;
+        max-width: 650px;
+      }
+      input[type="submit"]{
+        padding: .3em;
+        width:15vw;
+        height: 4vh;
+        background-color: #4da6ff;
+        color: White;
+        font-size: 22px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0 4px #338be3;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+      }
+  
+      input[type="submit"]:active{
+        box-shadow: 0 2px #175da3;
+        transform: translateY(4px);
+      }
+  
+      .input-group label{
+        margin-left: 30px;
+      }
+
+
+      .sphere {
+        position: fixed;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .top-sphere {
+        top: 65%;         
+        right: -400px;     
+        width: 1000px;      
+        height: 1000px;     
+        background-color: #2262b1;
+        transform: translateY(-50%); 
+    }
+
+    .bottom-sphere {
+        bottom: 700px; 
+        left: -200px; 
+        width: 600px;  
+        height: 600px; 
+        background-color: #ff6f61;
+    }
+    
+    @media (max-width: 768px) {
+      .top-sphere {
+          right: -200px;
+          width: 800px;
+          height: 800px;
+      }
+    
+      .bottom-sphere {
+          left: -100px;
+          width: 400px;
+          height: 400px;
+      }
+    }
+    

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="css/login.css" rel="stylesheet">
     <link href="css/info.css" rel="stylesheet">
-    <script src="js/eye.js" defer></script>
-    <script src="js/sendlogin.js" defer></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
+
 <body>
     <input class="invisible" type="checkbox" id="checkbox-cover">
     <input class="invisible" type="checkbox" id="checkbox-page1">
@@ -25,7 +27,7 @@
         </div>
 
 
-        <div class="page" id="page1"> 
+        <div class="page" id="page1">
             <div class="front-page">
 
                 <div class="outer">
@@ -35,7 +37,7 @@
                             <p class="login-link">
                                 Need a account
                                 <label class="next" for="checkbox-page1">Register</label>
-                                                   
+
                             </p>
                             <div class="social-logins">
                                 <a href="" class="social-login facebook">
@@ -51,7 +53,7 @@
 
 
                             <!--THE START OF THE FORM INSIDE OF PAGE 1 LOGIN PAGE -->
-                            <form action="login-verification.php" method="post" id="login-form" >
+                            <form id="login-form" onsubmit="return login(event)">
                                 <div class="item">
                                     <label for="login-email">Email address</label>
                                     <div class="input">
@@ -71,36 +73,36 @@
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
-                                        Password or Email is incorrect
+                                        Password Must be 6 characters and have at least 1 number
                                     </p>
                                 </div>
-                                
+
                                 <div class="item terms">
                                     <div class="input checkbox">
                                         <input type="checkbox" name="" id="remember">
-                                    <label for="remember">
-                                       Remember me
-                                    </label>
-                                    </div>  
+                                        <label for="remember">
+                                            Remember me
+                                        </label>
+                                    </div>
                                 </div>
-                                
+
                                 <div class="item">
-                                    <button type="submit" name="enter" class="btn">Login</button>
+                                    <button type="submit" name="enter" id="Login-Button" class="btn" onclick="login()" disabled>Login</button>
                                 </div>
 
                                 <div class="frgt-pass">
-                                <label>
-                                    <a href="Reset-Password/forget-password.php">Forgot you Password</a>
-                                    
-                                </label>
+                                    <label>
+                                        <a href="Reset-Password/forget-password.php">Forgot you Password</a>
+
+                                    </label>
                                 </div>
-                                
+
                             </form>
 
                             <!--HERE THE END OF THE FORM-->
                         </div>
                     </div>
-            </div>
+                </div>
 
             </div>
             <!--HERE THE BACK PAGE WHERE U FIND THE PING IN PAGE 2-->
@@ -109,7 +111,7 @@
             </div>
         </div>
 
-        <div class="page" id="page2"> 
+        <div class="page" id="page2">
             <div class="front-page">
 
                 <div class="outer">
@@ -117,89 +119,84 @@
                         <div class="form-wrapper">
                             <h1 class="heading">Get's Started</h1>
 
-                             <p class="login-link">Already have an account<label  class="prev" for="checkbox-page1">Sign in</label></p>
+                            <p class="login-link">Already have an account<label class="prev" for="checkbox-page1">Sign in</label></p>
                             <p class="login-link">Doctor trying to <label class="next" for="checkbox-page2">Register?</label></p>
 
                             <div class="or"></div>
 
-                         <!--THE START OF THE FORM INSIDE OF PAGE 2 REGISTRATION PAGE -->
-                            <form action="reg-valid.php" id="register" method="POST">
-                                
+                            <!--THE START OF THE FORM INSIDE OF PAGE 2 REGISTRATION PAGE -->
+                            <form action="" id="register" method="POST">
                                 <div class="row-item">
-                                <div class="item">
-                                    <label for="register-Fname">First Name</label>
-                                    <div class="input"><input type="text"  name="fname" placeholder="John" required></div>
-                                    <p class="error-msg">Please enter The info required</p>
+                                    <div class="item">
+                                        <label for="register-Fname">First Name</label>
+                                        <div class="input">
+                                            <input type="text" id="Register-Fname" name="fname" placeholder="John" required>
+                                        </div>
+                                        <p class="error-msg">Please enter the required info</p>
+                                    </div>
+                                    <div class="item">
+                                        <label for="register-Lname">Last Name</label>
+                                        <div class="input">
+                                            <input type="text" id="Register-Lname" name="lname" placeholder="Doe" required>
+                                        </div>
+                                        <p class="error-msg">Please enter the required info</p>
+                                    </div>
                                 </div>
-                                
-                                <div class="item">
-                                    <label for="register-Lname">Last Name</label>
-                                    <div class="input"><input type="text"  name="lname" placeholder="Doe" required></div>
-                                    <p class="error-msg">Please enter The info required </p>
-                                </div>
-                            </div>
-
-
-                            <div class="row-item">
-                            <div class="item">
-                                <label for="register-date">Date of Birth</label>
-                                <div class="input"><input type="date"  name="dob"></div>
-                                <p class="error-msg">Enter Your Birth Date</p>
-                            </div>
-                            <div class="item">
-                                <label for="register-gender" >Gender</label>     
+                                <div class="row-item">
+                                    <div class="item">
+                                        <label for="register-date">Date of Birth</label>
+                                        <div class="input">
+                                            <input type="date" name="dob" id="dob" required>
+                                        </div>
+                                        <p class="error-msg">Enter your birth date</p>
+                                    </div>
+                                    <div class="item">
+                                        <label for="register-gender">Gender</label>
                                         <select class="select" name="gender">
                                             <option value="male">Male</option>
                                             <option value="female">Female</option>
                                             <option value="others">Others</option>
                                         </select>
-                                <p class="error-msg">Select your gender</p>
-                            </div>
-                            </div>
-
-
-                            <div class="item">
-                                <label for="register-email">Email address</label>
-                                <div class="input">
-                                    <ion-icon name="mail-outline"></ion-icon>
-                                    <input type="mail" name="email" placeholder="example@gmail.com" required>
-                                </div>
-                                <p class="error-msg">Please enter a valid email address</p>
-                            </div>
-
-                            <div class="item">
-                                <label for="register-password">Password</label>
-                                <div class="input">
-                                    <ion-icon name="lock-closed-outline"></ion-icon>
-                                    <input type="password" name="password" placeholder="............" required>
-                                    <ion-icon class="eye" name="eye-off-outline"></ion-icon>
-                                </div>
-                                <p class="error-msg">Password or Email is incorrect</p>
-                            </div>
-                        
-                            <div class="item">
-                                <label>Confirm Password</label>
-                                <div class="input">
-                                    <ion-icon name="lock-closed-outline"></ion-icon>
-                                    <input type="password" name="confirm-password" placeholder="............">
-                                    <ion-icon class="eye" name="eye-off-outline"></ion-icon>
-                                </div>
-                                <p class="error-msg">Password or Email is incorrect</p>
-                            </div>
-                           
-                                <div class="item terms">
-                                    <div class="input checkbox">
-                                        <input type="checkbox" name="" id="accept1">
-                                    <label for="accept">
-                                        I accept the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
-                                    </label>
+                                        <p class="error-msg">Select your gender</p>
                                     </div>
-                                    <p class="error-msg">
-                                        You must accept the terms and conditions
-                                    </p>
                                 </div>
                                 <div class="item">
-                                    <button type="submit" name="login" class="btn">REGISTER</button>
+                                    <label for="register-email">Email address</label>
+                                    <div class="input">
+                                        <ion-icon name="mail-outline"></ion-icon>
+                                        <input type="email" name="email" id="Register-Email" placeholder="example@gmail.com" required>
+                                    </div>
+                                    <p class="error-msg">Please enter a valid email address</p>
+                                </div>
+                                <div class="item">
+                                    <label for="register-password">Password</label>
+                                    <div class="input">
+                                        <ion-icon name="lock-closed-outline"></ion-icon>
+                                        <input type="password" name="password" id="Register-Password" placeholder="............" required>
+                                        <ion-icon class="eye" name="eye-off-outline"></ion-icon>
+                                    </div>
+                                    <p class="error-msg">Password must be 6 characters and have at least 1 number</p>
+                                </div>
+                                <div class="item">
+                                    <label>Confirm Password</label>
+                                    <div class="input">
+                                        <ion-icon name="lock-closed-outline"></ion-icon>
+                                        <input type="password" name="confirm-password" id="Confirm-Password" placeholder="............" required>
+                                        <ion-icon class="eye" name="eye-off-outline"></ion-icon>
+                                    </div>
+                                    <p class="error-msg">Password must match</p>
+                                </div>
+                                <div class="item terms">
+                                    <div class="input checkbox">
+                                        <input type="checkbox" name="accept" id="accept1">
+                                        <label for="accept">
+                                            I accept the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
+                                        </label>
+                                    </div>
+                                    <p class="error-msg">You must accept the terms and conditions</p>
+                                </div>
+                                <div class="item">
+                                    <button type="submit" id="Register-Button" name="login" class="btn" onclick="register(event)">REGISTER</button>
                                 </div>
                             </form>
                             <!--HERE THE END OF THE FORM PAGE 2-->
@@ -207,7 +204,7 @@
 
                         </div>
                     </div>
-            </div>
+                </div>
 
             </div>
             <!--HERE THE BACK PAGE WHERE U FIND THE PING IN PAGE 2-->
@@ -216,7 +213,7 @@
             </div>
         </div>
 
-        <div class="page" id="page3"> 
+        <div class="page" id="page3">
             <div class="front-page">
 
                 <div class="outer">
@@ -230,59 +227,62 @@
                             </p>
                             <div class="or"></div>
 
-                            <!--THE START OF THE FORM INSIDE OF PAGE 3 DOCTOR REGISTRATION PAGE -->
-                            <form id="doctor-register" action="doc-reg-valid.php" method="POST">
+                            <form action="" method="POST" id="doctor-register-form">
                                 <div class="row-item">
-                                <div class="item">
-                                    <label for="doctor-Fname">First Name</label>
-                                    <div class="input"><input type="text" name="doctor-Fname" placeholder="First Name" required></div>
-                                    <p class="error-msg">
-                                        Please enter The info required
-                                    </p>
+                                    <div class="item">
+                                        <label for="doctor-Fname">First Name</label>
+                                        <div class="input">
+                                            <input type="text" name="doctor-Fname" id="doctor-Fname" placeholder="John" required>
+                                        </div>
+                                        <p class="error-msg">
+                                            Please enter The info required
+                                        </p>
+                                    </div>
+
+                                    <div class="item">
+                                        <label for="doctor-Lname">Last Name</label>
+                                        <div class="input">
+                                            <input type="text" name="doctor-Lname" id="doctor-Lname" placeholder="Doe" required>
+                                        </div>
+                                        <p class="error-msg">
+                                            Please enter The info required
+                                        </p>
+
+                                    </div>
                                 </div>
 
-                                <div class="item">
-                                    <label for="doctor-Lname">Last Name</label>
-                                    <div class="input"> <input type="text" name="doctor-Lname" placeholder="Last Name" required></div>
-                                    <p class="error-msg">
-                                        Please enter The info required
-                                    </p>
-                                    
+
+                                <div class="row-item">
+                                    <div class="item">
+                                        <label for="doctor-date">Date of Birth</label>
+                                        <div class="input">
+                                            <input type="date" name="doctor-dob" id="doctor-dob" placeholder="Date of Birth" required>
+                                        </div>
+                                        <p class="error-msg">
+                                            Enter Your Birth Date
+                                        </p>
+
+                                    </div>
+                                    <div class="item">
+                                        <label for="doctor-gender">Gender</label>
+                                        <select class="select" name="doctor-gender">
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                        <p class="error-msg">
+                                            Select your gender
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
 
 
-                            <div class="row-item">
-                            <div class="item">
-                                <label for="doctor-date">Date of Birth</label>
-                                <div class="input">
-                                <input type="date" name="doctor-dob" placeholder="Date of Birth" required>
-                                </div>
-                                <p class="error-msg">
-                                    Enter Your Birth Date
-                                </p>
-                                
-                            </div>
-                            <div class="item">
-                                <label for="doctor-gender" >Gender</label>     
-                                    <select class="select" name="doctor-gender">
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                        <option value="others">Others</option>
-                                    </select>
-                                <p class="error-msg">
-                                    Select your gender
-                                </p>
-                            </div>
-                        </div>
 
-
-                            
                                 <div class="item">
                                     <label for="doctor-email">Email address</label>
                                     <div class="input">
                                         <ion-icon name="mail-outline"></ion-icon>
-                                        <input type="email" name="doctor-email" placeholder="example@gmail.com" required>
+                                        <input type="email" name="doctor-email" id="doctor-email" placeholder="example@gmail.com" required>
                                     </div>
                                     <p class="error-msg">
                                         Please enter a valid email address
@@ -290,66 +290,74 @@
                                 </div>
 
 
-                                
+
                                 <div class="item">
                                     <label for="doctor-password">Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input type="password" name="doctor-password" placeholder="............" required>
+                                        <input type="password" name="doctor-password" id="doctor-password" placeholder="............" required>
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
                                         Password or Email is incorrect
                                     </p>
                                 </div>
-                            
+
                                 <div class="item">
                                     <label>Confirm Password</label>
                                     <div class="input">
                                         <ion-icon name="lock-closed-outline"></ion-icon>
-                                        <input type="password" name="doctor-confirm-password" placeholder="............" required>
+                                        <input type="password" name="doctor-confirm-password" id="doctor-confirm-password" placeholder="............" required>
                                         <ion-icon class="eye" name="eye-off-outline"></ion-icon>
                                     </div>
                                     <p class="error-msg">
                                         Password or Email is incorrect
                                     </p>
                                 </div>
-                            
+
 
 
                                 <div class="item terms">
                                     <div class="input checkbox">
                                         <input type="checkbox" name="" id="accept2">
-                                    <label for="accept">
-                                        I accept the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
-                                    </label>
+                                        <label for="accept">
+                                            I accept the <a href="#">terms of service</a> and <a href="#">privacy policy</a>
+                                        </label>
                                     </div>
                                     <p class="error-msg">
                                         You must accept the terms and conditions
                                     </p>
                                 </div>
                                 <div class="item">
-                                    <button type="submit" name="doctor-reg" class="btn">Register as a Doctor</button>
+                                <button class="btn" type="submit" name="doctor-reg" id="doctor-reg" onclick="registerDoctor(event)">Register For Doctor</button>
                                 </div>
                             </form>
                             <!--THE END OF THE FORM OF DOCTOR REGISTERATION -->
-                           
+
                         </div>
                     </div>
-            </div>
+                </div>
 
             </div>
             <div class="back-page">
-                
+
             </div>
         </div>
-        
+
 
 
         <div class="back-cover">
-            
+
         </div>
         <div class="trapezoid"></div>
     </div>
 </body>
+
+
+<script src="js/loginAJAX.js"></script>
+<script src="js/registerAJAX.js"></script>
+<script src="js/regdoctorAJAX.js"></script>
+<script src="js/eye.js" defer></script>
+<script src="js/alert.js" defer></script>
+
 </html>

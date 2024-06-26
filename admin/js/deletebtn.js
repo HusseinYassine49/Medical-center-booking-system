@@ -1,60 +1,61 @@
-<<<<<<< HEAD
-
-debugger
-document.addEventListener('click', function(event) {
-  if (event.target.classList.contains('btn-trash')) {
-    const row = event.target.closest('tr');
-    const userId = row.querySelector('.user-id').innerText; 
-
-    if (confirm('Are you sure you want to delete this patient?')) {
-      fetch('delete-user.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id: userId }) 
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          console.log('User deleted successfully');
-          window.location.reload();
-
-        } else {
-          console.error('Error deleting user:', data.error);
-        }
-      })
-      .catch(error => console.error('Error:', error));
-    }
-  }
-});
-=======
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelectorAll('.btn-trash').forEach(button => {
-      button.addEventListener('click', function() {
-        const row = this.closest('tr');
-        const userId = row.querySelector('td[data-label="Patient ID"]').innerText;
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('btn-trash') || event.target.closest('.btn-trash')) {
+            const row = event.target.closest('tr');
+            const userId = row.querySelector('.user-id').innerText;
 
-        if (confirm('Are you sure you want to delete this patient?')) {
-          fetch('delete-user.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ id: userId })
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data.success) {
-              row.remove();
-            } else {
-              alert('Error deleting patient');
-            }
-          })
-          .catch(error => console.error('Error:', error));
+            console.log('User ID:', userId); // Debugging: Log the user ID
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'Do you really want to delete this data?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    fetch('delete-user.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: userId })
+                    })
+                    .then(response => {
+                        console.log('Response:', response); // Debugging: Log the response
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Data:', data); // Debugging: Log the parsed JSON data
+                        if (data.success) {
+                            Swal.fire(
+                                'Deleted!',
+                                'User has been deleted.',
+                                'success'
+                            ).then(() => {
+                                window.location.reload();
+                            });
+                        } else {
+                            Swal.fire(
+                                'Error!',
+                                'There was an error deleting the user: ' + data.error,
+                                'error'
+                            );
+                            console.error('Error deleting user:', data.error);
+                        }
+                    })
+                    .catch(error => {
+                        Swal.fire(
+                            'Error!',
+                            'There was an error deleting the user.',
+                            'error'
+                        );
+                        console.error('Error:', error);
+                    });
+                }
+            });
         }
-      });
     });
-  });
-  
->>>>>>> ali
+});
