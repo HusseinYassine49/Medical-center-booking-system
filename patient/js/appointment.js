@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function () {
     var today = new Date();
     var currentMonth = today.getMonth();
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('next').addEventListener('click', next);
 });
 
-document.addEventListener('DOMContentLoaded', function () {
+
     function makeAppointment() {
         var date = document.getElementById('date').value;
         var description = document.getElementById('description').value;
@@ -169,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
     window.onload = setMinDateTime;
 
     document.getElementById('submit').addEventListener('click', makeAppointment);
-});
+
 
 const sidebar = document.getElementById('sidebar');
 const mainContent = document.getElementById('main-content');
