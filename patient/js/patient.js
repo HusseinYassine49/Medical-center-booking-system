@@ -1,89 +1,102 @@
+const morningText = document.getElementById('morning-text');
+const patientNameElement = document.getElementById('patient-name');
+const welcomeText = document.getElementById('welcome-text');
 
-        
-        const welcomeHeading = document.getElementById('welcome-heading');
-        const welcomeText = document.getElementById('welcome-text');
+let morningMessage = "Good Morning, ";
+let messageIndex = 0;
+let typingSpeed = 100;
 
-        let welcomeMessage = "Good Morning, Patient!";
-        let messageIndex = 0;
-        let typingSpeed = 100;
+function typeMorningMessage() {
+    if (messageIndex < morningMessage.length) {
+        morningText.textContent += morningMessage.charAt(messageIndex);
+        messageIndex++;
+        setTimeout(typeMorningMessage, typingSpeed);
+    } else {
+        typePatientName();
+    }
+}
 
-        function typeWelcomeMessage() {
-            if (messageIndex < welcomeMessage.length) {
-                welcomeHeading.textContent += welcomeMessage.charAt(messageIndex);
-                messageIndex++;
-                setTimeout(typeWelcomeMessage, typingSpeed);
-            } else {
-                welcomeText.style.display = 'block';
-            }
-        }
-
-        typeWelcomeMessage();
-
-       
-        $(document).ready(function() {
-            $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay'
-                },
-                defaultDate: new Date(),
-                navLinks: true,
-                editable: false,
-                eventLimit: true,
-                events: []
-            });
-        });
-
-        
-
-
-    const modal = $('#appointmentModal');
-    const addAppointmentBtn = $('#addAppointmentBtn');
-    const closeModal = $('.close');
-    const cancelForm = $('#cancelForm');
-    const appointmentForm = $('#appointmentForm');
-    const modalTitle = $('#modalTitle');
-    const appointmentIdInput = $('#appointmentId');
-
-    addAppointmentBtn.on('click', function() {
-        modalTitle.text('Add Appointment');
-        appointmentForm.trigger('reset');
-        appointmentIdInput.val('');
-    });
-
-    closeModal.on('click', function() {
-        modal.modal('hide');
-    });
-
-    cancelForm.on('click', function() {
-        modal.modal('hide');
-    });
-
-    window.onclick = function(event) {
-        if (event.target === modal[0]) {
-            modal.modal('hide');
-        }
-    };
-
-    appointmentForm.on('submit', function(event) {
-        event.preventDefault();
-        const appointmentId = appointmentIdInput.val();
-        const doctor = $('#doctor').val();
-        const specialty = $('#specialty').val();
-        const date = $('#date').val();
-        const time = $('#time').val();
-        const status = $('#status').val();
-
-        if (appointmentId) {
-            editAppointment(appointmentId, doctor, specialty, date, time, status);
+function typePatientName() {
+    messageIndex = 0; // Reset for patient name
+    function type() {
+        if (messageIndex < patientName.length) {
+            patientNameElement.textContent += patientName.charAt(messageIndex);
+            messageIndex++;
+            setTimeout(type, typingSpeed);
         } else {
-            addAppointment(doctor, specialty, date, time, status);
+            welcomeText.style.display = 'block';
         }
-        modal.modal('hide');
-    });
+    }
+    type();
+}
 
-    function addAppointment(doctor, specialty, date, time, status) {
+typeMorningMessage();
+
+
+$(document).ready(function() {
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+        defaultDate: new Date(),
+        navLinks: true,
+        editable: false,
+        eventLimit: true,
+        events: []
+    });
+});
+
+
+
+
+const modal = $('#appointmentModal');
+const addAppointmentBtn = $('#addAppointmentBtn');
+const closeModal = $('.close');
+const cancelForm = $('#cancelForm');
+const appointmentForm = $('#appointmentForm');
+const modalTitle = $('#modalTitle');
+const appointmentIdInput = $('#appointmentId');
+
+addAppointmentBtn.on('click', function() {
+    modalTitle.text('Add Appointment');
+    appointmentForm.trigger('reset');
+    appointmentIdInput.val('');
+});
+
+closeModal.on('click', function() {
+    modal.modal('hide');
+});
+
+cancelForm.on('click', function() {
+    modal.modal('hide');
+});
+
+window.onclick = function(event) {
+    if (event.target === modal[0]) {
+        modal.modal('hide');
+    }
+};
+
+appointmentForm.on('submit', function(event) {
+    event.preventDefault();
+    const appointmentId = appointmentIdInput.val();
+    const doctor = $('#doctor').val();
+    const specialty = $('#specialty').val();
+    const date = $('#date').val();
+    const time = $('#time').val();
+    const status = $('#status').val();
+
+    if (appointmentId) {
+        editAppointment(appointmentId, doctor, specialty, date, time, status);
+    } else {
+        addAppointment(doctor, specialty, date, time, status);
+    }
+    modal.modal('hide');
+});
+
+function addAppointment(doctor, specialty, date, time, status) {
     const tableBody = $('#appointmentTableBody');
     const newRow = $(`
         <tr>
@@ -103,45 +116,45 @@
     // Add the event to FullCalendar
     $('#calendar').fullCalendar('renderEvent', {
         title: doctor,
-        start: date + 'T' + time, 
-        backgroundColor: getStatusColor(status) 
+        start: date + 'T' + time,
+        backgroundColor: getStatusColor(status)
     });
 }
 
 function getStatusColor(status) {
     switch (status.toLowerCase()) {
         case 'active':
-            return '#28a745'; 
+            return '#28a745';
         case 'upcoming':
-            return '#ffc107'; 
+            return '#ffc107';
         case 'completed':
-            return '#007bff'; 
+            return '#007bff';
         default:
-            return '#6c757d'; 
+            return '#6c757d';
     }
 }
 
 
-    function showEditForm(button) {
-        const row = $(button).closest('tr');
-        const cells = row.find('td');
-        const doctor = cells.eq(0).text();
-        const specialty = cells.eq(1).text();
-        const date = cells.eq(2).text();
-        const time = cells.eq(3).text();
-        const status = cells.eq(4).text();
+function showEditForm(button) {
+    const row = $(button).closest('tr');
+    const cells = row.find('td');
+    const doctor = cells.eq(0).text();
+    const specialty = cells.eq(1).text();
+    const date = cells.eq(2).text();
+    const time = cells.eq(3).text();
+    const status = cells.eq(4).text();
 
-        modalTitle.text('Edit Appointment');
-        $('#doctor').val(doctor);
-        $('#specialty').val(specialty);
-        $('#date').val(date);
-        $('#time').val(time);
-        $('#status').val(status);
-        appointmentIdInput.val(row.index() + 1);
-        modal.modal('show');
-    }
+    modalTitle.text('Edit Appointment');
+    $('#doctor').val(doctor);
+    $('#specialty').val(specialty);
+    $('#date').val(date);
+    $('#time').val(time);
+    $('#status').val(status);
+    appointmentIdInput.val(row.index() + 1);
+    modal.modal('show');
+}
 
-    function editAppointment(appointmentId, doctor, specialty, date, time, status) {
+function editAppointment(appointmentId, doctor, specialty, date, time, status) {
     const tableBody = $('#appointmentTableBody');
     const row = tableBody.find('tr').eq(appointmentId - 1);
     const cells = row.find('td');
@@ -151,7 +164,7 @@ function getStatusColor(status) {
     cells.eq(3).text(time);
     cells.eq(4).text(status).attr('class', `status-${status.toLowerCase()}`);
 
-  
+
     const calendar = $('#calendar').fullCalendar('getCalendar');
     const event = calendar.clientEvents()[appointmentId - 1];
     event.title = doctor;
@@ -162,10 +175,10 @@ function getStatusColor(status) {
 
 function deleteAppointment(button) {
     const row = $(button).closest('tr');
-    const appointmentId = row.index() + 1; 
+    const appointmentId = row.index() + 1;
     const tableBody = $('#appointmentTableBody');
 
-    
+
     const calendar = $('#calendar').fullCalendar('getCalendar');
     const event = calendar.clientEvents((calEvent) => calEvent.id === String(appointmentId))[0]; // Find event by ID
     if (event) {
@@ -174,6 +187,3 @@ function deleteAppointment(button) {
 
     row.remove();
 }
-
- 
-

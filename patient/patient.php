@@ -1,19 +1,23 @@
 <?php
-session_start(); // Start the session
-if (isset($_GET['userID'])) {
-    $userID = $_GET['userID'];
-    echo "Welcome to Patient Dashboard, UserID: $userID";
 
-    if (isset($_SESSION['user_email'])) {
-        $userEmail = $_SESSION['user_email'];
-        echo "<br>Your email: $userEmail";
-    }
-} else {
-    header("Location: login.php");
-    exit(); 
-}
+include 'navbar/navbar.php';
+$sql = "SELECT Fname, Lname FROM users WHERE id = ?";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("i", $userID);
+$stmt->execute();
+$stmt->bind_result($firstName, $lastName);
+$stmt->fetch();
+$stmt->close();
+
+
+// Concatenate first and last name to get the full name
+$patientName = $firstName . ' ' . $lastName;
+
+// Store patient's full name in session
 ?>
-
+<script>
+let patientName = "<?php echo $patientName; ?>"
+</script>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,36 +38,23 @@ if (isset($_GET['userID'])) {
 
 </head>
 
-<?php
-include "../include/connection.php";
-session_start();
-$userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
-?>
 
 <body>
 
-    <?php include 'navbar/navbar.php'; ?>
+
 
 
 
     <div class="main-page">
 
 
-        <div class="navbar">
-            <ul>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i> Make Appointments</a></li>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i> clinics </a></li>
-                <li><a href="{{ url('feedback') }}"><i class="fas fa-envelope"></i> Feedback</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                <li><a href="#" id="toggle-sidebar"><i class="fas fa-bars"></i> Sidebar</a></li>
-            </ul>
-        </div>
-
-
 
         <div class="main-content" id="main-content">
             <div class="welcome-message">
-                <h1 id="welcome-heading"></h1>
+                <h1 id="welcome-heading">
+                    <span id="morning-text" style="color: black;"></span>
+                    <span id="patient-name" style="color: red;"></span>
+                </h1>
                 <p id="welcome-text" style="display: none;">Welcome to your dashboard. Here's a summary of your recent
                     activities.</p>
 
@@ -217,10 +208,10 @@ $userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
 
     <script src="js/patient.js"></script>
     <script>
-        function goToAppointment() {
-            const userID = '<?php echo $userID; ?>';
-            window.location.href = 'appointment.php?userID=' + userID;
-        }
+    function goToAppointment() {
+        const userID = '<?php echo $userID; ?>';
+        window.location.href = 'appointment.php?userID=' + userID;
+    }
     </script>
 
 
