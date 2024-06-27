@@ -53,7 +53,6 @@ $result = $con->query($sql);
         <li class="breadcrumbs-item">
           <a href="#" class="breadcrumbs-link active">Add Doctor</a>
         </li>
-
       </ul>
     </div>
 
