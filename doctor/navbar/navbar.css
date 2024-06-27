@@ -9,14 +9,25 @@
     /* --clr: #14161e; */
     --clr: #f8f8fa;
 }
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+/* Ensure Font Awesome icons keep their original font family */
+.fa, .fas, .far, .fal, .fab {
+    font-family: 'Font Awesome 5 Free' !important;
+}
 
+/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
+    font-family: 'Font Awesome 6 Free' !important;
+}
 .navigation{
     display: none;
 }
 .h-navigation{
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: 0;z-index: 10;
     width: 80px;
     height: 100%; /* Adjusted to extend to the bottom of the page */
     background: #2262b1;
@@ -128,12 +139,19 @@ with it curves*/
 
 
 
+
+
+
+
+
+
+
 /*THE BLUE BOX IN THE CORNER THAT TOGGLES THE NAV BAR */
 .toggle{
     position: absolute;
     top: 20px;
     right: 0px;
-    width: 50px;left: 1%;
+    width: 50px;left: 15%;
     height: 50px;
     background: #850f0f;
     z-index: 1000;
@@ -192,7 +210,7 @@ with it curves*/
 
 
 
-@media(max-width: 990px){
+@media(max-width: 1024px){
     .toggle{
         display: none;
     }
@@ -209,7 +227,7 @@ with it curves*/
 
 /*-----------------------------------------------------------------------------------------*/
 /*THIS THE CODE FOR THE PAGE BELOW 500PX THAT PUT A NEW BAR THAT IS ON TOP*/
-@media(max-width: 520px){
+@media(max-width: 1024px){
     
 
     .h-navigation{

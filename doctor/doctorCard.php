@@ -1,3 +1,23 @@
+<?php
+include 'session_check.php';
+$dr = $_SESSION['user_info']['id'];
+require "../include/connection.php";
+
+
+$query = "SELECT Description, linkedin, optional_link1, optional_link2 FROM doctors WHERE UserId = ?";
+$stmt = $con->prepare($query);
+$stmt->bind_param("i", $dr);
+$stmt->execute();
+$result = $stmt->get_result();
+$doctor = $result->fetch_assoc();
+
+$description = $doctor['Description'];
+$linkedin = $doctor['linkedin'];
+$optionalLink1 = $doctor['optional_link1'];
+$optionalLink2 = $doctor['optional_link2'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,94 +27,112 @@
   <title>Doctor Card</title>
   <link rel="stylesheet" href="navbar/navbar.css">
   <link rel="stylesheet" href="css/doctorCard.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
+  <?php include 'navbar/navbar.php'; ?>
+  <div class="bread-container">
+    <ul class="breadcrumbs">
+      <li class="breadcrumbs-item">
+        <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+      </li>
+      <li class="breadcrumbs-item">
+        <a href="doctorDashboard.php" class="breadcrumbs-link">Dashboard</a>
+      </li>
+      <li class="breadcrumbs-item">
+        <a href="doctorCard.php" class="breadcrumbs-link active">My Card</a>
+      </li>
+    </ul>
+  </div>
+  <div class="containerr dashboard">
+    <div class="info">
+      <form id="doctor-info-form">
+        <div class="image-content">
+          <span class="overlay"></span>
+          <p class="description" id="description"><?php echo htmlspecialchars($description); ?></p>
+          <textarea rows="4" cols="25" id="editdescription" name="description" style="display: none;"><?php echo htmlspecialchars($description); ?></textarea>
+        </div>
+        <div class="card-content">
+          <div class="form-group">
+            <label for="linkedin">LinkedIn:</label>
+            <input type="url" class="form-control" id="linkedin" name="linkedin" value="<?php echo htmlspecialchars($linkedin); ?>" readonly>
+          </div>
+          <?php if (!empty($optionalLink1)): ?>
+          <div class="form-group">
+            <label for="optional-link1">Additional Link:</label>
+            <input type="url" class="form-control" id="optional-link1" name="optional-link1" value="<?php echo htmlspecialchars($optionalLink1); ?>" readonly>
+          </div>
+          <?php endif; ?>
+          <?php if (!empty($optionalLink2)): ?>
+          <div class="form-group">
+            <label for="optional-link2">Additional Link:</label>
+            <input type="url" class="form-control" id="optional-link2" name="optional-link2" value="<?php echo htmlspecialchars($optionalLink2); ?>" readonly>
+          </div> <?php endif; ?>
+        </div>
+        <button type="button" class="btn btn-primary save-btn button" id="edit-button">Edit</button>
+        <button type="button" class="btn btn-primary save-btn button" id="save-links-button" style="display: none;">Save</button>
+      </form>
+    </div>
+    <div style="display: flex;flex-direction:row">
+      <form id="doctor-available-form">
 
-<?php include 'navbar/navbar.php';?>
-  <div class="container dashboard">
- 
-     
-        <div class="card info">
-          <div class="image-content">
-            <span class="overlay"></span>
-            <div class="card-image">
-              <img src="../img//images.jpeg" alt="" class="card-img">
+        <h4 class="text-center">Weekly Availability:</h4>
+        <div>
+          <div class="container mt-3">
+            <div class="availability-container" id="availability-container">
+
             </div>
           </div>
-          <div class="card-content">
-            <div>
-              <h2 class="name"><i class="fas fa-user"></i> Doctor Name</h2>
-              <h2 class="name"><i class="fas fa-map-marker-alt"></i> Address</h2>
-            </div>
-            <div>
-              <h2 class="name"><i class="fas fa-phone"></i> Phone number</h2>
-              <h2 class="name"><i class="fas fa-envelope"></i> Email</h2>
-            </div><br>
-            <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec libero non lacus
-              cursus consectetur nec nec tortor.</p>
-            <button class="btn btn-primary button">Edit</button>
-          </div>
         </div>
-     
-     
-        <div class="card major">
-          <div class="image-content">
-            <span class="overlay"></span>
-            <div class="card-image">
-              <img src="../img//micro-lessons.jpg" alt="" class="card-img">
-            </div>
-          </div>
-          <div class="card-content">
-            <h5 class="major">Major: <span>Cardiology</span></h5>
-            <p class="certification">About certification: <span>Board Certified</span></p>
-            <button class="btn btn-primary button">Edit</button>
-          </div>
+
+        <div>
+          <table class="editavailability">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <?php
+                $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+                foreach ($days as $day) {
+                  echo '<th>' . $day . '</th>';
+                }
+                ?>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Start Time</td>
+                <?php
+                foreach ($days as $day) {
+                  echo '<td><input type="time" id="' . strtolower($day) . '-start" class="time-input"></td>';
+                }
+                ?>
+              </tr>
+              <tr>
+                <td>End Time</td>
+                <?php
+                foreach ($days as $day) {
+                  echo '<td><input type="time" id="' . strtolower($day) . '-end" class="time-input"></td>';
+                }
+                ?>
+              </tr>
+            </tbody>
+          </table>
         </div>
-   
-     
-        <div class="card availability">
-          <div class="availability-picker">
-            <input type="datetime-local" /><br>
-            <button id="addAvailability" class="btn btn-primary mt-2">Add Availability</button>
-          </div><br>
-          <div id="availabilityList">
-            <!-- Availability slots will be displayed here -->
-          </div>
-        </div>
-     
-   
+        <button style="margin-left: 40%;" type="button" class="btn btn-primary save-btn mt-3 text-center" id="save-availability-button">Save Availability</button>
+      </form>
+    </div>
   </div>
 
-
-
-
-
+  <script src="js/include.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="js/doctorCard.js"></script>
 </body>
 
 </html>
-<script>
-  document.getElementById('addAvailability').addEventListener('click', function() {
-      const input = document.querySelector('.availability-picker input');
-      const availabilityList = document.getElementById('availabilityList');
-
-      const selectedTime = input.value;
-
-      if (selectedTime) {
-          const newAvailability = document.createElement('div');
-          newAvailability.textContent = new Date(selectedTime).toLocaleString();
-          availabilityList.appendChild(newAvailability);
-
-          input.value = '';  // Clear the input after adding
-      } else {
-          alert('Please select a date and time.');
-      }
-  });
-</script>
-<script src="js/include.js"></script>
-<!-- Icon SCRIPT-->
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

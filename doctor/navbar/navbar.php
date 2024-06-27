@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="stylesheet" href="navbar.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="toggle">
-</div>
+
  <?php
 $current_page = basename($_SERVER['PHP_SELF']);
 
@@ -40,13 +38,7 @@ if ($current_page == 'doctorDashboard.php') {
         <span class="h-title">Home</span>
       </a>
     </li>
-    <li class="list <?php echo $Appointments_active; ?>" style="--bg:#2262b1;">
-      <a href="doctorAppointments.php">
-        <span class="h-icon"><ion-icon name="calendar-outline"></ion-icon>
-        </span>
-        <span class="h-title">Appointments</span>
-      </a>
-    </li>
+    
     <li class="list <?php echo $Patients_active; ?>" style="--bg:#2262b1;">
       <a href="doctorPatients.php">
         <span class="h-icon"><ion-icon name="people-outline"></ion-icon>
@@ -69,7 +61,7 @@ if ($current_page == 'doctorDashboard.php') {
       </a>
     </li>
     <li class="list" style="--bg:#2262b1;">
-      <a href="#">
+      <a href="logout.php">
         <span class="h-icon"><ion-icon name="exit-outline"></ion-icon></span>
         <span class="h-title">Exit</span>
       </a>
@@ -79,6 +71,8 @@ if ($current_page == 'doctorDashboard.php') {
 
 
 <div class="h-navigation">
+<div class="toggle">
+</div>
   <ul>
     <div class="h-logo" style="--bg:#333;">
       <a href="#">
@@ -90,13 +84,7 @@ if ($current_page == 'doctorDashboard.php') {
         <span class="h-title">Home</span>
       </a>
     </li>
-    <li class="list <?php echo $Appointments_active; ?>" style="--bg:#ffffff;">
-      <a href="doctorAppointments.php">
-        <span class="h-icon"><i class="fas fa-calendar-alt"></i>
-        </span>
-        <span class="h-title">Appointments</span>
-      </a>
-    </li>
+  
     <li class="list <?php echo $Patients_active; ?>" style="--bg:#ffffff;">
       <a href="doctorPatients.php">
         <span class="h-icon"><i class="fas fa-users"></i>
@@ -119,7 +107,7 @@ if ($current_page == 'doctorDashboard.php') {
       </a>
     </li>
     <li class="list" style="--bg:#ffffff">
-      <a href="#">
+      <a href="logout.php">
         <span class="h-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
         <span class="h-title">Exit</span>
       </a>
@@ -135,6 +123,3 @@ if ($current_page == 'doctorDashboard.php') {
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!--SCRIPT FOR PIE CHART-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-  <script src="include.js"></script>

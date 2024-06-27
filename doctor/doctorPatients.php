@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+include 'session_check.php';
+?><!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,125 +10,185 @@
   <title>Patients</title>
   <link rel="stylesheet" href="navbar/navbar.css">
   <link rel="stylesheet" href="css/doctorPaients.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 </head>
 
 <body>
-<?php include 'navbar/navbar.php';?>
- 
-  <div class="container dashboard">
+  <?php include 'navbar/navbar.php'; ?>
+  <div class="bread-container">
+    <ul class="breadcrumbs">
+      <li class="breadcrumbs-item">
+        <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+      </li>
+      <li class="breadcrumbs-item">
+        <a href="doctorDashboard.php" class="breadcrumbs-link">Dashboard</a>
+      </li>
+      <li class="breadcrumbs-item">
+        <a href="doctorPatients.php" class="breadcrumbs-link active">Patients</a>
+      </li>
+    </ul>
+  </div>
+  <div class="containerr dashboard">
     <div class="table-content">
       <table class="tbl" id="filter">
         <thead>
           <tr>
             <th>Name</th>
             <th>Email</th>
-            <th>Phone</th>
-            <th colspan="2">Check History</th>
+            <th>Birth</th>
+            <th colspan="2">History</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td data-label="Name">John Doe</td>
-            <td data-label="Email">example@gmail.com</td>
-            <td data-label="Phone">76782908</td>
-            <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="Name">John Doe</td>
-            <td data-label="Email">example@gmail.com</td>
-            <td data-label="Phone">76782908</td>
-            <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="Name">John Doe</td>
-            <td data-label="Email">example@gmail.com</td>
-            <td data-label="Phone">76782908</td>
-            <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
-            </td>
-          </tr>
-          <tr>
-            <td data-label="Name">John Doe</td>
-            <td data-label="Email">example@gmail.com</td>
-            <td data-label="Phone">76782908</td>
-            <td data-label="History"><Button class="btn-edit"><i class="fas fa-arrow-right"></i></Button>
-            </td>
-          </tr>
-
+          
         </tbody>
       </table>
     </div>
 
     <div class="patient-history-container" id="patient-history-container">
 
-      <div class="patient-details">
-        <div>
-          <p><strong>Name:</strong> John Doe</p>
-          <p><strong>Age:</strong> 45</p>
+      <div class="row row1">
+        <!-- First Column -->
+        <div class="col-md-6">
+          <h4 class="text-center" id="patient-name"></h4><br>
+          <div class="row text-center">
+            <div class="col-md-12 d-flex flex-row">
+              <div class="col-md-6">
+                <p><span class="info-label">Gender</span><br><span id="patient-gender"></span></p>
+              </div>
+              <div class="col-md-6">
+                <p><span class="info-label">Birthday</span><br><span id="patient-birthday"></span></p>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="col-md-12 d-flex flex-row">
+              <div class="col-md-5">
+                <p><span class="info-label">Blood Group</span><br><span id="patient-blood-group"></span></p>
+              </div>
+              <div class="col-md-8">
+                <p><span class="info-label">Last Appointment Date</span><br><span id="last-appointment-date"></span></p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div style="margin-left: 20%;">
-          <p><strong>Gender:</strong> Male</p>
-          <p><strong>Blood Type:</strong> B+</p>
+        <div class="appointments-divider"></div>
+        <!-- Second Column -->
+        <div class="col-md-5" style="margin-top: 5%;font-size:1.3rem">
+          <h5 class="text-center">Appointments</h5>
+          <div class="d-flex flex-row appointments">
+            <div class="col-md-4">
+              <div class="appointment-count" id="past-appointments"></div>
+              <div class="appointment-label">Past</div>
+            </div>
+
+
+            <div class="appointments-divider"></div>
+            <div class="col-md-6">
+              <div class="appointment-count" id="upcoming-appointments"></div>
+              <div class="appointment-label">Upcoming</div>
+            </div>
+
+
+          </div>
         </div>
       </div>
-      <div class="appointment-history">
-        <h5>Appointment History</h5>
-        <table class="appointment-table">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>01/10/2024</td>
-              <td>10:00 AM</td>
-              <td>Routine check-up</td>
-            </tr>
-            <tr>
-              <td>02/15/2024</td>
-              <td>11:30 AM</td>
-              <td>Follow-up on blood test results</td>
-            </tr>
-            <tr>
-              <td>03/20/2024</td>
-              <td>2:00 PM</td>
-              <td>Consultation for knee pain</td>
-            </tr>
-          </tbody>
-        </table>
+
+
+
+      <!-- <button class="btn btn-primary print-report-btn">Print Report</button> -->
+
+
+      <!-- Appointment History Table -->
+      <div class="row row2">
+        <div class="col-12">
+          <h5 class="text-center">Previous Appointments</h5>
+          <table class="table table-striped appointment-table tbl">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody id="appointment-history">
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
 
 
+    <div class="notes">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="text-center mb-4">Doctor's Prescription</h5>
+            <form id="appointment-notes-form" action="generate_report.php" method="POST">
+              <!-- Patient and Doctor Information -->
+              <div class="row">
+                <div class="col-md-4 form-group">
+
+                  <label for="patient-name">Patient Name:</label>
+                  <input type="text" class="form-control" id="patient-name" name="patient-name">
+
+                </div>
+               
+                <div class="col-md-4 form-group"> <label for="doctor-name">Doctor Name:</label>
+                  <input type="text" class="form-control" id="doctor-name" name="doctor-name">
+                </div>
+                <div class="col-md-4 form-group"> <label for="date">Date:</label>
+                  <input type="text" class="form-control" id="date" name="date">
+                </div>
+              </div>
+              <!-- Sections for Notes -->
+              <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="reason">Reason for Admission:</label>
+                <textarea class="form-control" id="reason" rows="4" name="reason" ></textarea>
+              </div>
+
+              <div class=" col-md-6 form-group">
+                <label for="diagnosis">Diagnosis:</label>
+                <textarea class="form-control" id="diagnosis" rows="4" name="diagnosis" ></textarea>
+              </div>
+              </div>
+              
+              <div class="row">
+              <div class="col-md-6 form-group">
+                <label for="medications">Medications:</label>
+                <textarea class="form-control" id="medications" rows="4" name="medications"></textarea>
+              </div>
+
+              <div class="col-md-6 form-group">
+                <label for="examinations">Examinations and X-ray Needed:</label>
+                <textarea class="form-control" id="examinations" rows="4" name="examinations"></textarea>
+              </div>
+
+              </div>
+              <!-- Print Button -->
+              <button type="submit" class="text-center btn btn-primary mt-1 print-report-btn" id="print-report-btn">Print PDF</button>
+            
+              </form>
+          </div>
+          
+        </div>
+        
+      </div>
 
 
-
+    </div>
+    
   </div>
-
-  
-
+  <script src="js/doctorPatients.js"></script>
+  <script src="js/include.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
 
 </html>
-<script>
-  // Get all elements with the class name "btn-check"
-  var buttons = document.querySelectorAll(".btn-edit");
-
-  // Add event listener to each button
-  buttons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      var patientWindow = document.getElementById("patient-history-container");
-      patientWindow.style.visibility = "visible";
-    });
-  });
-</script>
-<script src="js/include.js"></script>
-<!-- Icon SCRIPT-->
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

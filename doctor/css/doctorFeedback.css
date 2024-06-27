@@ -2,17 +2,71 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #f5f6fd;
 }
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+/* Ensure Font Awesome icons keep their original font family */
+.fa, .fas, .far, .fal, .fab {
+  font-family: 'Font Awesome 5 Free' !important;
+}
 
+/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
+  font-family: 'Font Awesome 6 Free' !important;
+}
 .container {
   display: flex;
   margin-left: 3%;margin-right: 2%;
 }
+.bread-container{
+  width: 90%;
+  background-color: #Fff;
+  max-width: 1440px;
+  height: fit-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;margin-left: 8%;
+  padding-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  }
 
+  .breadcrumbs{
+    padding: 10px;
+  }
+  .breadcrumbs-item{
+    display: inline-block;
+  }
+
+  .breadcrumbs-item:not(:last-of-type)::after{
+    content: '/';
+    margin: 0px 5px;
+    color: #ccc;
+  }
+
+  .breadcrumbs-link{
+    text-decoration: none;
+    color: #999999;
+  }
+  .breadcrumbs-link:hover{
+    text-decoration: underline;
+  }
+  .breadcrumbs-link.active{
+    color: #850f0f;
+    font-weight: 500;
+  }
+
+  .breadcrumbs i{
+      font-size: 20px;
+  }
+  .breadcrumbs li:nth-child(1){
+      padding-left: 20px;
+  }
 .feedback-card {
   margin-bottom: 20px;
-  margin-left: 4%;
+  margin-left:6%;
   padding: 20px;
-  margin-top: 5%;
+  margin-top: 2%;
   border-radius: 8px;
   background-color: #eaeaf8;
   box-shadow: 0 4px 8px rgba(27, 18, 70, 0.993);
