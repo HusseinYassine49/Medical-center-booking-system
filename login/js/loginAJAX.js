@@ -21,7 +21,7 @@ function login(event) {
                 if (response.success === 'Admin login successful') {
                     window.location.href = '../admin/admin-dashboard.php?userID=' + response.userID;
                 } else if (response.success === 'User login successful') {
-                    window.location.href = '../patient/patient.php?userID=' + response.userID;
+                    window.location.href = '../patient/patient-dahboard.php?userID=' + response.userID;
                 } else if (response.success === 'Doctor login successful') {
                     window.location.href = '../doctor/doctorDashboard.php';
                 }else if (response.success === 'Doctor not verified') {

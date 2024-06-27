@@ -71,7 +71,6 @@
     padding: 20px;
     flex-grow: 1;
     display: flex;
-    flex-wrap: wrap;
     transition: margin-left 0.3s;
 }
 
@@ -174,6 +173,48 @@
     border-radius: 50%;
     box-shadow: 0 0 1px #333;
 }
+
+
+.bread-container{
+    margin-top: 40px;
+    width: 100%;
+    background-color: #Fff;
+    max-width: 1440px;
+    height: fit-content;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    z-index: 4;
+    position: relative;
+    }
+
+    .breadcrumbs{
+      padding: 10px;
+    }
+    .breadcrumbs-item{
+      display: inline-block;
+    }
+
+    .breadcrumbs-item:not(:last-of-type)::after{
+      content: '/';
+      margin: 0px 5px;
+      color: #ccc;
+    }
+
+    .breadcrumbs-link{
+      text-decoration: none;
+      color: #999999;
+    }
+    .breadcrumbs-link:hover{
+      text-decoration: underline;
+    }
+    .breadcrumbs-link.active{
+      color: #009578;
+      font-weight: 500;
+    }
+
 @media screen and (max-width:720px) {
     .weekdays td,
     .days td {

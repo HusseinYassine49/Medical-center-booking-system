@@ -189,3 +189,55 @@ window.addEventListener('click', function(event) {
         document.body.classList.remove('show-sidebar');
     }
 });
+
+function makeAppointment() {
+    const doctorID = $('#doctor').val();
+    const details = $('#description').val();
+    const delete_ = '0'; // Or any other value you want to set for delete_
+    const date_ = $('#date').val();
+    const verified_ = '0'; // Or any other value you want to set for verified_
+
+    $.ajax({
+        url: 'save_appointment.php',
+        type: 'POST',
+        data: {
+            doctorID: doctorID,
+            userID: userID,
+            details: details,
+            delete_: delete_,
+            date_: date_,
+            verified_: verified_
+        },
+        success: function(response) {
+            alert(response);
+            console(response);
+            // Optionally, you can refresh the appointment list or calendar here
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+}
+
+function updateDoctors() {
+    var departmentId = $('#clinic').val();
+
+    $.ajax({
+        type: 'POST',
+        url: 'get_doctors.php',
+        data: { department_id: departmentId },
+        dataType: 'json',
+        success: function(response) {
+            var doctorSelect = $('#doctor');
+            doctorSelect.empty();
+            doctorSelect.append('<option value="" disabled selected>Select Doctor</option>');
+
+            response.forEach(function(doctor) {
+                doctorSelect.append('<option value="' + doctor.DoctorID + '">' + doctor.Fname + ' ' + doctor.Lname + '</option>');
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error('Error:', error);
+        }
+    });
+}
