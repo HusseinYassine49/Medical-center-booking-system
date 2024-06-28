@@ -1,0 +1,204 @@
+.container {
+    position: relative;
+    transition-duration: 0.8s;
+    perspective: 1500px;
+    margin-top: 10px;
+}
+
+.containerr {
+    width: 50%;
+    /* Adjusted width */
+    height: 536px;
+    /* Adjusted height */
+}
+
+.cover,
+.back-cover {
+    background-color: #2262b1;
+    ;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 25px 25px 0;
+    box-shadow: 0 0 5px rgb(41, 41, 41);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover {
+    position: absolute;
+    z-index: 5;
+    transform-origin: center left;
+    transition: transform 0.8s ease-in-out;
+}
+
+.cover label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.back-cover {
+    position: relative;
+    z-index: -1;
+}
+
+.page {
+    background-color: white;
+    position: absolute;
+    width: 90%;
+    /* Adjusted width */
+    height: 90%;
+    /* Adjusted height */
+    border-radius: 0 15px 15px 0;
+    margin-top: 15px;
+    transform-origin: left center;
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    transition-duration: 1.5s;
+    perspective: 1500px;
+}
+
+.page img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px 0 0 15px;
+}
+
+.front-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1.3rem;
+    /* Adjusted padding */
+}
+
+.back-page {
+    transform: rotateY(180deg);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    z-index: 99;
+}
+
+.next,
+.prev {
+    cursor: pointer;
+}
+
+.next {
+    right: 1.3rem;
+    /* Adjusted position */
+}
+
+.prev {
+    left: 1.3rem;
+}
+
+#page1 {
+    transform: rotateY(0deg);
+    /* Initial state for page 1 */
+    z-index: 3;
+    /* Ensure page 1 is initially visible */
+}
+
+#page2 {
+    z-index: 2;
+}
+
+#page3 {
+    z-index: 1;
+}
+
+.invisible {
+    display: none;
+}
+
+#checkbox-cover:checked~.container {
+    transform: translateX(300px);
+}
+
+#checkbox-cover:checked~.container .cover {
+    transform: rotateY(-180deg);
+    transition: transform 1.5s, z-index 0.5s 0.5s;
+    z-index: 1;
+}
+
+#checkbox-page1:checked~.container #page1 {
+    transform: rotateY(-180deg);
+    z-index: 2;
+}
+
+.page .form-wrapper label {
+    color: #2262b1;
+}
+
+.trapezoid {
+    position: absolute;
+    top: 100px;
+    right: -100px;
+    border-bottom: 50px solid #2262b1;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    transform: rotate(90deg);
+    height: 0;
+    width: 125px;
+}
+
+.trapezoid::before,
+.trapezoid::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 120px;
+    height: 30px;
+    border-radius: 200px;
+    background-color: #2262b1;
+}
+
+.trapezoid::before {
+    left: 5px;
+}
+
+.trapezoid::after {
+    right: 5px;
+}
+
+.btn-register {
+    width: 50%;
+    background-color: #2262b1;
+}
+
+#cover-img {
+    opacity: 0.9;
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    top: 055%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+@media(max-width: 1400px) {
+    .containerr {
+        transform: scale(0.8);
+    }
+    #checkbox-cover:checked~.containerr {
+        transform: scale(0.8) translateX(300px);
+        transition: transform 0.5s ease-in-out;
+    }
+}
+
+@media(max-width: 1000px) {
+    .containerr {
+        transform: scale(0.6);
+    }
+    #checkbox-cover:checked~.containerr {
+        transform: scale(0.6) translateX(330px);
+        transition: transform 0.5s ease-in-out;
+    }
+}
