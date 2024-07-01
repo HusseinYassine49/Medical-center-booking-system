@@ -1,0 +1,5 @@
+Array
+(
+    [success] => Data inserted successfully
+    [redirect] => login.php
+)

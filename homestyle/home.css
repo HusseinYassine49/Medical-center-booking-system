@@ -82,17 +82,19 @@ body{
     background-color: #2262b1;
 }
 .meet-dr{
-    background-color: #850f0f;
+    background-color: #ff6f61;
 }
 .book-now:hover{
     background-color: #f3f3f3;
     color: #2262b1;
 }
 .meet-dr:hover{
-    color:#850f0f;
+    color:#ff6f61;
     background-color: #f3f3f3;
 }
-
+.img-fluid{
+    width: 100% !important;height: 100% !important;
+}
     
 .navbar2{
     color: #2262b1;
@@ -105,7 +107,9 @@ padding: 2% 5% 2% 10% !important;
     font-size: 1.2rem;
     font-weight: bold;
 }
-
+.fixed-links:hover{
+    color: #ff6f61;
+}
 .about{
     margin: 6% 5% 4% 5%;
     display: flex;
@@ -114,7 +118,7 @@ padding: 2% 5% 2% 10% !important;
 }
 h3{
     font-weight: bold;text-align: center;
-    color:#850f0f;text-shadow: 2px 2px 4px rgba(41, 41, 41, 0.5);
+    color:#fd4f3f;text-shadow: 2px 2px 4px rgba(41, 41, 41, 0.5);
 
 }
 .about-image{
@@ -133,9 +137,9 @@ h3{
     color: #2262b1;background-color: #eaf4f1;
     font-size: 1.2rem;margin-top: 0% !important;
 }
-.services h3,.service-title{
+.service-title{
     font-weight: bold;text-align: center;
-    color:#850f0f;text-decoration: none
+    color:#ff6f61;text-decoration: none
 }
 .service-title:hover{
    text-decoration: none;
@@ -208,7 +212,7 @@ h3{
     margin: 1%;border: none;
 }
 .clinics-card:hover{
-transform: scale(1.1);background-color:#850f0fb2;color: #eaf4f1;
+transform: scale(1.1);background-color:#ff6e6181;color: #eaf4f1;
 }
 .clinic_name{
     width: 100% !important;
@@ -218,6 +222,16 @@ transform: scale(1.1);background-color:#850f0fb2;color: #eaf4f1;
     padding: 3% 0% 4% 0% !important;
     color: #2262b1;background-color: #fafafa;
     font-size: 1.2rem;margin-top: 0% !important;
+}
+.doctors-card,.pic{
+    padding-left: 0% !important;
+}
+.member-info{
+    padding-top: 5%;
+}
+.donors{
+    width: 95%;
+    margin-left: 3%;
 }
 .footer{
     padding: 3% 0% 2% 5% !important;

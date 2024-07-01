@@ -3,6 +3,40 @@ require "include/connection.php";
 $sql = "SELECT Department_name, icon FROM department";
 $result = $con->query($sql);
 
+$sqlc = "SELECT COUNT(*) AS department_count FROM department";
+$resultc = $con->query($sqlc);
+
+$sql_departments = "SELECT COUNT(*) AS department_count FROM department";
+$result_departments = $con->query($sql_departments);
+
+// Fetch the count
+$department_count = 0;
+if ($result_departments->num_rows > 0) {
+    $row_departments = $result_departments->fetch_assoc();
+    $department_count = $row_departments['department_count'];
+}
+
+// Query to count the number of doctors
+$sql_doctors = "SELECT COUNT(*) AS doctor_count FROM doctors";
+$result_doctors = $con->query($sql_doctors);
+
+// Fetch the count
+$doctor_count = 0;
+if ($result_doctors->num_rows > 0) {
+    $row_doctors = $result_doctors->fetch_assoc();
+    $doctor_count = $row_doctors['doctor_count'];
+}
+
+// Query to count the number of users
+$sql_users = "SELECT COUNT(*) AS user_count FROM users";
+$result_users = $con->query($sql_users);
+
+// Fetch the count
+$user_count = 0;
+if ($result_users->num_rows > 0) {
+    $row_users = $result_users->fetch_assoc();
+    $user_count = $row_users['user_count'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +57,7 @@ $result = $con->query($sql);
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+     
 </head>
 
 <body>
@@ -71,16 +106,16 @@ $result = $con->query($sql);
         <nav class="sticky-top bg-light navbar-expand-lg">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar2">
                 <li class="nav-item nav-item2">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link fixed-links" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item nav-item2">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link fixed-links" href="#about">About</a>
                 </li>
                 <li class="nav-item nav-item2">
-                    <a class="nav-link" href="#services">Services</a>
+                    <a class="nav-link fixed-links" href="#services">Services</a>
                 </li>
                 <li class="nav-item nav-item2">
-                    <a class="nav-link" href="#doctors">Doctors</a>
+                    <a class="nav-link fixed-links" href="#doctors">Doctors</a>
                 </li>
             </ul>
 
@@ -224,7 +259,7 @@ $result = $con->query($sql);
                 } else {
                     echo "0 results";
                 }
-                $con->close();
+
                 ?>
             </div>
         </div>
@@ -232,11 +267,47 @@ $result = $con->query($sql);
 
     <div class="doctors" id="doctors">
         <h3>Meet Our Expert Doctors</h3><br>
+        <div class="container">
 
+            <?php $sql = "SELECT drID, AVG(rating) AS average_rating FROM feedback WHERE status = 'accepted' GROUP BY drID ORDER BY average_rating DESC LIMIT 2";
+            $result = $con->query($sql);
+
+            if ($result->num_rows > 0) {
+                echo '<div class="row">';
+                while ($row = $result->fetch_assoc()) {
+                    // Fetching doctor details from another table based on drID
+                    $doctorId = $row['drID'];
+                    $sql_doctor = "SELECT Fname, Lname,Email FROM users WHERE id = $doctorId";
+                    $result_doctor = $con->query($sql_doctor);
+
+                    if ($result_doctor->num_rows > 0) {
+                        $doctor_info = $result_doctor->fetch_assoc();
+
+                        echo '
+                        <div class="card col-md-6 col-sm-1 clinics-card doctors-card" >
+                             <div class="member d-flex align-items-start">
+                                 <div class=" col-md-4 pic"><img src="assets/img/' . $doctorId . '.jpg" class="img-fluid" alt=""></div>
+                                 <div class="col-md-8 member-info">
+                                     <h4>' . $doctor_info['Fname'] . ' ' . $doctor_info['Lname'] . '</h4>
+                                     <span>' . $doctor_info['Email'] . ' </span> 
+                                    
+                                     <div class="social">
+
+                                         
+                                         <a href=""><i class="ri-linkedin-box-fill"></i></a>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>';
+                    }
+                }
+                echo '</div>';
+            } ?>
+        </div>
 
 
     </div>
-    <div class="" id="">
+    <div class="donors" id="donors">
         <input class="invisible" type="checkbox" id="checkbox-cover">
         <input class="invisible" type="checkbox" id="checkbox-page1">
         <input class="invisible" type="checkbox" id="checkbox-page2">
@@ -303,7 +374,7 @@ $result = $con->query($sql);
             <div class="row">
                 <!-- About Section -->
                 <div class="col-md-4">
-                   
+
                     <p>We are dedicated to providing you with the best possible healthcare experience by connecting you with top-rated doctors and specialists.</p>
                 </div>
 
@@ -328,10 +399,10 @@ $result = $con->query($sql);
                         <li><i class="fas fa-envelope"></i> contact@medicalcenter.com</li>
                     </ul>
                     <div class="mt-3">
-                        <a href="#" class="text-white mr-2"><i class="fas fa-facebook"></i></a>
-                        <a href="#" class="text-white mr-2"><i class="fas fa-twitter"></i></a>
-                        <a href="#" class="text-white mr-2"><i class="fas fa-linkedin"></i></a>
-                        <a href="#" class="text-white"><i class="fas fa-instagram"></i></a>
+                    <a href=""><i class="ri-twitter-fill text-white"></i></a>
+                                         <a href=""><i class="ri-facebook-fill text-white"></i></a>
+                                         <a href=""><i class="ri-instagram-fill text-white"></i></a>
+                                         <a href=""><i class="ri-linkedin-box-fill text-white"></i></a>
                     </div>
                 </div>
             </div>
@@ -341,7 +412,7 @@ $result = $con->query($sql);
                 <p class="mb-0">&copy; 2024 Clinic Click. All rights reserved.</p>
             </div>
         </div>
- 
+
 
 
 

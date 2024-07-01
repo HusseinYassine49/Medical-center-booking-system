@@ -25,6 +25,7 @@
     transition: width 0.5s;
     padding-left: 10px;
     overflow: hidden;
+    z-index: 4;
 }
 
 .h-navigation.h-active {
@@ -82,11 +83,11 @@ with it curves*/
 }
 
 .h-navigation ul li.h-active .h-icon {
-    color: #850f0f;
+    color: #ff6f61;
 }
 
 .h-navigation ul li.h-active .h-title {
-    color: #850f0f;
+    color: #ff6f61;
 }
 
 .h-navigation ul li a {
@@ -124,7 +125,7 @@ with it curves*/
 
 .h-navigation ul li:hover a .h-icon,
 .h-navigation ul li:hover a .h-title {
-    color: #850f0f;
+    color: #ff6f61;
 }
 
 .h-navigation ul li.h-active .h-icon::before {
@@ -151,7 +152,7 @@ with it curves*/
     width: 50px;
     left: 1%;
     height: 50px;
-    background: #850f0f;
+    background: #ff6f61;
     z-index: 1000;
     cursor: pointer;
     display: flex;
@@ -190,10 +191,9 @@ with it curves*/
 }
 
 .main-page {
-    width: 75%;
+    width: 85%;
     height: 870px;
-    background-color: var(--clr);
-    margin-left: 20%;
+    margin-left: 10%;
     padding: 20px;
     padding-top: 80px;
 }
@@ -271,7 +271,7 @@ with it curves*/
         font-size: 1.7em;
         text-align: center;
         transition: 0.5s;
-        color: #850f0f;
+        color: #ff6f61;
         ;
     }
     .navigation ul li.active .h-icon {
@@ -279,7 +279,7 @@ with it curves*/
     }
     .navigation ul li a .h-title {
         position: absolute;
-        color: #850f0f;
+        color: #ff6f61;
         font-weight: 400;
         font-size: 1.35em;
         letter-spacing: 0.05em;
