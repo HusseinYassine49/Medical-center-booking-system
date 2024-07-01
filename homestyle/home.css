@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     padding: 0%;
     margin: 0%;
@@ -31,6 +32,25 @@ body {
 }
 
 .top {
+=======
+body{
+    padding: 0%;
+    margin: 0%;
+}
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+/* Ensure Font Awesome icons keep their original font family */
+.fa, .fas, .far, .fal, .fab {
+    font-family: 'Font Awesome 5 Free' !important;
+}
+
+/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
+    font-family: 'Font Awesome 6 Free' !important;
+}
+.top{
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     margin: 0%;
     background-image: url(../assets/img/3.jpg);
     background-repeat: no-repeat;
@@ -38,6 +58,7 @@ body {
     width: 100%;
     height: 100vh;
 }
+<<<<<<< HEAD
 
 .navbar {
     display: flex;
@@ -97,6 +118,56 @@ body {
 }
 
 .buttons-center button {
+=======
+.navbar{
+    display: flex;
+    flex-direction: row;
+    padding:2% 4% 0% 0% !important;
+}
+.navbar-nav{
+    width: 100% !important;
+}
+.nav-item{
+    width: 50% !important;
+    height: 100% !important;
+}
+.logo{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+     color: #2262b1;
+     font-weight: bolder;
+     font-size: 2rem;
+     margin-left: 5%;
+}
+
+.login{
+    color: #2262b1;
+     font-weight: bolder;
+     font-size: 2rem;cursor: pointer;
+}
+.list{
+    margin-top: 0.5%;
+    cursor: pointer;
+}
+.list:hover{
+    background-color: rgba(198, 202, 201, 0.596);
+    border-radius: 2%;
+}
+.dropdown-menu{
+    margin-right: 1%;
+}
+.dropdown-item{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+    
+}
+.dropdown-item:hover{
+    background-color:  #2262b1 !important;
+    color:aliceblue !important;
+}
+.buttons-center{
+    margin: 15% 0% 0% 30%;
+}
+.buttons-center button{
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     color: aliceblue;
     font-size: 1.2rem;
     font-weight: bold;
@@ -105,6 +176,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
 }
+<<<<<<< HEAD
 
 .book-now {
     background-color: #2262b1;
@@ -133,16 +205,47 @@ body {
 
 .nav-item2 a {
     color: #2262b1 !important;
+=======
+.book-now{
+    background-color: #2262b1;
+}
+.meet-dr{
+    background-color: #850f0f;
+}
+.book-now:hover{
+    background-color: #f3f3f3;
+    color: #2262b1;
+}
+.meet-dr:hover{
+    color:#850f0f;
+    background-color: #f3f3f3;
+}
+
+    
+.navbar2{
+    color: #2262b1;
+padding: 2% 5% 2% 10% !important;
+    font-size: 1rem;
+    background-color: #eaf4f1;
+    
+}
+.nav-item2 a{ color: #2262b1 !important;
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     font-size: 1.2rem;
     font-weight: bold;
 }
 
+<<<<<<< HEAD
 .about {
+=======
+.about{
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     margin: 6% 5% 4% 5%;
     display: flex;
     color: #2262b1;
     font-size: 1.2rem;
 }
+<<<<<<< HEAD
 
 h3 {
     font-weight: bold;
@@ -209,6 +312,54 @@ h3 {
     font-weight: bold;
 }
 
+=======
+h3{
+    font-weight: bold;text-align: center;
+    color:#850f0f;text-shadow: 2px 2px 4px rgba(41, 41, 41, 0.5);
+
+}
+.about-image{
+    width:80%;
+    height:max-content;
+}
+.mission, .vision{
+    width: 55%;
+}
+.mission p, .vision p{
+    text-shadow: 1px 1px 2px rgba(41, 41, 41, 0.5);
+
+}
+.services{
+    padding: 3% 5% 4% 5% !important;
+    color: #2262b1;background-color: #eaf4f1;
+    font-size: 1.2rem;margin-top: 0% !important;
+}
+.services h3,.service-title{
+    font-weight: bold;text-align: center;
+    color:#850f0f;text-decoration: none
+}
+.service-title:hover{
+   text-decoration: none;
+}
+.card-header{
+    background-color: transparent !important;
+}
+.card-body{
+    display: flex;
+
+}
+.card-image {
+    width: 50%;
+}
+.card-image img{
+    width:80%;
+    height:max-content;
+}
+.card-text{
+  width: 50%;
+  padding-top: 10%;font-weight: bold;
+}
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 .counts {
     padding: 70px 0 60px;
 }
@@ -250,6 +401,7 @@ h3 {
     font-family: "Raleway", sans-serif;
     font-size: 14px;
 }
+<<<<<<< HEAD
 
 .clinics {
     padding: 3% 0% 4% 0% !important;
@@ -291,3 +443,30 @@ h3 {
     margin-top: 0% !important;
     display: flex;
 }
+=======
+.clinics{
+    padding: 3% 0% 4% 0% !important;
+    color: #2262b1;background-color: #eaf4f1;
+    font-size: 1.2rem;margin-top: 0% !important;
+}
+.clinics-card{
+    margin: 1%;border: none;
+}
+.clinics-card:hover{
+transform: scale(1.1);background-color:#850f0fb2;color: #eaf4f1;
+}
+.clinic_name{
+    width: 100% !important;
+    text-align: center;
+}
+.doctors{
+    padding: 3% 0% 4% 0% !important;
+    color: #2262b1;background-color: #fafafa;
+    font-size: 1.2rem;margin-top: 0% !important;
+}
+.footer{
+    padding: 3% 0% 2% 5% !important;
+    color: #ffffff;background-color: #2262b1;
+    font-size: 1rem;margin-top: 0% !important;display: flex;
+}
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c

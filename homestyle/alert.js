@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 let isEmailValid = false;
 let isPasswordValid = false;
 let isRegisterEmailValid = false;
@@ -9,17 +13,30 @@ let dobValid = false;
 
 /* HERE THE CODE FOR THE LOGIN FORM VALIDATION */
 document.addEventListener('DOMContentLoaded', function() {
+<<<<<<< HEAD
     let email = document.getElementById('login-email');
     let password = document.getElementById('login-password');
     let button = document.getElementById('Login-Button');
 
     email.addEventListener('blur', function() {
         em = email.value;
+=======
+    let email =document.getElementById('login-email');
+    let password =document.getElementById('login-password');
+    let button =  document.getElementById('Login-Button');
+    
+    email.addEventListener('blur', function() {
+        em = email.value; 
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         if (!validateEmail(em)) {
             valid = false;
             email.parentElement.classList.add("error");
             isEmailValid = false;
+<<<<<<< HEAD
         } else {
+=======
+        }else{
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
             email.parentElement.classList.remove("error");
             isEmailValid = true;
         }
@@ -27,12 +44,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     password.addEventListener('blur', function() {
+<<<<<<< HEAD
         pass = password.value;
+=======
+        pass =password.value;
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         if (!validatePassword(pass)) {
             valid = false;
             password.parentElement.classList.add("error");
             isPasswordValid = false;
+<<<<<<< HEAD
         } else {
+=======
+        }else{
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
             password.parentElement.classList.remove("error");
             isPasswordValid = true;
         }
@@ -59,10 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let confirm = document.getElementById('Confirm-Password');
     let button = document.getElementById('Register-Button');
     let dob = document.getElementById('dob');
+<<<<<<< HEAD
 
 
     email.addEventListener('blur', function() {
         let em = email.value;
+=======
+    
+    
+    email.addEventListener('blur', function() {
+        let em = email.value; 
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         if (!validateEmail(em)) {
             email.parentElement.classList.add("error");
             isRegisterEmailValid = false;
@@ -112,7 +144,11 @@ document.addEventListener('DOMContentLoaded', function() {
     confirm.addEventListener('blur', function() {
         let passwo = password.value;
         let confirmPass = confirm.value;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         if (passwo !== confirmPass) {
             confirm.parentElement.classList.add("error");
             isRegisterConfirmValid = false;
@@ -120,7 +156,11 @@ document.addEventListener('DOMContentLoaded', function() {
             confirm.parentElement.classList.remove("error");
             isRegisterConfirmValid = true;
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         updateButtonState()
     });
 
@@ -163,7 +203,11 @@ function validatePassword(password) {
 
 function Info(name) {
     name = name.trim();
+<<<<<<< HEAD
     return name.length >= 1;
+=======
+    return name.length >= 1; 
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 }
 
 
@@ -180,10 +224,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let doctorconfirm = document.getElementById('doctor-confirm-password');
     let doctorbutton = document.getElementById('doctor-reg');
     let doctordob = document.getElementById('doctor-dob');
+<<<<<<< HEAD
 
 
     doctoremail.addEventListener('blur', function() {
         let dem = doctoremail.value;
+=======
+    
+    
+    doctoremail.addEventListener('blur', function() {
+        let dem = doctoremail.value; 
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         if (!validateEmail(dem)) {
             doctoremail.parentElement.classList.add("error");
             isRegisterEmailValid = false;
@@ -223,7 +274,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!Info(dln)) {
             doctorlname.parentElement.classList.add("error");
             isRegisterLnameValid = false;
+<<<<<<< HEAD
         } else {
+=======
+        } else { 
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
             doctorlname.parentElement.classList.remove("error");
             isRegisterLnameValid = true;
         }
@@ -233,7 +288,11 @@ document.addEventListener('DOMContentLoaded', function() {
     doctorconfirm.addEventListener('blur', function() {
         let passwo = doctorpassword.value;
         let confirmPass = doctorconfirm.value;
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         if (passwo !== confirmPass) {
             doctorconfirm.parentElement.classList.add("error");
             isRegisterConfirmValid = false;
@@ -241,7 +300,11 @@ document.addEventListener('DOMContentLoaded', function() {
             doctorconfirm.parentElement.classList.remove("error");
             isRegisterConfirmValid = true;
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         updateButtonState()
     });
 
@@ -265,4 +328,10 @@ document.addEventListener('DOMContentLoaded', function() {
             doctorbutton.disabled = true;
         }
     }
+<<<<<<< HEAD
 });
+=======
+});
+
+
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c

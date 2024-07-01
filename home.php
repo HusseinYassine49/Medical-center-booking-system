@@ -3,6 +3,7 @@ require "include/connection.php";
 $sql = "SELECT Department_name, icon FROM department";
 $result = $con->query($sql);
 
+<<<<<<< HEAD
 $sqlc = "SELECT COUNT(*) AS department_count FROM `department`";
 $resultc = $con->query($sqlc);
 
@@ -37,6 +38,8 @@ if ($result_users->num_rows > 0) {
     $row_users = $result_users->fetch_assoc();
     $user_count = $row_users['user_count'];
 }
+=======
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +49,12 @@ if ($result_users->num_rows > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Document</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+=======
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     <link href="homestyle/home.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -58,6 +65,7 @@ if ($result_users->num_rows > 0) {
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<<<<<<< HEAD
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -77,13 +85,19 @@ if ($result_users->num_rows > 0) {
     <!-- Template Main CSS File -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+=======
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 </head>
 
 <body>
     <div class="top">
         <nav class="navbar navbar-expand-lg ">
+<<<<<<< HEAD
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+=======
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -101,8 +115,12 @@ if ($result_users->num_rows > 0) {
 
                     </li>
 
+<<<<<<< HEAD
                     <a class="nav-link list" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
+=======
+                    <a class="nav-link list" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                         <i class="fas fa-list login"></i>
 
                     </a>
@@ -146,18 +164,29 @@ if ($result_users->num_rows > 0) {
     <div id="about" class="about">
         <div class="mission">
             <h3>Our Mission:</h3>
+<<<<<<< HEAD
             <p>To provide accessible, efficient, and reliable healthcare services by connecting patients with qualified
                 healthcare professionals through an intuitive and user-friendly online booking platform.</p>
         </div>
         <div>
             <img class="about-image"
                 src="assets/img/[removal.ai]_ab0af4a2-a502-43c2-a9d0-0193807eca11-_445ae47d-301a-4120-adc8-461efa542360.png">
+=======
+            <p>To provide accessible, efficient, and reliable healthcare services by connecting patients with qualified healthcare professionals through an intuitive and user-friendly online booking platform.</p>
+        </div>
+        <div>
+            <img class="about-image" src="assets/img/[removal.ai]_ab0af4a2-a502-43c2-a9d0-0193807eca11-_445ae47d-301a-4120-adc8-461efa542360.png">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 
         </div>
         <div class="vision">
             <h3>Our Vision:</h3>
+<<<<<<< HEAD
             <p>To revolutionize the way healthcare services are accessed and delivered, making quality healthcare
                 available to everyone, anytime, anywhere.</p>
+=======
+            <p>To revolutionize the way healthcare services are accessed and delivered, making quality healthcare available to everyone, anytime, anywhere.</p>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         </div>
     </div>
 
@@ -168,8 +197,12 @@ if ($result_users->num_rows > 0) {
             <div class="card">
                 <div class="card-header" id="headingOne">
                     <h5 class="mb-0">
+<<<<<<< HEAD
                         <button class="btn btn-link service-title" data-toggle="collapse" data-target="#collapseOne"
                             aria-expanded="true" aria-controls="collapseOne">
+=======
+                        <button class="btn btn-link service-title" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                             Convenient Appointment Booking
                         </button>
                     </h5>
@@ -177,9 +210,13 @@ if ($result_users->num_rows > 0) {
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
+<<<<<<< HEAD
                         <div class="card-text">Streamline your healthcare experience with our easy-to-use online
                             appointment scheduling system. Say goodbye to long waiting times and enjoy the convenience
                             of managing your healthcare appointments online.
+=======
+                        <div class="card-text">Streamline your healthcare experience with our easy-to-use online appointment scheduling system. Say goodbye to long waiting times and enjoy the convenience of managing your healthcare appointments online.
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 
                         </div>
 
@@ -192,20 +229,30 @@ if ($result_users->num_rows > 0) {
             <div class="card">
                 <div class="card-header" id="headingTwo">
                     <h5 class="mb-0">
+<<<<<<< HEAD
                         <button class="btn btn-link collapsed service-title" data-toggle="collapse"
                             data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+=======
+                        <button class="btn btn-link collapsed service-title" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                             Instant Doctor Availability
                         </button>
                     </h5>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
+<<<<<<< HEAD
                         <div class="card-text">Check real-time availability of our expert medical professionals. Whether
                             it's for routine check-ups or specialized consultations, easily find the right appointment
                             slot for your needs.</div>
 
                         <div class="card-image"><img
                                 src="assets/img/doctor-using-smartphone-health-care-260nw-1209713866.png"></div>
+=======
+                        <div class="card-text">Check real-time availability of our expert medical professionals. Whether it's for routine check-ups or specialized consultations, easily find the right appointment slot for your needs.</div>
+
+                        <div class="card-image"><img src="assets/img/doctor-using-smartphone-health-care-260nw-1209713866.png"></div>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 
                     </div>
                 </div>
@@ -213,17 +260,25 @@ if ($result_users->num_rows > 0) {
             <div class="card">
                 <div class="card-header" id="headingThree">
                     <h5 class="mb-0">
+<<<<<<< HEAD
                         <button class="btn btn-link collapsed service-title" data-toggle="collapse"
                             data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+=======
+                        <button class="btn btn-link collapsed service-title" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                             Never Miss an Appointment
                         </button>
                     </h5>
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
+<<<<<<< HEAD
                         <div class="card-text"> Receive automated reminders and notifications for your upcoming
                             appointments. Stay updated with appointment details, including any changes or rescheduling
                             options, to maintain continuity in your healthcare journey. </div>
+=======
+                        <div class="card-text"> Receive automated reminders and notifications for your upcoming appointments. Stay updated with appointment details, including any changes or rescheduling options, to maintain continuity in your healthcare journey. </div>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 
                         <div class="card-image"><img src="assets/img/dna.jpg"></div>
 
@@ -238,6 +293,7 @@ if ($result_users->num_rows > 0) {
 
             <div class="row">
 
+<<<<<<< HEAD
                 <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                     <div class="count-box">
                         <i class="far fa-hospital"></i>
@@ -252,24 +308,50 @@ if ($result_users->num_rows > 0) {
                         <i class="fas fa-user-md"></i>
                         <span data-purecounter-start="0" data-purecounter-end="<?php echo $doctor_count; ?>"
                             data-purecounter-duration="1" class="purecounter"></span>
+=======
+                <div class="col-lg-3 col-md-6">
+                    <div class="count-box">
+                        <i class="fas fa-user-md"></i>
+                        <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                         <p>Doctors</p>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <div class="col-lg-3 col-md-6">
                     <div class="count-box">
                         <i class="fas fa-users"></i>
                         <span data-purecounter-start="0" data-purecounter-end="<?php echo $user_count; ?>"
                             data-purecounter-duration="1" class="purecounter"></span>
                         <p>Users</p>
+=======
+                <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                    <div class="count-box">
+                        <i class="far fa-hospital"></i>
+                        <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Departments</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    <div class="count-box">
+                        <i class="fas fa-flask"></i>
+                        <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+                        <p>Research Labs</p>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                     <div class="count-box">
                         <i class="fas fa-award"></i>
+<<<<<<< HEAD
                         <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1"
                             class="purecounter"></span>
+=======
+                        <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                         <p>Awards</p>
                     </div>
                 </div>
@@ -297,11 +379,16 @@ if ($result_users->num_rows > 0) {
                 } else {
                     echo "0 results";
                 }
+<<<<<<< HEAD
 
+=======
+                $con->close();
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                 ?>
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <br>
     <div class="clinics" id="clinica">
         <h3>Doctors</h3><br>
@@ -345,6 +432,8 @@ if ($result_users->num_rows > 0) {
         </div>
     </div>
 
+=======
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 
     <div class="doctors" id="doctors">
         <h3>Meet Our Expert Doctors</h3><br>
@@ -361,8 +450,12 @@ if ($result_users->num_rows > 0) {
         <div class="container containerr">
             <div class="cover">
 
+<<<<<<< HEAD
                 <img id="cover-img"
                     src="assets/img/[removal.ai]_7e21d6e4-845b-489d-a114-5bb2590cdd61-register-your-life-changing-decision (1).png">
+=======
+                <img id="cover-img" src="assets/img/[removal.ai]_7e21d6e4-845b-489d-a114-5bb2590cdd61-register-your-life-changing-decision (1).png">
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
             </div>
 
 
@@ -383,8 +476,12 @@ if ($result_users->num_rows > 0) {
                                         <div class="col-md-5">
                                             <div class="form-group">
                                                 <label for="email">Email Address:</label>
+<<<<<<< HEAD
                                                 <input type="email" class="form-control" id="email" name="email"
                                                     required>
+=======
+                                                <input type="email" class="form-control" id="email" name="email" required>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                                             </div>
                                         </div>
 
@@ -392,8 +489,12 @@ if ($result_users->num_rows > 0) {
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label for="donation_type">Type of Donation:</label>
+<<<<<<< HEAD
                                             <select class="form-control" id="donation_type" name="donation_type"
                                                 required>
+=======
+                                            <select class="form-control" id="donation_type" name="donation_type" required>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 
                                                 <option value="live">Live Organ Donation</option>
                                                 <option value="after_death">Organ Donation After Death</option>
@@ -422,9 +523,14 @@ if ($result_users->num_rows > 0) {
             <div class="row">
                 <!-- About Section -->
                 <div class="col-md-4">
+<<<<<<< HEAD
 
                     <p>We are dedicated to providing you with the best possible healthcare experience by connecting you
                         with top-rated doctors and specialists.</p>
+=======
+                   
+                    <p>We are dedicated to providing you with the best possible healthcare experience by connecting you with top-rated doctors and specialists.</p>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
                 </div>
 
                 <!-- Quick Links Section -->
@@ -454,6 +560,7 @@ if ($result_users->num_rows > 0) {
                         <a href="#" class="text-white"><i class="fas fa-instagram"></i></a>
                     </div>
                 </div>
+<<<<<<< HEAD
 
                 <hr class="bg-white">
                 <div class="text-center">
@@ -490,6 +597,30 @@ if ($result_users->num_rows > 0) {
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
         </script>
+=======
+            </div>
+
+            <hr class="bg-white">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2024 Clinic Click. All rights reserved.</p>
+            </div>
+        </div>
+ 
+
+
+
+
+    </div>
+
+
+
+
+    <script src="homestyle/eye.js" defer></script>
+    <script src="homestyle/alert.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+>>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 </body>
 
 </html>
