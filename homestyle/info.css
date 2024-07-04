@@ -115,7 +115,7 @@ form .btn{
     color: #fff;
     font-size: 20px;
     font-weight: 400 ;
-    cursor: pointer;
+    cursor: pointer;margin-top: -15%;margin-left: 5%;
 }
 form .btn:disabled{
     background-color: #7291b9;

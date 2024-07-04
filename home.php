@@ -28,7 +28,7 @@ if ($result_doctors->num_rows > 0) {
 }
 
 // Query to count the number of users
-$sql_users = "SELECT COUNT(*) AS user_count FROM users";
+$sql_users = "SELECT COUNT(*) AS user_count FROM users where Role= 0";
 $result_users = $con->query($sql_users);
 
 // Fetch the count
@@ -37,6 +37,17 @@ if ($result_users->num_rows > 0) {
     $row_users = $result_users->fetch_assoc();
     $user_count = $row_users['user_count'];
 }
+
+$sql_feedbacks = "SELECT COUNT(*) AS feedback_count FROM feedback";
+$result_feedback = $con->query($sql_feedbacks);
+
+// Fetch the count
+$feedback_count = 0;
+if ($result_feedback->num_rows > 0) {
+    $row_feedback = $result_feedback->fetch_assoc();
+    $feedback_count = $row_feedback['feedback_count'];
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +56,7 @@ if ($result_users->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Document</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="homestyle/home.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -57,22 +68,17 @@ if ($result_users->num_rows > 0) {
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-     
 </head>
 
 <body>
     <div class="top">
         <nav class="navbar navbar-expand-lg ">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item active ">
-                        <a class="nav-link logo" href="#">Clinic Click<span class="sr-only">(current)</span></a>
+                        <a class="nav-link logo" href="#"> <img src="assets/img/[removal.ai]_c0cb32db-1e50-436c-9b63-1a67a673b8e5__9bbc4608-6b59-4810-a978-f1022d9d2585.png" style="width: 10%;height:10%">Clinic Click<span class="sr-only">(current)</span></a>
                     </li>
-
-                    <li class="nav-item dropdown">
                     <li class="nav-item login">
                         <a class="nav-link" href="login/login.php">
                             <div class="d-flex justify-content-between align-items-center p-2 ">
@@ -96,13 +102,42 @@ if ($result_users->num_rows > 0) {
                 </ul>
             </div>
         </nav>
+        <nav class="h-navbar">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item active ">
+                        <a class="nav-link logo" href="#">Clinic Click<span class="sr-only">(current)</span></a>
+                    </li>
+                    <div style="display: flex;">
+                        <li class="nav-item login">
+                            <a class="nav-link" href="login/login.php">
+                                <div class="d-flex justify-content-between align-items-center p-2 ">
+                                    <i class="bi bi-box-arrow-in-right"></i><i class="fas fa-sign-in-alt login"></i>
+                                </div>
+                            </a>
+                        </li>
 
+                        <a class="nav-link list" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-list login"></i>
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">Home</a>
+                            <a class="dropdown-item" href="#about">About</a>
+                            <a class="dropdown-item" href="#services">Services</a>
+                            <a class="dropdown-item" href="#doctors">Doctors</a>
+
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
         <div class="buttons-center">
             <a href="login/login.php"><button class="book-now">Book Your Appointment</button></a>
             <a href="#doctors"><button class="meet-dr">Meet Our Doctors</button></a>
         </div>
     </div>
-    <div class="fixed-navbar">
+    <div class="fixed-navbar" id="fixed-navbar">
         <nav class="sticky-top bg-light navbar-expand-lg">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0 navbar2">
                 <li class="nav-item nav-item2">
@@ -127,7 +162,7 @@ if ($result_users->num_rows > 0) {
             <h3>Our Mission:</h3>
             <p>To provide accessible, efficient, and reliable healthcare services by connecting patients with qualified healthcare professionals through an intuitive and user-friendly online booking platform.</p>
         </div>
-        <div>
+        <div class="2div"style="width: 50%;">
             <img class="about-image" src="assets/img/[removal.ai]_ab0af4a2-a502-43c2-a9d0-0193807eca11-_445ae47d-301a-4120-adc8-461efa542360.png">
 
         </div>
@@ -152,7 +187,7 @@ if ($result_users->num_rows > 0) {
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
-                        <div class="card-text">Streamline your healthcare experience with our easy-to-use online appointment scheduling system. Say goodbye to long waiting times and enjoy the convenience of managing your healthcare appointments online.
+                        <div class="card-text" style="text-align: right;" >Streamline your healthcare experience with our easy-to-use online appointment scheduling system. Say goodbye to long waiting times and enjoy the convenience of managing your healthcare appointments online.
 
                         </div>
 
@@ -172,10 +207,11 @@ if ($result_users->num_rows > 0) {
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
                     <div class="card-body">
+                    <div class="card-image"><img src="assets/img/doctor-using-smartphone-health-care-260nw-1209713866.png"></div>
+
                         <div class="card-text">Check real-time availability of our expert medical professionals. Whether it's for routine check-ups or specialized consultations, easily find the right appointment slot for your needs.</div>
 
-                        <div class="card-image"><img src="assets/img/doctor-using-smartphone-health-care-260nw-1209713866.png"></div>
-
+                        
                     </div>
                 </div>
             </div>
@@ -189,7 +225,7 @@ if ($result_users->num_rows > 0) {
                 </div>
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                        <div class="card-text"> Receive automated reminders and notifications for your upcoming appointments. Stay updated with appointment details, including any changes or rescheduling options, to maintain continuity in your healthcare journey. </div>
+                        <div class="card-text" style="text-align: right;"> Receive automated reminders and notifications for your upcoming appointments. Stay updated with appointment details, including any changes or rescheduling options, to maintain continuity in your healthcare journey. </div>
 
                         <div class="card-image"><img src="assets/img/dna.jpg"></div>
 
@@ -208,31 +244,35 @@ if ($result_users->num_rows > 0) {
                     <div class="count-box">
                         <i class="fas fa-user-md"></i>
                         <span data-purecounter-start="0" data-purecounter-end="85" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Doctors</p>
+                        <p class="number"><?php echo $doctor_count ?></p>
+                        <p class="card-text clinic_name" style="font-size: 1.1rem;">Doctors</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
                     <div class="count-box">
                         <i class="far fa-hospital"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Departments</p>
+                        <span class="number" data-purecounter-start="0" data-purecounter-end="18" data-purecounter-duration="1" class="purecounter"></span>
+                        <p class="number"><?php echo $department_count ?></p>
+                        <p class="card-text clinic_name" style="font-size: 1.1rem;">Departments</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                     <div class="count-box">
-                        <i class="fas fa-flask"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Research Labs</p>
+                        <i class="fa-solid fa-user"></i>
+                        <span  class="number" data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
+                        <p class="number"><?php echo $user_count ?></p>
+                        <p class="card-text clinic_name" style="font-size: 1.1rem;">Patients</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                     <div class="count-box">
                         <i class="fas fa-award"></i>
-                        <span data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
-                        <p>Awards</p>
+                        <span class="number" data-purecounter-start="0" data-purecounter-end="150" data-purecounter-duration="1" class="purecounter"></span>
+                        <p class="number"><?php echo $feedback_count ?></p>
+                        <p class="card-text clinic_name" style="font-size: 1.1rem;">Awards</p>
                     </div>
                 </div>
 
@@ -399,10 +439,10 @@ if ($result_users->num_rows > 0) {
                         <li><i class="fas fa-envelope"></i> contact@medicalcenter.com</li>
                     </ul>
                     <div class="mt-3">
-                    <a href=""><i class="ri-twitter-fill text-white"></i></a>
-                                         <a href=""><i class="ri-facebook-fill text-white"></i></a>
-                                         <a href=""><i class="ri-instagram-fill text-white"></i></a>
-                                         <a href=""><i class="ri-linkedin-box-fill text-white"></i></a>
+                        <a href=""><i class="ri-twitter-fill text-white"></i></a>
+                        <a href=""><i class="ri-facebook-fill text-white"></i></a>
+                        <a href=""><i class="ri-instagram-fill text-white"></i></a>
+                        <a href=""><i class="ri-linkedin-box-fill text-white"></i></a>
                     </div>
                 </div>
             </div>

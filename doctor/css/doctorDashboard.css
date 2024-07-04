@@ -67,7 +67,7 @@ body {
 }
 
 .breadcrumbs-link.active {
-    color: #009578;
+    color: #ff6f61;
     font-weight: 500;
 }
 
@@ -94,7 +94,7 @@ body {
     width: fit-content;
     flex-direction: column;
     padding: 10px;
-    background-color: #d7d7fd;
+    background-color: rgba(158, 170, 196, 0.993);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(27, 18, 70, 0.993);
     position: relative;
@@ -176,7 +176,7 @@ body {
 }
 
 .date.inactive {
-    color: #d2d2d2;
+    color: #e9e7e7;
     cursor: none;
 }
 
@@ -210,7 +210,7 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1111;
     left: 0;
     color: #475a99;
     top: 0;
@@ -294,28 +294,36 @@ body {
     width: 60%;
     height: fit-content;
     margin-left: 3%;
-    background-color: white;
+    
     border: none;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
-    z-index: 4;
+   
+    z-index: 1;
 }
 
 .upcomingApp h6 {
     font-size: 1.2rem;
-    color: #ff6f61;
-    margin-top: 2%;
+    color: #ff6f61;height: 100%;
+    padding-top: 2%;background-color: white;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
 
 }
+.table1{
+    border: none; border-radius: 10px;
+    box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
+}
+.table2{
+    border: none; border-radius: 10px;
+    box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
+    margin-top: 5%; border: 1px solid #888;
+}
 
 .tbl {
     font-family: fantasy !important;
-    margin-top: 3%;
-    font-weight: 400;
+    padding-top: 3%;
+    font-weight: 400;background-color: white;
     width: 100%;
-    border: none;
+    
     border-collapse: collapse;
 
 }
@@ -431,13 +439,12 @@ input {
     outline: none;
 }
 
-.approve-btn {
+.approve-btn,.Reaccept-btn {
     background-color: #2262b1;
-    ;
     color: #ccc;
-    width: 40px;
+    width: 80%;
     height: 35px;
-    border-radius: 50% !important;
+   
     font-size: 1rem;
     border: none;
     cursor: pointer;
@@ -448,14 +455,14 @@ input {
     position: relative;
 }
 
-.approve-btn:hover {
+.approve-btn:hover,.Reaccept-btn:hover {
     background-color: #ffffff;
     color: #2262b1;
     transform: scale(1.1);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.approve-btn:focus {
+.approve-btn:focus,.Reaccept-btn:focus {
     outline: none;
 }
 

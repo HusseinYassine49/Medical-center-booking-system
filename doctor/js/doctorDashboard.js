@@ -234,3 +234,53 @@ $(document).ready(function () {
 
     fetchAppointments();
 });
+$(document).ready(function () {
+
+    function fetchAppointments() {
+        $.ajax({
+            url: 'fetch_canceled_appointments.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (response && response.length > 0) {
+                    var appointmentsHtml = '';
+                    response.forEach(function (appointment) {
+                        appointmentsHtml += '<tr>';
+                        appointmentsHtml += '<td data-label="Name"><a href="doctorPatients.php?id=' + appointment.userID + '">' + appointment.Fname + ' ' + appointment.Lname + '</a></td>';
+                        appointmentsHtml += '<td data-label="Date">' + appointment.date_ + '</td>';
+                        appointmentsHtml += '<td data-label="Time">' + appointment.time + '</td>';
+                        appointmentsHtml += '<td><button class="Reaccept-btn" data-appointment-id="' + appointment.id + '">Send Email</button></td>';
+                        appointmentsHtml += '</tr>';
+                    });
+
+                    $('#CanceledappointmentsBody').html(appointmentsHtml);
+                } else {
+                    $('#CanceledappointmentsBody').html('<tr><td colspan="5">No Canceled appointments found.</td></tr>');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching appointments:', error);
+            }
+        });
+    }
+
+    $(document).on('click', '.Reaccept-btn', function () {
+        var appointmentId = $(this).data('appointment-id');
+        $.ajax({
+            url: 'reaccept_appointment.php',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id: appointmentId }),
+            success: function (response) {
+                console.log(response)
+                fetchAppointments();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error approving appointment:', error);
+                alert('Error approving appointment. Please check console for details.');
+            }
+        });
+    });
+
+    fetchAppointments();
+});

@@ -95,7 +95,6 @@ body{
 .img-fluid{
     width: 100% !important;height: 100% !important;
 }
-    
 .navbar2{
     color: #2262b1;
 padding: 2% 5% 2% 10% !important;
@@ -107,8 +106,26 @@ padding: 2% 5% 2% 10% !important;
     font-size: 1.2rem;
     font-weight: bold;
 }
-.fixed-links:hover{
-    color: #ff6f61;
+.fixed-links {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, text-shadow 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.fixed-links:hover {
+    color: #007BFF;
+    text-shadow: 0px 0px 10px #ff6f61;
+   
+    transform: scale(1.1);
+}
+
+.fixed-links.active {
+    color: #007BFF;
+    text-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+    
 }
 .about{
     margin: 6% 5% 4% 5%;
@@ -122,16 +139,52 @@ h3{
 
 }
 .about-image{
-    width:80%;
+    width:100%;
     height:max-content;
 }
+.mission{
+    text-align: right;
+}
 .mission, .vision{
-    width: 55%;
+    width: 55%;padding-top: 3%;
 }
 .mission p, .vision p{
     text-shadow: 1px 1px 2px rgba(41, 41, 41, 0.5);
-
+    animation-name: challenge;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;font-weight: bold;
 }
+
+@keyframes challenge {
+    0% {
+        color: #002fa7;
+        text-shadow: 0px 0px 5px #ff6f61;
+        font-weight: bold;
+    }
+
+    25% {
+        color: #ff6f61;
+        text-shadow: 0px 0px 5px #002fa7;
+    }
+
+    50% {
+        color: #002fa7;
+        text-shadow: 0px 0px 5px #ff6f61;font-weight: bold;
+    }
+
+    75% {
+        color: #ff6f61;
+        text-shadow: 0px 0px 5px #002fa7;
+    }
+
+    100% {
+        color: #002fa7;
+        text-shadow: 0px 0px 5px #ff6f61;font-weight: bold;
+    }
+}
+
+
 .services{
     padding: 3% 5% 4% 5% !important;
     color: #2262b1;background-color: #eaf4f1;
@@ -196,7 +249,20 @@ h3{
     font-weight: 600;
     color: #082744;
 }
-
+.number{
+    font-size: 2rem !important;
+    animation-name: challenge;
+    animation-duration: 6s;
+    animation-iteration-count: 50;
+    animation-delay: 2s;color: #296aa7;
+}
+@keyframes challenge {
+    0%   { color: #296aa7; text-shadow: 0px 0px 5px #ff6f61;}
+    25%  {color: #d82312; text-shadow: 0px 0px 5px #082744}
+    50%  {color: #296aa7; text-shadow: 0px 0px 5px #ff6f61;}
+    75%  {color: #d82312; text-shadow: 0px 0px 5px #082744}
+    100% {color: #296aa7; text-shadow: 0px 0px 5px #ff6f61;}
+  }
 .counts .count-box p {
     padding: 0;
     margin: 0;
@@ -238,3 +304,61 @@ transform: scale(1.1);background-color:#ff6e6181;color: #eaf4f1;
     color: #ffffff;background-color: #2262b1;
     font-size: 1rem;margin-top: 0% !important;display: flex;
 }
+.h-navbar{
+    display: none;
+}
+@media (max-width: 1024px) {
+
+    .top{
+        height: fit-content;
+    }
+    .buttons-center{
+        padding-bottom: 10%;
+    }
+
+}
+@media (max-width: 568px) {
+    .top{
+        height: fit-content;width: fit-content;
+    }
+    .h-navbar{
+        display: block;
+    }
+    .buttons-center{
+        margin-left: 25%;
+    }
+.meet-dr{
+    margin-top: 3%;
+    margin-left: 5%;
+}
+.logo{
+}
+.list{
+    margin: 3% 0% 0% 5%;
+}
+.about{
+    flex-direction: column;
+}
+.mission,.vision{
+    width: 100%;
+}
+.about-image{
+margin-left: 40%;
+}
+.card-body{
+    display: flex;
+    flex-direction: column;
+}
+.card-text{
+    width: 100%;
+}
+.card-image{
+    width: 75%;
+    margin-left: 20%;
+}
+.clinics{
+    padding-left: 10% !important;
+}
+}
+
+
