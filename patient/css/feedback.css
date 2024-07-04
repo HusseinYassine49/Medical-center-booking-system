@@ -2,6 +2,16 @@
     box-sizing: border-box;
 }
 
+.card {
+    z-index: 4;
+    position: relative;
+}
+
+.card-body {
+    z-index: 4;
+    position: relative;
+}
+
 .container {
     background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
     display: flex;
@@ -127,4 +137,33 @@
     flex-wrap: wrap;
     align-items: center;
     box-shadow: 0 4px 30px rgba(0, 0, 0, .05);
+    ;
 }
+
+.sphere {
+    position: fixed;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.top-sphere {
+    top: 50%;
+    left: -250px;
+    /* Adjusted to keep the sphere half off the screen */
+    width: 500px;
+    height: 500px;
+    background-color: #ff6f61;
+    transform: translateY(-50%)
+}
+
+.mid-sphere-left {
+    top: 50%;
+    right: -300px;
+    /* Adjusted to keep the sphere half off the screen */
+    width: 600px;
+    height: 600px;
+    background-color: #2262b1;
+    transform: translateY(-50%);
+}
+
+;

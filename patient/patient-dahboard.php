@@ -54,10 +54,11 @@ $userFname = $_SESSION['user_fname'];
     <?php include 'navbar/navbar.php'; ?>
 
     <div class="main-page">
+
         <div class="bread-container">
             <ul class="breadcrumbs">
                 <li class="breadcrumbs-item">
-                    <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+                    <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="breadcrumbs-item">
                     <a href="#" class="breadcrumbs-link active">Patient</a>
@@ -65,6 +66,11 @@ $userFname = $_SESSION['user_fname'];
             </ul>
         </div>
 
+
+    <div class="sphere top-sphere"></div>
+    <div class="sphere mid-sphere-left"></div>
+
+    
         <h1 id="welcome-heading"></h1>
         <p id="welcome-text" style="display:none;">Welcome to our website!</p>
 
@@ -211,7 +217,7 @@ $userFname = $_SESSION['user_fname'];
     <script>
         function goToAppointment() {
             const userID = '<?php echo $userID; ?>';
-            window.location.href = 'appointment.php?userID=' + userID;
+            window.location.href = 'try.php?userID=' + userID;
         }
 
         const welcomeHeading = document.getElementById('welcome-heading');

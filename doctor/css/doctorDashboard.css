@@ -1,90 +1,110 @@
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f8f8fa;
+     background-color: #f8f8fa;
+}
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+/* Ensure Font Awesome icons keep their original font family */
+.fa, .fas, .far, .fal, .fab {
+    font-family: 'Font Awesome 5 Free' !important;
 }
 
+/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
+    font-family: 'Font Awesome 6 Free' !important;
+}
 
 /*dashboard   2 columns*/
 .dashboard {
     padding-top: 1%;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
     z-index: -1;
 }
 
 .container {
     max-width: 100% !important;
-    margin: 2% 0% 0% 2%!important;
 
 }
 
-/* hello doctor section */
-.hello {
-    width: fit-content;
-    height: fit-content;
-    border-radius: 3%;
-    margin-left: 10%;
-    box-shadow: 0 4px 8px rgba(27, 18, 70, 0.993);
-    display: flex;
-    flex-direction: column;
-    color: #475a99;
-    background-color: #eaeaf8;
-
-}
-
-.img-fluid {
+.bread-container {
     width: 90%;
-    height: 110%;
-    margin-top: 3%;
+    background-color: #Fff;
+    max-width: 1440px;
+    height: fit-content;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
     margin-left: 8%;
+    padding-top: 20px;
+    box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
+    border-radius: 15px;
+    z-index: 4;
+    position: relative;
 }
 
-.card-body {
-    padding-top: 3%;
+.breadcrumbs {
+    padding: 10px;
 }
 
-.card-body h3 {
-    text-align: left;
-    line-height: 1 !important;
-    font-size: 1.5rem;padding-top: 3%;
-    font-family: cursive;
-    margin-bottom: 1%;
-    color: rgba(27, 18, 70, 0.993);
-    font-weight: bold;
+.breadcrumbs-item {
+    display: inline-block;
 }
 
-.card-body p {
-    margin-top: 1%;
-    font-family: cursive;
-    font-size: 1.1rem;
+.breadcrumbs-item:not(:last-of-type)::after {
+    content: '/';
+    margin: 0px 5px;
+    color: #ccc;
+}
 
+.breadcrumbs-link {
+    text-decoration: none;
+    color: #999999;
+}
+
+.breadcrumbs-link:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs-link.active {
+    color: #009578;
+    font-weight: 500;
+}
+
+.breadcrumbs i {
+    font-size: 20px;
+}
+
+.breadcrumbs li:nth-child(1) {
+    padding-left: 20px;
 }
 
 /* column 1 */
 .col1 {
-    padding-left: 5%;
-    margin-top: 2%;
-    width: 100%;
+    padding-left: 3.5%;
+    width: 103%;
     display: flex;
     height: fit-content;
 }
 
-/* calendar */
+/* Updated CSS with Event Styles */
 .calendar {
     display: flex;
     height: 30%;
-    width: 40%;
+    width: fit-content;
     flex-direction: column;
     padding: 10px;
     background-color: #d7d7fd;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(27, 18, 70, 0.993);
+    position: relative;
+    z-index: 4;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-
 }
 
 .monthYear {
@@ -104,7 +124,6 @@ body {
     width: 40px;
     height: 40px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-
 }
 
 .days {
@@ -115,7 +134,7 @@ body {
 .day {
     text-align: center;
     padding: 5px;
-    columns: #999FA6;
+    color: #999FA6;
     font-weight: 500;
 }
 
@@ -127,6 +146,7 @@ body {
 
 .date {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -134,10 +154,19 @@ body {
     margin: auto;
     cursor: pointer;
     font-weight: 600;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    transition: 0.2s;
+    border-radius: 10px;
+    width: 60px;
+    /* width for square shape */
+    height: 60px;
+    /* height for square shape */
+    transition: transform 0.2s;
+    position: relative;
+    /* ensure position context for absolute positioning */
+}
+
+.date:hover {
+    background-color: #2262b1;
+    transform: scale(1.2);
 }
 
 .date:hover,
@@ -148,57 +177,176 @@ body {
 
 .date.inactive {
     color: #d2d2d2;
+    cursor: none;
 }
 
 .date.inactive:hover {
     color: #ffff;
 }
 
+/* Event Styles */
+.appointments {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+    background-color: #2262b1;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 10px;
+    width: 100%;
+    height: fit-content;
+    display: none;
+}
+
+.date:hover .appointments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    color: #475a99;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+
+
+
+}
+
+
+.sphere {
+    position: fixed;
+    border-radius: 50%;
+    z-index: 1;
+  
+  }
+  .top-sphere {
+    position: fixed;
+    top: -200px;  
+    right: -200px; 
+    width: 600px;  
+    height: 600px; 
+    background-color: #2262b1; 
+    border-radius: 50%; 
+    z-index: 1; 
+}
+
+.bottom-sphere {
+  position: fixed;
+  bottom: -200px; 
+  left: -200px; 
+  width: 600px;  
+  height: 600px; 
+  background-color: #ff6f61; 
+  border-radius: 50%;
+  z-index: 1; 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    background-image: url(../image/istockphoto-1194395223-170667a\ \(1\).jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 600px;
+    padding-top: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal-appointments {
+    width: 70%;
+    margin-left: 15%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /* Appointments */
 .upcomingApp {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    width: 50%;
+    font-family: Arial, Helvetica, sans-serif !important;
+    width: 60%;
     height: fit-content;
-    margin-left: 5%;
+    margin-left: 3%;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
+    z-index: 4;
 }
-.upcomingApp h5{
-    font-size: 1.5rem;
-    color: #850f0f;
+
+.upcomingApp h6 {
+    font-size: 1.2rem;
+    color: #ff6f61;
+    margin-top: 2%;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+
 }
+
 .tbl {
+    font-family: fantasy !important;
     margin-top: 3%;
+    font-weight: 400;
     width: 100%;
-    box-shadow: 0 2px 4px rgba(27, 18, 70, 0.993);
+    border: none;
     border-collapse: collapse;
+
 }
 
 .tbl thead {
-    background: #2262b1;
-    color: #fff;
+    width: 100%;
+    border: 1px solid #aab7b8 !important;
 }
 
 .tbl thead tr th {
     font-size: 0.9rem;
     text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
     padding: 0.8rem;
+    font-weight: bold;
     letter-spacing: 0.2rem;
     vertical-align: top;
-    border: 1px solid #aab7b8;
 }
 
 .tbl tbody tr td {
+    border: none;
     font-size: 1rem;
-    letter-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
     font-weight: normal;
     text-align: center;
-    border: 1px solid #aab7b8;
     padding: 0.8rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+
 }
 
-.tbl tr:nth-child(even) {
-    background: #ccc;
-}
+
 
 .tbl tr:hover td {
     background: #7da5d6;
@@ -217,16 +365,6 @@ body {
     cursor: pointer;
 }
 
-.btn-trash {
-    background-color: #e74c3c;
-    color: #fff;
-}
-
-.btn-edit {
-    background-color: #1e8449;
-    color: #fff;
-}
-
 
 b {
     font-size: 2rem;
@@ -236,35 +374,163 @@ input {
     width: 50vh;
     height: 4vh;
 }
+.appointment {
+    margin-bottom: 5px;
+    border: 1px solid #888;
+    background-color: #f5f5f7ee;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.right-icons {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    float: right;
+    right: 0;
+}
 
-@media (max-width: 606px) {
+.right-icons i {
+    margin-left: 10px; 
+}
+.appointment:hover {
+    box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
+}
 
-    /* hello doctor section */
-    .hello {
-        margin-left: 0;
-        text-align: center;
-        width: 100%;
-        display: flex;
-    }
+.info {
+    color: #ff6f61;
+}
 
-    .hello img {
-        width: 90%;
-        height: auto;
-        margin: 0 auto;
-    }
+.cancel-btn {
+    background-color: #ff6f61;
+    color: #ccc;
+    width: 40px;
+    height: 35px;
+    border-radius: 50% !important;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
 
-    .hello .card-body {
-        padding: 1%;
-    }
+.cancel-btn:hover {
+    background-color: #ffffff;
+    color: #ff6f61;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
 
-    .hello .card-body h3 {
-        font-size: 1.2rem;
-    }
+.cancel-btn:focus {
+    outline: none;
+}
 
-    .hello .card-body p {
-        font-size: 0.9rem;
-    }
+.approve-btn {
+    background-color: #2262b1;
+    ;
+    color: #ccc;
+    width: 40px;
+    height: 35px;
+    border-radius: 50% !important;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
 
+.approve-btn:hover {
+    background-color: #ffffff;
+    color: #2262b1;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.approve-btn:focus {
+    outline: none;
+}
+
+.no-appointments {
+
+    margin-bottom: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid #888;
+    background-color: #f5f5f7ee;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.no-appointments:hover {
+    box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
+}
+
+.btn-warning {
+    font-weight: bolder;
+    padding-bottom: 5px;
+}
+
+.cancel {
+    color: #ff6f61;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 50% !important;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    width: 100%;
+}
+
+.cancel:hover {
+    background-color: #ff6f61;
+    color: #ccc;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.cancel:focus {
+    outline: none;
+}
+
+.user {
+    font-size: 1.1rem;
+    border: none;border-radius: 50% !important;
+    cursor: pointer;
+     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    
+}
+
+.user:hover {
+    color: #ccc;
+    background-color: #475a99;
+    transform: scale(1.3);
+}
+
+.appointmentsBody a {
+    color: inherit !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease, border-bottom 0.3s ease !important;
+}
+
+.appointmentsBody a:hover {
+    transform: scale(1.3) !important;
+    color: white !important;
+    border-bottom: 2px solid #fafbfc !important;
+}
+@media (max-width: 1024px) {
+    
+    .bread-container {
+        width: 98%;
+        margin-left: 1%;
+      }
     /* col1 */
     .col1 {
         flex-direction: column;
@@ -276,51 +542,97 @@ input {
         width: 100%;
         margin-bottom: 10px;
     }
-
-    .calendar .header button {
-        width: 30px;
-        height: 30px;
-    }
-
-    .calendar .monthYear {
-        width: 100px;
-    }
-
     /* Appointments */
     .upcomingApp {
+       margin-left: 0%;
         width: 100%;
-        margin-left: 2%;
-        padding: 0%;
-        margin-top: 10px;
+        margin-top: 5%;
     }
 }
 
 @media(max-width: 568px) {
+    .bread-container {
+        width: 91%;
+        margin-left: 5%;
+    }
+
+    /* col1 */
+    .col1 {
+        flex-direction: column;
+        padding-left: 0;
+    }
+
+    /* calendar */
+    .calendar {
+        margin-left: 0%;
+        width: 98%;
+        margin-bottom: 10px;
+    }
+   .date{
+    width: fit-content;
+   }
+  
+    .modal-content {
+        margin: 75% auto;margin-left: 15%;
+    
+    }
+    
+    .modal-appointments{
+        width: fit-content;
+        margin-right: 25%;
+        display: flex;flex-direction: column;
+    }
+    .appointment{width: fit-content;padding-left: 5%;
+        flex-wrap: wrap;
+    }
+    /* Appointments */
+    .upcomingApp {
+        margin-left: 0%;
+        padding: 2%;
+        width: 100%;
+        margin-top: 5%;
+    }
+
+    /* Table styles */
+    .tbl {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
 
     .tbl thead {
         display: none;
     }
 
-    .tbl tr,
+    .tbl tr {
+        display: block;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid #ddd;
+    }
+
     .tbl td {
         display: block;
-        width: 90%;
-    }
-
-    .tbl tr {
         width: 100%;
-        margin-bottom: 2rem;
-    }
-
-    .tbl tr:nth-child(even) {
-        background: #ccc;
-    }
-
-    .tbl tbody tr td {
-        text-align: right;
+        text-align: left;
+        padding: 10px;
         position: relative;
-        width: 95%;
+    }
+    .tbl td:nth-child(1),
+    .tbl td:nth-child(2), .tbl td:nth-child(3){
+        margin-left: 14% !important;
+    }
 
+
+    .tbl td:nth-child(4),
+    .tbl td:nth-child(5) {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .tbl td:nth-child(5) {
+        border-left: 1px solid #ddd; /* Adding a border between 4th and 5th td */
+        padding-left: 10px; /* Adjust padding as needed */
     }
 
     .tbl td:before {

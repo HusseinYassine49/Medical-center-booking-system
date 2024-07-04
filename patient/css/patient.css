@@ -133,6 +133,14 @@
         .main-content.shifted {
             margin-left: 250px;
         }
+        #welcome-heading{
+            z-index: 4;
+            position: relative;
+        }
+        #welcome-text{
+            z-index: 4;
+            position: relative;
+        }
 
         .welcome-message {
             width: 100%;
@@ -165,12 +173,18 @@
 
         .vitals h2 {
             margin-bottom: 10px;
+            z-index: 4;
+            position: relative;
         }
 
         .vitals .cards {
             display: flex;
             justify-content: space-between;
             gap: 10px;
+        }
+        .cards{
+            z-index: 4;
+            position: relative;
         }
 
         .card {
@@ -189,6 +203,8 @@
 
         .appointments {
             margin-top: 20px;
+            z-index: 4;
+            position: relative;
         }
 
         .appointments h2 {

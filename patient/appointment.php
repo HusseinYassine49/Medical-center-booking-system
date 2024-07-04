@@ -68,10 +68,13 @@ $doctorsResult = $con->query($doctorsQuery);
     <?php include 'navbar/navbar.php'; ?>
     <div class="main-page">
 
+    <div class="sphere top-sphere"></div>
+    <div class="sphere mid-sphere-left"></div>
+
     <div class="bread-container">
       <ul class="breadcrumbs">
         <li class="breadcrumbs-item">
-          <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+          <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="breadcrumbs-item">
           <a href="patient-dahboard.php" class="breadcrumbs-link">Patient</a>

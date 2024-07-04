@@ -13,8 +13,7 @@ $stmt->close();
 // Concatenate first and last name to get the full name
 $patientName = $firstName . ' ' . $lastName;
 
-// Store patient's full name in session
-session_start();
+
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
@@ -24,7 +23,7 @@ if (!isset($_SESSION['user_id'])) {
 $userID = $_SESSION['user_id']; // Fetch user ID from session
 
 // Fetch user data from the database
-include "../include/connection.php";
+
 $query = "SELECT Fname, Email FROM users WHERE id = $userID";
 $result = mysqli_query($con, $query);
 
@@ -39,7 +38,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 ?>
 <script>
-let patientName = "<?php echo $patientName; ?>"
+    let patientName = "<?php echo $patientName; ?>"
 </script>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +58,7 @@ let patientName = "<?php echo $patientName; ?>"
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
-    const userFname = <?php echo json_encode($userFname); ?>;
+        const userFname = <?php echo json_encode($userFname); ?>;
     </script>
 
 </head>
@@ -158,8 +157,7 @@ let patientName = "<?php echo $patientName; ?>"
                                     </div>
                                     <div class="form-group">
                                         <label for="specialty">Specialty:</label>
-                                        <input type="text" class="form-control" id="specialty" name="specialty"
-                                            required>
+                                        <input type="text" class="form-control" id="specialty" name="specialty" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="date">Date:</label>
@@ -180,8 +178,7 @@ let patientName = "<?php echo $patientName; ?>"
                                     <input type="hidden" id="appointmentId">
                                     <div class="form-actions d-flex justify-content-between">
                                         <button type="submit" class="btn btn-primary">Save</button>
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                     </div>
                                 </form>
                             </div>
@@ -250,10 +247,10 @@ let patientName = "<?php echo $patientName; ?>"
 
             <script src="js/patient.js"></script>
             <script>
-            function goToAppointment() {
-                const userID = '<?php echo $userID; ?>';
-                window.location.href = 'appointment.php?userID=' + userID;
-            }
+                function goToAppointment() {
+                    const userID = '<?php echo $userID; ?>';
+                    window.location.href = 'appointment.php?userID=' + userID;
+                }
             </script>
 
 

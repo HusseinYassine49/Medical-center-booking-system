@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    z-index: 4;
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .calendar-container {
@@ -112,4 +118,31 @@ input, select {
     .breadcrumbs-link.active{
       color: #009578;
       font-weight: 500;
+    }
+
+
+    .sphere {
+        position: fixed;
+        border-radius: 50%;
+        z-index: 1;
+    }
+    
+    /* Top sphere in a different position */
+    .top-sphere {
+        top: -200px;  /* Adjusted position */
+        left: -200px; /* Changed from right to left */
+        width: 800px;
+        height: 800px;        
+        background-color: #ff6f61;
+
+    }
+    
+    /* Mid-left sphere in a different position */
+    .mid-sphere-left {
+        top: 60%;      /* Adjusted vertical position */
+        right: -250px; /* Changed from left to right */
+        width: 500px;
+        height: 500px;
+        background-color: #2262b1;
+        transform: translateY(-50%);
     }

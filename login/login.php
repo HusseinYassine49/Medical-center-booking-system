@@ -87,7 +87,7 @@
                                 </div>
 
                                 <div class="item">
-                                    <button type="submit" name="enter" id="Login-Button" class="btn" onclick="login()" disabled>Login</button>
+                                    <button type="submit" name="enter" id="Login-Button" class="btn" onclick="login()">Login</button>
                                 </div>
 
                                 <div class="frgt-pass">

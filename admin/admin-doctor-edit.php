@@ -45,7 +45,7 @@ $result = $con->query($sql);
     <div class="bread-container">
       <ul class="breadcrumbs">
         <li class="breadcrumbs-item">
-          <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+          <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="breadcrumbs-item">
           <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>

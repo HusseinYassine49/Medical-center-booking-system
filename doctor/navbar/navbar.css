@@ -9,21 +9,32 @@
     /* --clr: #14161e; */
     --clr: #f8f8fa;
 }
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+/* Ensure Font Awesome icons keep their original font family */
+.fa, .fas, .far, .fal, .fab {
+    font-family: 'Font Awesome 5 Free' !important;
+}
 
+/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
+    font-family: 'Font Awesome 6 Free' !important;
+}
 .navigation{
     display: none;
 }
 .h-navigation{
     position: fixed;
     top: 0;
-    bottom: 0;
+    bottom: 0;z-index: 10;
     width: 80px;
     height: 100%; /* Adjusted to extend to the bottom of the page */
     background: #2262b1;
     transition: width 0.5s;
     padding-left: 10px;
     overflow: hidden;
-
+    z-index: 4;
 }
 .h-navigation.h-active{
     width: 250px;
@@ -74,10 +85,10 @@ with it curves*/
 }
 
 .h-navigation ul li.h-active .h-icon{
-    color: #850f0f;
+    color: #ff6f61;
 }
 .h-navigation ul li.h-active .h-title{
-    color: #850f0f;
+    color: #ff6f61;
 }
 .h-navigation ul li a{
     position: relative;
@@ -107,7 +118,7 @@ with it curves*/
     letter-spacing: 0.05em;
     transition: 0.5s;
 }.h-navigation ul li:hover a .h-icon, .h-navigation ul li:hover a .h-title{
-    color: #850f0f;
+    color: #ff6f61;
 }
 
 
@@ -128,14 +139,21 @@ with it curves*/
 
 
 
+
+
+
+
+
+
+
 /*THE BLUE BOX IN THE CORNER THAT TOGGLES THE NAV BAR */
 .toggle{
     position: absolute;
     top: 20px;
     right: 0px;
-    width: 50px;left: 1%;
+    width: 50px;left: 15%;
     height: 50px;
-    background: #850f0f;
+    background: #ff6f61;
     z-index: 1000;
     cursor: pointer;
     display: flex;
@@ -170,10 +188,10 @@ with it curves*/
 
 
 .main-page{
-    width: 75%;
+    width: 85%;
     height: 870px;
     background-color: var(--clr);
-    margin-left:  20%;
+    margin-left:  10%;
     padding: 20px;
     padding-top: 80px;
 
@@ -192,7 +210,7 @@ with it curves*/
 
 
 
-@media(max-width: 990px){
+@media(max-width: 1024px){
     .toggle{
         display: none;
     }
@@ -209,7 +227,7 @@ with it curves*/
 
 /*-----------------------------------------------------------------------------------------*/
 /*THIS THE CODE FOR THE PAGE BELOW 500PX THAT PUT A NEW BAR THAT IS ON TOP*/
-@media(max-width: 520px){
+@media(max-width: 1024px){
     
 
     .h-navigation{
@@ -259,14 +277,14 @@ with it curves*/
     font-size: 1.7em;
     text-align: center;
     transition: 0.5s;
-    color: #850f0f;;
+    color: #ff6f61;;
 }
 .navigation ul li.active .h-icon{
     transform: translateY(-32px);
 }
 .navigation ul li a .h-title{
     position: absolute;
-    color: #850f0f;
+    color: #ff6f61;
     font-weight: 400;
     font-size: 1.35em;
     letter-spacing: 0.05em;
