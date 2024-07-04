@@ -41,10 +41,6 @@ $doctorsResult = $con->query($doctorsQuery);
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Source+Sans+Pro:400,600,700'>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
-  <script>
-  window.console = window.console || function(t) {};
-</script>
-
 
 </head>
 
@@ -152,7 +148,6 @@ $doctorsResult = $con->query($doctorsQuery);
   
   <div class='timepicker'>
     <div class="owl">
-      <div>06:00</div>
       <div>07:00</div>
       <div>08:00</div>
       <div>09:00</div>
@@ -165,8 +160,6 @@ $doctorsResult = $con->query($doctorsQuery);
       <div>16:00</div>
       <div>17:00</div>
       <div>18:00</div>
-      <div>19:00</div>
-      <div>20:00</div>
     </div>
     <div class="fade-l"></div>
     <div class="fade-r"></div>

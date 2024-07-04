@@ -275,7 +275,6 @@ $(document).ready(function() {
     });
 });
 
-alert('<?php echo $userID; ?>');
 
 const userID = '<?php echo $userID; ?>';
 

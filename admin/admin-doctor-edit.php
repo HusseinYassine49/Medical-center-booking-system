@@ -4,12 +4,15 @@ session_start();
 require "../include/connection.php";
 
 if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 1) {
-    header("Location: ../login/login.php");
-    exit();
+  header("Location: ../login/login.php");
+  exit();
 }
 
 $role = 2;
-$sql = "SELECT * FROM users WHERE Role = $role";
+$sql = "SELECT d.DoctorID, u.id as UserID, u.Fname, u.Lname, u.Email, u.DOB, u.Gender
+        FROM users u 
+        JOIN doctors d ON u.id = d.UserID 
+        WHERE u.Role = $role AND d.verified = 'verified' AND d.isdeleted = 0";
 $result = $con->query($sql);
 ?>
 
@@ -19,26 +22,23 @@ $result = $con->query($sql);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Admin Dashboard</title>
   <link href="css/admin-doctor-edit.css?v=<?php echo time(); ?>" rel="stylesheet">
   <link href="css/table.css?v=<?php echo time(); ?>" rel="stylesheet">
   <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.0/dist/sweetalert2.min.css">
-
-
-
-
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 
-
 <body>
-
-
   <?php include 'navbar/navbar.php'; ?>
 
   <div class="main-page" id="main-page">
-
     <div class="sphere top-sphere"></div>
     <div class="sphere bottom-sphere"></div>
 
@@ -56,14 +56,10 @@ $result = $con->query($sql);
       </ul>
     </div>
 
-
-
     <div class="add-doctor" id="add-doctor" style="display: none;">
       <h1>ADD DOCTOR</h1>
-
       <!--THE FORM TO SEND THE DATA TO BE VERIFIED TO BE INSERTED TO THE DATABASE -->
       <form action="A-U-Reg.php" method="post">
-
         <div class="input-row">
           <div class="input-group">
             <label>First Name</label>
@@ -108,18 +104,12 @@ $result = $con->query($sql);
           </div>
           <div class="input-group">
             <label></label>
-            <input type="submit" value="Register" onclick="AdminregisterDoctor(event)"/>
+            <input type="submit" value="Register" onclick="AdminregisterDoctor(event)" />
           </div>
         </div>
 
       </form>
-
-
     </div>
-
-
-
-
 
     <div class="container">
       <h2>Table admin to see doctors</h2>
@@ -140,7 +130,6 @@ $result = $con->query($sql);
                 <th>Doctor LastName</th>
                 <th>Doctor Email</th>
                 <th>Date of Birth</th>
-                <th>Major</th>
                 <th>Gender</th>
                 <th colspan="2">Action</th>
               </tr>
@@ -151,18 +140,19 @@ $result = $con->query($sql);
                 // Output data of each row
                 while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                  echo "<td data-label='Doctor ID' class='user-id'>" . $row["id"] . "</td>";
-                  echo "<td data-label='Doctor Name'>" . $row["Fname"] . "</td>";
-                  echo "<td data-label='Doctor Name'>" . $row["Lname"] . "</td>";
+                  echo "<td data-label='Doctor ID' class='user-id'>" . $row["DoctorID"] . "</td>";
+                  echo "<td class='hidden'>" . $row["UserID"] . "</td>";
+                  echo "<td data-label='Doctor FirstName'>" . $row["Fname"] . "</td>";
+                  echo "<td data-label='Doctor LastName'>" . $row["Lname"] . "</td>";
                   echo "<td data-label='Doctor Email'>" . $row["Email"] . "</td>";
-                  echo "<td data-label='DoB'>" . $row["DOB"] . "</td>";
+                  echo "<td data-label='Date of Birth'>" . $row["DOB"] . "</td>";
                   echo "<td data-label='Gender'>" . $row["Gender"] . "</td>";
-                  echo "<td data-label='Edit'><a href='edit-doctor.php?id=" . $row["id"] . "&fname=" . $row["Fname"] . "&lname=" . $row["Lname"] . "&dob=" . $row["DOB"]  . "&email=" . $row["Email"] . "&gender=" . $row["Gender"] . "' class='btn-edit'><i class='fa-solid fa-pencil'></i></a></td>";
+                  echo "<td data-label='Edit'><a href='edit-doctor.php?id=" . $row["UserID"] . "&fname=" . $row["Fname"] . "&lname=" . $row["Lname"] . "&dob=" . $row["DOB"]  . "&email=" . $row["Email"] . "&gender=" . $row["Gender"] . "' class='btn-edit'><i class='fa-solid fa-pencil'></i></a></td>";
                   echo "<td data-label='Delete'><button class='btn-trash'><i class='fa-solid fa-trash'></i></button></td>";
                   echo "</tr>";
                 }
               } else {
-                echo "<tr><td colspan='6'>No results found</td></tr>";
+                echo "<tr><td colspan='7'>No results found</td></tr>";
               }
               $con->close();
               ?>
@@ -170,19 +160,14 @@ $result = $con->query($sql);
           </table>
         </div>
       </div>
-
     </div>
   </div>
 
-<script src="navbar/include.js"></script>
-<script src="js/addbtn.js"></script>
-<script src="js/deletebtn.js"></script>
-<script src="js/A-D-AJAX.js"></script>
-
+  <script src="navbar/include.js"></script>
+  <script src="js/addbtn.js"></script>
+  <script src="js/doctorDelete-AJAX.js"></script>
+  <script src="js/A-D-AJAX.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.0/dist/sweetalert2.min.js"></script>
 </body>
 
 </html>
-
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.0/dist/sweetalert2.min.js"></script>
-

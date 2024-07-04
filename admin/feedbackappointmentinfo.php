@@ -1,20 +1,20 @@
 <?php
 require "../include/connection.php";
 
+// SQL queries to fetch accepted and declined feedback from appointment_feedback table
 $acceptedSql = "SELECT users.Fname AS PatientName, users.Lname AS PatientLastName, CONCAT(doctor_user.Fname, ' ', doctor_user.Lname) AS DoctorName, feedback.rating, feedback.comment, feedback.status, feedback.id
                 FROM users
-                INNER JOIN feedback ON users.id = feedback.UserID
-                INNER JOIN doctors ON doctors.DoctorID = feedback.DoctorID
+                INNER JOIN appointment_feedback AS feedback ON users.id = feedback.User_ID
+                INNER JOIN doctors ON doctors.DoctorID = feedback.Doctor_ID
                 INNER JOIN users AS doctor_user ON doctors.UserID = doctor_user.id
-                WHERE feedback.status = '1';";
+                WHERE feedback.status = 1;";
 
 $declinedSql = "SELECT users.Fname AS PatientName, users.Lname AS PatientLastName, CONCAT(doctor_user.Fname, ' ', doctor_user.Lname) AS DoctorName, feedback.rating, feedback.comment, feedback.status, feedback.id
                 FROM users
-                INNER JOIN feedback ON users.id = feedback.UserID
-                INNER JOIN doctors ON doctors.DoctorID = feedback.DoctorID
+                INNER JOIN appointment_feedback AS feedback ON users.id = feedback.User_ID
+                INNER JOIN doctors ON doctors.DoctorID = feedback.Doctor_ID
                 INNER JOIN users AS doctor_user ON doctors.UserID = doctor_user.id
-                WHERE feedback.status = '2';";
-
+                WHERE feedback.status = 2;";
 
 $acceptedResult = $con->query($acceptedSql);
 $declinedResult = $con->query($declinedSql);
@@ -39,7 +39,7 @@ $declinedResult = $con->query($declinedSql);
 
     <div class="main-page" id="main-page">
 
-        <div class="sphere top-sphere"></div>
+    <div class="sphere top-sphere"></div>
         <div class="sphere mid-sphere-left"></div>
 
 
@@ -62,7 +62,7 @@ $declinedResult = $con->query($declinedSql);
 
         <div class="middle-part">
             <button class="feedbackinfo-btn" onclick="window.location.href = 'admin-feedback.php'"><i class="fa-solid fa-chevron-left"></i></button>
-            <h1 class="feedback-page-header">Feedback Information</h1>
+            <h1 class="feedback-page-header">Appointment Feedback Information</h1>
             <button class="feedbackinfo-btn hidden" onclick=""><i class="fa-solid fa-chevron-left"></i></button>
         </div>
 

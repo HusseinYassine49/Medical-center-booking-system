@@ -69,34 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return card;
     }
 
-    function updateAvailabilityCards(availabilities) {
-        const container = document.getElementById("availability-container");
-        const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-        daysOfWeek.forEach(day => {
-            let existingCard = container.querySelector(`.availability-card[data-day="${day}"]`);
-            const slots = availabilities.filter(slot => slot.day === day);
-
-            if (!existingCard) {
-                existingCard = createAvailabilityCard(day, slots);
-                container.appendChild(existingCard);
-            } else {
-                let back = existingCard.querySelector(".back .time-range");
-                if (existingCard.classList.contains("Noavailability")) {
-                    existingCard.classList.remove("Noavailability");
-                    back.innerHTML = "";
-                }
-                slots.forEach(slot => {
-                    const slotHTML = createAvailabilitySlot(slot);
-                    back.innerHTML += slotHTML;
-                });
-
-                if (slots.length === 0) {
-                    back.textContent = "No availability";
-                }
-            }
-        });
-    }
+    
 
     function fetchAndDisplayAvailability() {
         $.ajax({
@@ -109,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 daysOfWeek.forEach(day => {
                     const slots = data.filter(slot => slot.day === day);
-
+                  
                     if (slots.length > 0) {
                         const card = createAvailabilityCard(day, slots);
                         container.appendChild(card);
@@ -156,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
             contentType: 'application/json',
             success: function (response) {
                 alert('Availability saved successfully!');
-                updateAvailabilityCards(selectedTimes);
+                window.location.reload();
             },
             error: function (error) {
                 alert('Error saving availability.');

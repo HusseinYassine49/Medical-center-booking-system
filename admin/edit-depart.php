@@ -5,8 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $id = $_POST["id"];
   $name = $_POST["name"];
   $desc = $_POST["desc"];
+  $icon = $_POST["icon"]; // Retrieve icon from form data
 
-  $sql = "UPDATE department SET Department_name='$name', Description='$desc' WHERE id='$id'";
+  $sql = "UPDATE department SET Department_name='$name', Description='$desc', icon='$icon' WHERE id='$id'";
 
   if ($con->query($sql) === TRUE) {
     echo "Record updated successfully";
@@ -21,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $id = $_GET["id"];
   $name = $_GET["name"];
   $desc = $_GET["desc"];
+  $icon = $_GET["icon"]; // Retrieve icon from query parameters
 }
 ?>
 
@@ -45,10 +47,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="bread-container">
       <ul class="breadcrumbs">
         <li class="breadcrumbs-item">
-          <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>     
+          <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="breadcrumbs-item">
-          <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a> 
+          <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>
         </li>
         <li class="breadcrumbs-item">
           <a href="admin-department.php" class="breadcrumbs-link">Department</a>
@@ -73,6 +75,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="desc" value="<?php echo $desc; ?>" />
           </div>
         </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label>Icon</label>
+            <input type="text" name="icon" value="<?php echo htmlspecialchars($icon); ?>" />
+            <!-- Optionally, display the icon itself -->
+            <!--<i class="<?php echo $icon; ?>"></i>-->
+          </div>
+        </div>
+
         <div class="input-row">
           <div class="input-group">
             <input type="submit" value="Update" />

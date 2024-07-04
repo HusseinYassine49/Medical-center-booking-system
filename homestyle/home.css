@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body {
     padding: 0%;
     margin: 0%;
@@ -32,25 +31,6 @@ body {
 }
 
 .top {
-=======
-body{
-    padding: 0%;
-    margin: 0%;
-}
-* {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
-}
-/* Ensure Font Awesome icons keep their original font family */
-.fa, .fas, .far, .fal, .fab {
-    font-family: 'Font Awesome 5 Free' !important;
-}
-
-/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
-.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
-    font-family: 'Font Awesome 6 Free' !important;
-}
-.top{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     margin: 0%;
     background-image: url(../assets/img/3.jpg);
     background-repeat: no-repeat;
@@ -58,7 +38,6 @@ body{
     width: 100%;
     height: 100vh;
 }
-<<<<<<< HEAD
 
 .navbar {
     display: flex;
@@ -118,56 +97,6 @@ body{
 }
 
 .buttons-center button {
-=======
-.navbar{
-    display: flex;
-    flex-direction: row;
-    padding:2% 4% 0% 0% !important;
-}
-.navbar-nav{
-    width: 100% !important;
-}
-.nav-item{
-    width: 50% !important;
-    height: 100% !important;
-}
-.logo{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
-     color: #2262b1;
-     font-weight: bolder;
-     font-size: 2rem;
-     margin-left: 5%;
-}
-
-.login{
-    color: #2262b1;
-     font-weight: bolder;
-     font-size: 2rem;cursor: pointer;
-}
-.list{
-    margin-top: 0.5%;
-    cursor: pointer;
-}
-.list:hover{
-    background-color: rgba(198, 202, 201, 0.596);
-    border-radius: 2%;
-}
-.dropdown-menu{
-    margin-right: 1%;
-}
-.dropdown-item{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
-    
-}
-.dropdown-item:hover{
-    background-color:  #2262b1 !important;
-    color:aliceblue !important;
-}
-.buttons-center{
-    margin: 15% 0% 0% 30%;
-}
-.buttons-center button{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     color: aliceblue;
     font-size: 1.2rem;
     font-weight: bold;
@@ -176,14 +105,13 @@ body{
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
 }
-<<<<<<< HEAD
 
 .book-now {
     background-color: #2262b1;
 }
 
 .meet-dr {
-    background-color: #850f0f;
+    background-color: #ff6f61;
 }
 
 .book-now:hover {
@@ -192,8 +120,13 @@ body{
 }
 
 .meet-dr:hover {
-    color: #850f0f;
+    color: #ff6f61;
     background-color: #f3f3f3;
+}
+
+.img-fluid {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .navbar2 {
@@ -205,76 +138,93 @@ body{
 
 .nav-item2 a {
     color: #2262b1 !important;
-=======
-.book-now{
-    background-color: #2262b1;
-}
-.meet-dr{
-    background-color: #ff6f61;
-}
-.book-now:hover{
-    background-color: #f3f3f3;
-    color: #2262b1;
-}
-.meet-dr:hover{
-    color:#ff6f61;
-    background-color: #f3f3f3;
-}
-.img-fluid{
-    width: 100% !important;height: 100% !important;
-}
-    
-.navbar2{
-    color: #2262b1;
-padding: 2% 5% 2% 10% !important;
-    font-size: 1rem;
-    background-color: #eaf4f1;
-    
-}
-.nav-item2 a{ color: #2262b1 !important;
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     font-size: 1.2rem;
     font-weight: bold;
 }
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-.about {
-=======
-=======
-.fixed-links:hover{
-    color: #ff6f61;
+.fixed-links {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s, text-shadow 0.3s, box-shadow 0.3s, transform 0.3s;
 }
->>>>>>> 9923135071828ebed90908b3be98e95265a892e3
-.about{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
+
+.fixed-links:hover {
+    color: #007BFF;
+    text-shadow: 0px 0px 10px #ff6f61;
+    transform: scale(1.1);
+}
+
+.fixed-links.active {
+    color: #007BFF;
+    text-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.about {
     margin: 6% 5% 4% 5%;
     display: flex;
     color: #2262b1;
     font-size: 1.2rem;
 }
-<<<<<<< HEAD
 
 h3 {
     font-weight: bold;
     text-align: center;
-    color: #850f0f;
+    color: #fd4f3f;
     text-shadow: 2px 2px 4px rgba(41, 41, 41, 0.5);
 }
 
 .about-image {
-    width: 80%;
+    width: 100%;
     height: max-content;
+}
+
+.mission {
+    text-align: right;
 }
 
 .mission,
 .vision {
     width: 55%;
+    padding-top: 3%;
 }
 
 .mission p,
 .vision p {
     text-shadow: 1px 1px 2px rgba(41, 41, 41, 0.5);
+    animation-name: challenge;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+    animation-delay: 2s;
+    font-weight: bold;
+}
+
+@keyframes challenge {
+    0% {
+        color: #002fa7;
+        text-shadow: 0px 0px 5px #ff6f61;
+        font-weight: bold;
+    }
+    25% {
+        color: #ff6f61;
+        text-shadow: 0px 0px 5px #002fa7;
+    }
+    50% {
+        color: #002fa7;
+        text-shadow: 0px 0px 5px #ff6f61;
+        font-weight: bold;
+    }
+    75% {
+        color: #ff6f61;
+        text-shadow: 0px 0px 5px #002fa7;
+    }
+    100% {
+        color: #002fa7;
+        text-shadow: 0px 0px 5px #ff6f61;
+        font-weight: bold;
+    }
 }
 
 .services {
@@ -285,11 +235,10 @@ h3 {
     margin-top: 0% !important;
 }
 
-.services h3,
 .service-title {
     font-weight: bold;
     text-align: center;
-    color: #850f0f;
+    color: #ff6f61;
     text-decoration: none
 }
 
@@ -320,54 +269,6 @@ h3 {
     font-weight: bold;
 }
 
-=======
-h3{
-    font-weight: bold;text-align: center;
-    color:#fd4f3f;text-shadow: 2px 2px 4px rgba(41, 41, 41, 0.5);
-
-}
-.about-image{
-    width:80%;
-    height:max-content;
-}
-.mission, .vision{
-    width: 55%;
-}
-.mission p, .vision p{
-    text-shadow: 1px 1px 2px rgba(41, 41, 41, 0.5);
-
-}
-.services{
-    padding: 3% 5% 4% 5% !important;
-    color: #2262b1;background-color: #eaf4f1;
-    font-size: 1.2rem;margin-top: 0% !important;
-}
-.service-title{
-    font-weight: bold;text-align: center;
-    color:#ff6f61;text-decoration: none
-}
-.service-title:hover{
-   text-decoration: none;
-}
-.card-header{
-    background-color: transparent !important;
-}
-.card-body{
-    display: flex;
-
-}
-.card-image {
-    width: 50%;
-}
-.card-image img{
-    width:80%;
-    height:max-content;
-}
-.card-text{
-  width: 50%;
-  padding-top: 10%;font-weight: bold;
-}
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
 .counts {
     padding: 70px 0 60px;
 }
@@ -403,13 +304,44 @@ h3{
     color: #082744;
 }
 
+.number {
+    font-size: 2rem !important;
+    animation-name: challenge;
+    animation-duration: 6s;
+    animation-iteration-count: 50;
+    animation-delay: 2s;
+    color: #296aa7;
+}
+
+@keyframes challenge {
+    0% {
+        color: #296aa7;
+        text-shadow: 0px 0px 5px #ff6f61;
+    }
+    25% {
+        color: #d82312;
+        text-shadow: 0px 0px 5px #082744
+    }
+    50% {
+        color: #296aa7;
+        text-shadow: 0px 0px 5px #ff6f61;
+    }
+    75% {
+        color: #d82312;
+        text-shadow: 0px 0px 5px #082744
+    }
+    100% {
+        color: #296aa7;
+        text-shadow: 0px 0px 5px #ff6f61;
+    }
+}
+
 .counts .count-box p {
     padding: 0;
     margin: 0;
     font-family: "Raleway", sans-serif;
     font-size: 14px;
 }
-<<<<<<< HEAD
 
 .clinics {
     padding: 3% 0% 4% 0% !important;
@@ -426,7 +358,7 @@ h3{
 
 .clinics-card:hover {
     transform: scale(1.1);
-    background-color: #850f0fb2;
+    background-color: #ff6e6181;
     color: #eaf4f1;
 }
 
@@ -443,6 +375,20 @@ h3{
     margin-top: 0% !important;
 }
 
+.doctors-card,
+.pic {
+    padding-left: 0% !important;
+}
+
+.member-info {
+    padding-top: 5%;
+}
+
+.donors {
+    width: 95%;
+    margin-left: 3%;
+}
+
 .footer {
     padding: 3% 0% 2% 5% !important;
     color: #ffffff;
@@ -451,40 +397,61 @@ h3{
     margin-top: 0% !important;
     display: flex;
 }
-=======
-.clinics{
-    padding: 3% 0% 4% 0% !important;
-    color: #2262b1;background-color: #eaf4f1;
-    font-size: 1.2rem;margin-top: 0% !important;
+
+.h-navbar {
+    display: none;
 }
-.clinics-card{
-    margin: 1%;border: none;
+
+@media (max-width: 1024px) {
+    .top {
+        height: fit-content;
+    }
+    .buttons-center {
+        padding-bottom: 10%;
+    }
 }
-.clinics-card:hover{
-transform: scale(1.1);background-color:#ff6e6181;color: #eaf4f1;
+
+@media (max-width: 568px) {
+    .top {
+        height: fit-content;
+        width: fit-content;
+    }
+    .h-navbar {
+        display: block;
+    }
+    .buttons-center {
+        margin-left: 25%;
+    }
+    .meet-dr {
+        margin-top: 3%;
+        margin-left: 5%;
+    }
+    .logo {}
+    .list {
+        margin: 3% 0% 0% 5%;
+    }
+    .about {
+        flex-direction: column;
+    }
+    .mission,
+    .vision {
+        width: 100%;
+    }
+    .about-image {
+        margin-left: 40%;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+    .card-text {
+        width: 100%;
+    }
+    .card-image {
+        width: 75%;
+        margin-left: 20%;
+    }
+    .clinics {
+        padding-left: 10% !important;
+    }
 }
-.clinic_name{
-    width: 100% !important;
-    text-align: center;
-}
-.doctors{
-    padding: 3% 0% 4% 0% !important;
-    color: #2262b1;background-color: #fafafa;
-    font-size: 1.2rem;margin-top: 0% !important;
-}
-.doctors-card,.pic{
-    padding-left: 0% !important;
-}
-.member-info{
-    padding-top: 5%;
-}
-.donors{
-    width: 95%;
-    margin-left: 3%;
-}
-.footer{
-    padding: 3% 0% 2% 5% !important;
-    color: #ffffff;background-color: #2262b1;
-    font-size: 1rem;margin-top: 0% !important;display: flex;
-}
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c

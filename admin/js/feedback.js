@@ -13,6 +13,4 @@ function updateFeedbackStatus(id, status) {
     });
 }
 
-function viewFeedbackInfo() {
-    window.location.href = "feedbackinfo.php";
-}
+

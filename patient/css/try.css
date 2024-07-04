@@ -1,6 +1,16 @@
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+/* Ensure Font Awesome icons keep their original font family */
+.fa, .fas, .far, .fal, .fab {
+  font-family: 'Font Awesome 5 Free' !important;
+}
 
+/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+.fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
+  font-family: 'Font Awesome 6 Free' !important;
+}
 body {
-            font-family: 'Source Sans Pro', sans-serif;
             background-color: #f2f2f2;
             color: #333;
             overflow-x: hidden;
@@ -12,6 +22,7 @@ body {
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin-top: 20px;
+            display: flex;
         }
 
         .form-container {
@@ -54,7 +65,8 @@ body {
         }
 
 .wrapper {
-  padding: 0 10% 10% 10%;
+
+  width: 50%;
 }
 .wrapper .timepicker-cf {
   height: 60px;
@@ -63,8 +75,9 @@ body {
 .wrapper .timepicker {
   margin-left: 120px;
   position: absolute;
+  margin-left: 20px;
   top: 200px;
-  width: 50%;
+  width: 40%;
   height: 0px;
   background: #667483;
   overflow: hidden;

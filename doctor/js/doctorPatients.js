@@ -1,5 +1,11 @@
 $(document).ready(function() {
-    // Function to fetch patient history and populate fields
+    $("#searchInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#filter tbody tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+   
     function fetchPatientHistory(patientId) {
         $.ajax({
             url: 'fetch_patient_history.php',

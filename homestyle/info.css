@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .outer {
     width: 100%;
     height: 100%;
@@ -13,18 +12,6 @@
 }
 
 .form-wrapper {
-=======
-.outer{
-    width: 100%;height: 100%;
-    overflow: hidden;
-   z-index: 999;
-}
-.content{
-    width: 100%;height: 100%;
-    background-color: #fff;
-}
-.form-wrapper{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     width: 100%;
     height: 100%;
     padding-left: 50px;
@@ -35,35 +22,22 @@
     gap: 10px;
 }
 
-<<<<<<< HEAD
 .heading {
-=======
-.heading{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     font-size: 1.56em;
     font-weight: 600;
     line-height: 0.5;
     padding-bottom: 0px;
 }
 
-<<<<<<< HEAD
 .or {
-=======
-
-.or{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     position: relative;
     width: 100%;
     height: 1px;
     background-color: #cfcfcf;
     margin: 10px 0;
 }
-<<<<<<< HEAD
 
 .or::before {
-=======
-.or::before{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     content: "or";
     position: absolute;
     top: -10px;
@@ -86,22 +60,13 @@
     flex: 1;
 }
 
-<<<<<<< HEAD
 form {
-=======
-
-form{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     display: flex;
     flex-direction: column;
     gap: 7px;
 }
-<<<<<<< HEAD
 
 form .input:not(.checkbox) {
-=======
-form .input:not(.checkbox){
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     width: 100%;
     height: 25px;
     display: flex;
@@ -111,17 +76,12 @@ form .input:not(.checkbox){
     border-radius: 5px;
     font-size: 14px;
 }
-<<<<<<< HEAD
 
 form label {
-=======
-form label{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     width: 100%;
     font-size: 12px;
     line-height: 3;
 }
-<<<<<<< HEAD
 
 .row-item input[type="text"],
 .row-item input[type="password"],
@@ -130,40 +90,22 @@ form label{
     min-width: 150px;
     display: block;
     width: 8.5vw;
-=======
-.row-item input[type="text"],
-.row-item input[type="password"],
-.row-item input[type="date"],
-.row-item input[type="email"]
-{
-    min-width: 150px;
-    display: block;
-    width:8.5vw;
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     height: 45px;
     border: none;
     outline: none;
     padding: 0 10px;
 }
 
-<<<<<<< HEAD
 form ion-icon.eye {
     cursor: pointer;
 }
 
 form .terms {
-=======
-form ion-icon.eye{
-    cursor: pointer;
-}
-form .terms{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     position: relative;
     display: flex;
     align-items: center;
     gap: 5px;
 }
-<<<<<<< HEAD
 
 form .terms .error-msg {
     bottom: -10px;
@@ -174,25 +116,17 @@ form .terms input[type="checkbox"] {
 }
 
 form .btn {
-=======
-form .terms .error-msg{
-    bottom: -10px;
-}
-form .terms input[type="checkbox"]{
-    cursor: pointer;
-}
-form .btn{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
-    width: 107%;
+    width: 80%;
     height: 50px;
     border: none;
     border-radius: 5px;
     background-color: #5ea4ff;
     color: #fff;
     font-size: 20px;
-<<<<<<< HEAD
     font-weight: 400;
     cursor: pointer;
+    margin-top: -15%;
+    margin-left: 5%;
 }
 
 form .btn:disabled {
@@ -204,22 +138,6 @@ form .btn:disabled {
     min-width: 200px;
     display: block;
     width: 10vw;
-=======
-    font-weight: 400 ;
-    cursor: pointer;
-}
-form .btn:disabled{
-    background-color: #7291b9;
-    cursor:default;
-}
-
-
-.row-item select
-{
-    min-width: 200px;
-    display: block;
-    width:10vw;
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     height: 45px;
     border: none;
     outline: none;
@@ -231,39 +149,22 @@ form .btn:disabled{
     border-radius: 5px;
     font-size: 15px;
 }
-<<<<<<< HEAD
 
 .frgt-pass label {
-=======
-.frgt-pass label{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
     text-decoration: underline;
     color: #2262b1;
     cursor: pointer;
     font-size: 15px;
 }
 
-<<<<<<< HEAD
 @media(max-width: 1400px) {
     .containerr {
-=======
-@media(max-width: 1400px){
-    .containerr{
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c
         transform: scale(0.8);
     }
 }
 
-<<<<<<< HEAD
 @media(max-width: 1000px) {
     .containerr {
         transform: scale(0.6);
     }
 }
-=======
-@media(max-width: 1000px){
-    .containerr{
-        transform: scale(0.6);
-    }
-}
->>>>>>> edbd8b926f5df3adf3082fd7889ca537e0b1cd3c

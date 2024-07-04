@@ -1,5 +1,29 @@
 * {
     box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+}
+
+
+/* Ensure Font Awesome icons keep their original font family */
+
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+    font-family: 'Font Awesome 5 Free' !important;
+}
+
+
+/* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin,
+.fa-duotone,
+.fa-brands {
+    font-family: 'Font Awesome 6 Free' !important;
 }
 
 .card {
@@ -130,7 +154,6 @@
     max-width: 360px;
     background-color: #fff;
     width: 100%;
-    padding: 30px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -165,5 +188,3 @@
     background-color: #2262b1;
     transform: translateY(-50%);
 }
-
-;

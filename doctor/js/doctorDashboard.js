@@ -88,7 +88,7 @@ const displayAppointments = (appointments = []) => {
             appointmentsHTML += `
                 <div class="appointment">
                 <i class="fas fa-clock"></i>
-                 <strong class="info">${app.time}</strong>
+                 <strong class="info">${app.time_}</strong>
                  <strong><span style="margin-right:1%; margin-left:1%">||<span></strong>
                  <strong class="info">${app.patient} ${app.patientlastname}</strong>
                  
@@ -179,7 +179,7 @@ $(document).ready(function () {
                         appointmentsHtml += '<tr>';
                         appointmentsHtml += '<td data-label="Name"><a href="doctorPatients.php?id=' + appointment.userID + '">' + appointment.Fname + ' ' + appointment.Lname + '</a></td>';
                         appointmentsHtml += '<td data-label="Date">' + appointment.date_ + '</td>';
-                        appointmentsHtml += '<td data-label="Time">' + appointment.time + '</td>';
+                        appointmentsHtml += '<td data-label="Time">' + appointment.time_ + '</td>';
                         appointmentsHtml += '<td><button class="approve-btn" data-appointment-id="' + appointment.id + '"><i class="fas fa-check"></i></button></td>';
                         appointmentsHtml += '<td><button class="cancel-btn" data-appointment-id="' + appointment.id + '"><i class="fas fa-times"></i></td>';
                         appointmentsHtml += '</tr>';
@@ -228,6 +228,56 @@ $(document).ready(function () {
             error: function (xhr, status, error) {
                 console.error('Error cancelling appointment:', error);
                 alert('Error cancelling appointment.');
+            }
+        });
+    });
+
+    fetchAppointments();
+});
+$(document).ready(function () {
+
+    function fetchAppointments() {
+        $.ajax({
+            url: 'fetch_canceled_appointments.php',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (response && response.length > 0) {
+                    var appointmentsHtml = '';
+                    response.forEach(function (appointment) {
+                        appointmentsHtml += '<tr>';
+                        appointmentsHtml += '<td data-label="Name"><a href="doctorPatients.php?id=' + appointment.userID + '">' + appointment.Fname + ' ' + appointment.Lname + '</a></td>';
+                        appointmentsHtml += '<td data-label="Date">' + appointment.date_ + '</td>';
+                        appointmentsHtml += '<td data-label="Time">' + appointment.time_ + '</td>';
+                        appointmentsHtml += '<td><button class="Reaccept-btn" data-appointment-id="' + appointment.id + '">Send Email</button></td>';
+                        appointmentsHtml += '</tr>';
+                    });
+
+                    $('#CanceledappointmentsBody').html(appointmentsHtml);
+                } else {
+                    $('#CanceledappointmentsBody').html('<tr><td colspan="5">No Canceled appointments found.</td></tr>');
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching appointments:', error);
+            }
+        });
+    }
+
+    $(document).on('click', '.Reaccept-btn', function () {
+        var appointmentId = $(this).data('appointment-id');
+        $.ajax({
+            url: 'reaccept_appointment.php',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ id: appointmentId }),
+            success: function (response) {
+                console.log(response)
+                fetchAppointments();
+            },
+            error: function (xhr, status, error) {
+                console.error('Error approving appointment:', error);
+                alert('Error approving appointment. Please check console for details.');
             }
         });
     });
