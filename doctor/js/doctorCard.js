@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
             contentType: 'application/json',
             success: function (response) {
                 alert('Availability saved successfully!');
-                fetchAndDisplayAvailability();
+                
             },
             error: function (error) {
                 alert('Error saving availability.');
