@@ -1,4 +1,3 @@
-
 let isEmailValid = false;
 let isPasswordValid = false;
 let isRegisterEmailValid = false;
@@ -10,17 +9,17 @@ let dobValid = false;
 
 /* HERE THE CODE FOR THE LOGIN FORM VALIDATION */
 document.addEventListener('DOMContentLoaded', function() {
-    let email =document.getElementById('login-email');
-    let password =document.getElementById('login-password');
-    let button =  document.getElementById('Login-Button');
-    
+    let email = document.getElementById('login-email');
+    let password = document.getElementById('login-password');
+    let button = document.getElementById('Login-Button');
+
     email.addEventListener('blur', function() {
-        em = email.value; 
+        em = email.value;
         if (!validateEmail(em)) {
             valid = false;
             email.parentElement.classList.add("error");
             isEmailValid = false;
-        }else{
+        } else {
             email.parentElement.classList.remove("error");
             isEmailValid = true;
         }
@@ -28,12 +27,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     password.addEventListener('blur', function() {
-        pass =password.value;
+        pass = password.value;
         if (!validatePassword(pass)) {
             valid = false;
             password.parentElement.classList.add("error");
             isPasswordValid = false;
-        }else{
+        } else {
             password.parentElement.classList.remove("error");
             isPasswordValid = true;
         }
@@ -60,10 +59,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let confirm = document.getElementById('Confirm-Password');
     let button = document.getElementById('Register-Button');
     let dob = document.getElementById('dob');
-    
-    
+
+
     email.addEventListener('blur', function() {
-        let em = email.value; 
+        let em = email.value;
         if (!validateEmail(em)) {
             email.parentElement.classList.add("error");
             isRegisterEmailValid = false;
@@ -113,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     confirm.addEventListener('blur', function() {
         let passwo = password.value;
         let confirmPass = confirm.value;
-        
+
         if (passwo !== confirmPass) {
             confirm.parentElement.classList.add("error");
             isRegisterConfirmValid = false;
@@ -121,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
             confirm.parentElement.classList.remove("error");
             isRegisterConfirmValid = true;
         }
-        
+
         updateButtonState()
     });
 
@@ -164,7 +163,7 @@ function validatePassword(password) {
 
 function Info(name) {
     name = name.trim();
-    return name.length >= 1; 
+    return name.length >= 1;
 }
 
 
@@ -181,10 +180,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let doctorconfirm = document.getElementById('doctor-confirm-password');
     let doctorbutton = document.getElementById('doctor-reg');
     let doctordob = document.getElementById('doctor-dob');
-    
-    
+
+
     doctoremail.addEventListener('blur', function() {
-        let dem = doctoremail.value; 
+        let dem = doctoremail.value;
         if (!validateEmail(dem)) {
             doctoremail.parentElement.classList.add("error");
             isRegisterEmailValid = false;
@@ -224,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!Info(dln)) {
             doctorlname.parentElement.classList.add("error");
             isRegisterLnameValid = false;
-        } else { 
+        } else {
             doctorlname.parentElement.classList.remove("error");
             isRegisterLnameValid = true;
         }
@@ -234,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
     doctorconfirm.addEventListener('blur', function() {
         let passwo = doctorpassword.value;
         let confirmPass = doctorconfirm.value;
-        
+
         if (passwo !== confirmPass) {
             doctorconfirm.parentElement.classList.add("error");
             isRegisterConfirmValid = false;
@@ -242,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
             doctorconfirm.parentElement.classList.remove("error");
             isRegisterConfirmValid = true;
         }
-        
+
         updateButtonState()
     });
 
@@ -267,5 +266,3 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
-
-

@@ -21,4 +21,3 @@ if (isset($_POST['doctor_id']) && isset($_POST['selected_date'])) {
 
     echo json_encode($availability);
 }
-?>

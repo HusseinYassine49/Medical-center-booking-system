@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multi Item Carousel Cards</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -30,103 +31,103 @@
 </head>
 <?php
 include "navbar/navbar.php";
-include "../include/connection.php";
+
 ?>
 <style>
-    .row {
-        margin-left: 5%;
-        margin-right: 10%;
-    }
+.row {
+    margin-left: 5%;
+    margin-right: 10%;
+}
 
-    @media screen and (min-width: 567px) {
-        .carousel-inner {
-            display: flex;
-        }
-
-        .carousel-item {
-            display: block;
-            margin-right: 0;
-            flex: 0 0 calc(100% / 3);
-        }
-    }
-
-    ol,
-    ul {
-        padding-left: 0;
-    }
-
+@media screen and (min-width: 567px) {
     .carousel-inner {
-        padding: 1em;
-        margin-left: 30px;
-    }
-
-    .card {
-        margin: 0 .5em;
-        border-radius: 0;
-        box-shadow: 2px 6px 8px 0;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 6vh;
-        height: 6vh;
-        background-color: #e1e1e1;
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        opacity: .5;
-    }
-
-    .carousel-control-prev:hover,
-    .carousel-control-next:hover {
-        opacity: 1;
-    }
-
-    .subcategories {
-        visibility: hidden;
-        padding: 20px 0;
-        border-top: 1px solid #ccc;
-    }
-
-    .subcategories.show {
-        visibility: visible;
-    }
-
-    .icon {
-        margin: 0 auto;
-        width: 64px;
-        height: 64px;
-        background: #1977cc;
-        border-radius: 5px;
-        transition: all 0.3s ease-out 0s;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 20px;
-        transform-style: preserve-3d;
-        position: relative;
-        z-index: 2;
     }
 
-    .icon i {
-        color: #fff;
-        font-size: 28px;
-        transition: ease-in-out 0.3s;
+    .carousel-item {
+        display: block;
+        margin-right: 0;
+        flex: 0 0 calc(100% / 3);
     }
+}
 
-    .icon::before {
-        position: absolute;
-        content: "";
-        left: -8px;
-        top: -8px;
-        height: 100%;
-        width: 100%;
-        background: rgba(25, 119, 204, 0.2);
-        border-radius: 5px;
-        transition: all 0.3s ease-out 0s;
-        transform: translateZ(-1px);
-        z-index: -1;
-    }
+ol,
+ul {
+    padding-left: 0;
+}
+
+.carousel-inner {
+    padding: 1em;
+    margin-left: 30px;
+}
+
+.card {
+    margin: 0 .5em;
+    border-radius: 0;
+    box-shadow: 2px 6px 8px 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 6vh;
+    height: 6vh;
+    background-color: #e1e1e1;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: .5;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    opacity: 1;
+}
+
+.subcategories {
+    visibility: hidden;
+    padding: 20px 0;
+    border-top: 1px solid #ccc;
+}
+
+.subcategories.show {
+    visibility: visible;
+}
+
+.icon {
+    margin: 0 auto;
+    width: 64px;
+    height: 64px;
+    background: #1977cc;
+    border-radius: 5px;
+    transition: all 0.3s ease-out 0s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transform-style: preserve-3d;
+    position: relative;
+    z-index: 2;
+}
+
+.icon i {
+    color: #fff;
+    font-size: 28px;
+    transition: ease-in-out 0.3s;
+}
+
+.icon::before {
+    position: absolute;
+    content: "";
+    left: -8px;
+    top: -8px;
+    height: 100%;
+    width: 100%;
+    background: rgba(25, 119, 204, 0.2);
+    border-radius: 5px;
+    transition: all 0.3s ease-out 0s;
+    transform: translateZ(-1px);
+    z-index: -1;
+}
 </style>
 
 <body>
@@ -168,11 +169,13 @@ include "../include/connection.php";
                     }
                     ?>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
@@ -251,71 +254,71 @@ include "../include/connection.php";
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
     <script>
-        $(document).ready(function() {
-            const multipleItemcarousel = document.querySelector('#carouselExampleControls');
+    $(document).ready(function() {
+        const multipleItemcarousel = document.querySelector('#carouselExampleControls');
 
-            if (window.matchMedia("(min-width:576px)").matches) {
-                const carousel = new bootstrap.Carousel(multipleItemcarousel, {
-                    interval: false
-                });
-
-                var carouselWidth = $('.carousel-inner').prop('scrollWidth');
-                var cardWidth = $('.carousel-item').width();
-                var scrollPosition = 0;
-
-                $('.carousel-control-next').on('click', function() {
-                    if (scrollPosition < (carouselWidth - (cardWidth * 4))) {
-                        console.log('next');
-                        scrollPosition = scrollPosition + cardWidth;
-                        $('.carousel-inner').animate({
-                            scrollLeft: scrollPosition
-                        }, 600);
-                    }
-                });
-
-                $('.carousel-control-prev').on('click', function() {
-                    if (scrollPosition > 0) {
-                        console.log('prev');
-                        scrollPosition = scrollPosition - cardWidth;
-                        $('.carousel-inner').animate({
-                            scrollLeft: scrollPosition
-                        }, 600);
-                    }
-                });
-            } else {
-                $(multipleItemcarousel).addClass('slide');
-            }
-
-            $('#clinic1').on('click', function() {
-                showSubcategories('cat1');
-            });
-            $('#clinic2').on('click', function() {
-                showSubcategories('cat2');
-            });
-            $('#clinic3').on('click', function() {
-                showSubcategories('cat3');
-            });
-            $('#clinic4').on('click', function() {
-                showSubcategories('cat4');
-            });
-            $('#clinic5').on('click', function() {
-                showSubcategories('cat5');
+        if (window.matchMedia("(min-width:576px)").matches) {
+            const carousel = new bootstrap.Carousel(multipleItemcarousel, {
+                interval: false
             });
 
+            var carouselWidth = $('.carousel-inner').prop('scrollWidth');
+            var cardWidth = $('.carousel-item').width();
+            var scrollPosition = 0;
 
+            $('.carousel-control-next').on('click', function() {
+                if (scrollPosition < (carouselWidth - (cardWidth * 4))) {
+                    console.log('next');
+                    scrollPosition = scrollPosition + cardWidth;
+                    $('.carousel-inner').animate({
+                        scrollLeft: scrollPosition
+                    }, 600);
+                }
+            });
+
+            $('.carousel-control-prev').on('click', function() {
+                if (scrollPosition > 0) {
+                    console.log('prev');
+                    scrollPosition = scrollPosition - cardWidth;
+                    $('.carousel-inner').animate({
+                        scrollLeft: scrollPosition
+                    }, 600);
+                }
+            });
+        } else {
+            $(multipleItemcarousel).addClass('slide');
+        }
+
+        $('#clinic1').on('click', function() {
+            showSubcategories('cat1');
+        });
+        $('#clinic2').on('click', function() {
+            showSubcategories('cat2');
+        });
+        $('#clinic3').on('click', function() {
+            showSubcategories('cat3');
+        });
+        $('#clinic4').on('click', function() {
+            showSubcategories('cat4');
+        });
+        $('#clinic5').on('click', function() {
+            showSubcategories('cat5');
         });
 
-        function showSubcategories(categoryId) {
-            var subcategories = document.querySelectorAll('.subcategories');
-            subcategories.forEach(function(subcategory) {
-                subcategory.classList.remove('show');
-            });
 
-            var selectedSubcategories = document.getElementById(categoryId);
-            if (selectedSubcategories) {
-                selectedSubcategories.classList.add('show');
-            }
+    });
+
+    function showSubcategories(categoryId) {
+        var subcategories = document.querySelectorAll('.subcategories');
+        subcategories.forEach(function(subcategory) {
+            subcategory.classList.remove('show');
+        });
+
+        var selectedSubcategories = document.getElementById(categoryId);
+        if (selectedSubcategories) {
+            selectedSubcategories.classList.add('show');
         }
+    }
     </script>
 </body>
 
