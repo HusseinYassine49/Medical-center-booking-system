@@ -12,6 +12,7 @@ body {
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             margin-top: 20px;
+            display: flex;
         }
 
         .form-container {
@@ -54,7 +55,8 @@ body {
         }
 
 .wrapper {
-  padding: 0 10% 10% 10%;
+
+  width: 50%;
 }
 .wrapper .timepicker-cf {
   height: 60px;
@@ -63,8 +65,9 @@ body {
 .wrapper .timepicker {
   margin-left: 120px;
   position: absolute;
+  margin-left: 20px;
   top: 200px;
-  width: 50%;
+  width: 40%;
   height: 0px;
   background: #667483;
   overflow: hidden;

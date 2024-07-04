@@ -191,16 +191,16 @@ with it curves*/
 }
 
 .main-page {
-    width: 85%;
+    width: 90%;
     height: 870px;
-    margin-left: 10%;
+    margin-left: 5%;
     padding: 20px;
     padding-top: 80px;
 }
 
 @media(max-width: 1450px) {
     .main-page {
-        margin-left: 20%;
+        margin-left: 5%;
     }
     .bread-container {
         width: 90%;
@@ -215,7 +215,7 @@ with it curves*/
         width: 80px;
     }
     .main-page {
-        margin-left: 20%;
+        margin-left: 5%;
         width: 82%;
     }
 }

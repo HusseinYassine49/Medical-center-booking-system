@@ -5,7 +5,7 @@ require "../include/connection.php";
 
 if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest' && isset($_POST['userID'])) {
     $userID = $_POST['userID'];
-    exit; 
+    exit;
 }
 
 $user_id = $_SESSION['user_id'];
@@ -47,33 +47,40 @@ $con->close();
 </head>
 
 <body>
-   
+
     <div class="container">
         <h1>You Just Registered On Our Website.</h1>
 
-        <?php if ($has_submitted && $verified == 'notVerified'): ?>
+        <?php if ($has_submitted && $verified == 'notVerified') : ?>
             <div class="notification">
                 <p>You have already submitted your application. Please wait for verification.</p>
-                <button class="button" onclick="window.location.href='../index.html'">Continue</button>
-                <label class="backhome-label">Continue To Home Page</label>
-            </div>
-            
-        <?php elseif ($declined): ?>
-            <div class="notification">
-                <p class="declined">We are sorry to inform you but you are declined from becoming a doctor.</p>
-                <button class="button declined" onclick="window.location.href='../index.html'">Continue</button>
+                <button class="button" onclick="window.location.href='../home.php'">Continue</button>
                 <label class="backhome-label">Continue To Home Page</label>
             </div>
 
-        <?php elseif (!$has_submitted): ?>
+        <?php elseif ($declined) : ?>
+            <div class="notification">
+                <p class="declined">We are sorry to inform you but you are declined from becoming a doctor.</p>
+                <button class="button declined" onclick="window.location.href='../home.php'">Continue</button>
+                <label class="backhome-label">Continue To Home Page</label>
+            </div>
+
+        <?php elseif (!$has_submitted) : ?>
             <h2>Please fill the form below to be verified as a Doctor. You will be contacted in a couple of days.</h2>
             <form action="process_apply.php" method="POST" enctype="multipart/form-data">
                 <div class="row">
-                    <label for="file-upload" class="custom-file-upload">
+                    <label for="cv-upload" class="custom-file-upload">
                         Enter Your CV to Apply To Become One Of Our Doctors
                     </label>
                     <span class="file-name">No file chosen</span>
-                    <input id="file-upload" type="file" name="cv" required />
+                    <input id="cv-upload" type="file" name="cv" required />
+
+                    <label for="photo-upload" class="custom-photo-upload">
+                        Upload your photo
+                    </label>
+                    <span class="photo-name">No photo chosen</span>
+                    <input id="photo-upload" type="file" name="photo" required />
+
 
                     <label for="department-select">Choose Your Preferred Major To Join Our Department Of Doctors</label>
                     <div class="custom-select">

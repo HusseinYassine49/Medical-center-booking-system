@@ -41,10 +41,6 @@ $doctorsResult = $con->query($doctorsQuery);
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Playfair+Display:700,900|Source+Sans+Pro:400,600,700'>
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
-  <script>
-  window.console = window.console || function(t) {};
-</script>
-
 
 </head>
 

@@ -4,9 +4,15 @@ function departmentInsertion(event) {
     // Gather form data
     let name = document.getElementById('department-name').value.trim();
     let description = document.getElementById('department-description').value.trim();
+    let icon = document.getElementById('department-icon').value.trim(); // Get icon value
+
+    // Log the values to check
+    console.log("Name:", name);
+    console.log("Description:", description);
+    console.log("Icon:", icon);
 
     // Input validation
-    if (name === '' || description === '') {
+    if (name === '' || description === '' || icon === '') {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
@@ -17,7 +23,8 @@ function departmentInsertion(event) {
 
     let data = {
         name: name,
-        description: description
+        description: description,
+        icon: icon // Add icon to data object
     };
 
     $.ajax({

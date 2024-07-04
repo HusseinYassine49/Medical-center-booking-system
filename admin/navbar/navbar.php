@@ -19,6 +19,7 @@ $user_active = '';
 $feedback_active = '';
 $department_active = '';
 $verify= '';
+$feedbackinfo_active = '';
 
 
 if ($current_page == 'admin-dashboard.php') {
@@ -29,7 +30,10 @@ if ($current_page == 'admin-dashboard.php') {
   $user_active = 'h-active';
 } elseif ($current_page == 'admin-feedback.php') {
   $feedback_active = 'h-active';
-}elseif ($current_page == 'admin-department.php') {
+}elseif ($current_page == 'feedbackinfo.php') {
+  $feedbackinfo_active = 'h-active';
+}
+elseif ($current_page == 'admin-department.php') {
   $department_active = 'h-active';
 }elseif ($current_page == 'admin-verify.php') {
   $verify_active = 'h-active';
@@ -60,7 +64,7 @@ if ($current_page == 'admin-dashboard.php') {
               <span class="h-title">User</span>
           </a>
       </li>
-      <li class="list <?php echo $feedback_active; ?>" style="--bg:#2262b1;">
+      <li class="list <?php echo $feedback_active; ?>  <?php echo $feedbackinfo_active ?>" style="--bg:#2262b1;">
           <a href="../admin/admin-feedback.php">
               <span class="h-icon"><i class="fa-solid fa-comment"></i></span>
               <span class="h-title">Feedback</span>

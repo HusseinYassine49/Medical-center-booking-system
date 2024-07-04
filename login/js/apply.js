@@ -1,18 +1,36 @@
-const fileInput = document.getElementById('file-upload');
-        const fileNameDisplay = document.querySelector('.file-name');
-        const fileLabel = document.querySelector('.custom-file-upload');
+const cvInput = document.getElementById('cv-upload');
+const cvNameDisplay = document.querySelector('.file-name');
+const cvLabel = document.querySelector('.custom-file-upload');
 
-        fileInput.addEventListener('change', function() {
-            if (this.files.length > 0) {
-                fileNameDisplay.textContent = this.files[0].name;
-                fileLabel.classList.add('selected');
-                fileLabel.textContent = "File Selected";
-            } else {
-                fileNameDisplay.textContent = "No file chosen";
-                fileLabel.classList.remove('selected');
-                fileLabel.textContent = "Choose File";
-            }
-        });
+cvInput.addEventListener('change', function() {
+    if (this.files.length > 0) {
+        cvNameDisplay.textContent = this.files[0].name;
+        cvLabel.classList.add('selected');
+        cvLabel.textContent = "File Selected";
+    } else {
+        cvNameDisplay.textContent = "No file chosen";
+        cvLabel.classList.remove('selected');
+        cvLabel.textContent = "Choose File";
+    }
+});
+
+const photoInput = document.getElementById('photo-upload');
+const photoNameDisplay = document.querySelector('.photo-name');
+const photoLabel = document.querySelector('.custom-photo-upload');
+
+photoInput.addEventListener('change', function() {
+    if (this.files.length > 0) {
+        photoNameDisplay.textContent = this.files[0].name;
+        photoLabel.classList.add('selected');
+        photoLabel.textContent = "Photo Selected";
+    } else {
+        photoNameDisplay.textContent = "No photo chosen";
+        photoLabel.classList.remove('selected');
+        photoLabel.textContent = "Choose Photo";
+    }
+});
+
+
 
 
         

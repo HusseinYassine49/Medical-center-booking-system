@@ -33,9 +33,7 @@ body{
 .bread-container{
     width: 100%;
     background-color: #Fff;
-    max-width: 1440px;
     height: fit-content;
-    margin-top: 40px;
     margin-bottom: 40px;
     padding-bottom: 20px;
     padding-top: 20px;
@@ -287,10 +285,10 @@ body{
 
 
 .main-page{
-    width: 75%;
+    width: 90%;
     height: 870px;
     background-color: var(--clr);
-    margin-left:  13%;
+    margin-left:  5%;
     padding: 20px;
     padding-top: 50px;
     z-index: -1;
@@ -299,7 +297,7 @@ body{
 
 @media(max-width: 1450px){
     .main-page{
-        margin-left: 13%;
+        margin-left: 5%;
         transform: scale(0.9);
 
     }
@@ -317,7 +315,7 @@ body{
         width: 80px;
     }
     .main-page{
-        margin-left: 10%;
+        margin-left: 5%;
         width: 82%;
     }
     
