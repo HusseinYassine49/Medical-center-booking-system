@@ -1,15 +1,20 @@
-<?php 
+<?php
 require "../include/connection.php";
 
-$acceptedSql = "SELECT users.Fname, feedback.rating , feedback.comment , feedback.status, feedback.id
+$acceptedSql = "SELECT users.Fname AS PatientName, users.Lname AS PatientLastName, CONCAT(doctor_user.Fname, ' ', doctor_user.Lname) AS DoctorName, feedback.rating, feedback.comment, feedback.status, feedback.id
                 FROM users
-                INNER JOIN feedback ON users.id = feedback.userID
-                WHERE feedback.status = 'accepted';";
+                INNER JOIN feedback ON users.id = feedback.UserID
+                INNER JOIN doctors ON doctors.DoctorID = feedback.DoctorID
+                INNER JOIN users AS doctor_user ON doctors.UserID = doctor_user.id
+                WHERE feedback.status = '1';";
 
-$declinedSql = "SELECT users.Fname, feedback.rating , feedback.comment , feedback.status, feedback.id
+$declinedSql = "SELECT users.Fname AS PatientName, users.Lname AS PatientLastName, CONCAT(doctor_user.Fname, ' ', doctor_user.Lname) AS DoctorName, feedback.rating, feedback.comment, feedback.status, feedback.id
                 FROM users
-                INNER JOIN feedback ON users.id = feedback.userID
-                WHERE feedback.status = 'declined';";
+                INNER JOIN feedback ON users.id = feedback.UserID
+                INNER JOIN doctors ON doctors.DoctorID = feedback.DoctorID
+                INNER JOIN users AS doctor_user ON doctors.UserID = doctor_user.id
+                WHERE feedback.status = '2';";
+
 
 $acceptedResult = $con->query($acceptedSql);
 $declinedResult = $con->query($declinedSql);
@@ -17,6 +22,7 @@ $declinedResult = $con->query($declinedSql);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,22 +33,23 @@ $declinedResult = $con->query($declinedSql);
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
-<?php include 'navbar/navbar.php';?>
+    <?php include 'navbar/navbar.php'; ?>
 
     <div class="main-page" id="main-page">
 
-    <div class="sphere top-sphere"></div>
-  <div class="sphere mid-sphere-left"></div>
+        <div class="sphere top-sphere"></div>
+        <div class="sphere mid-sphere-left"></div>
 
 
         <div class="bread-container">
             <ul class="breadcrumbs">
                 <li class="breadcrumbs-item">
-                    <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>     
+                    <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="breadcrumbs-item">
-                    <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a> 
+                    <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>
                 </li>
                 <li class="breadcrumbs-item">
                     <a href="admin-feedback.php" class="breadcrumbs-link">Feedback</a>
@@ -54,7 +61,7 @@ $declinedResult = $con->query($declinedSql);
         </div>
 
         <div class="middle-part">
-        <button class="feedbackinfo-btn" onclick="window.location.href = 'admin-feedback.php'"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="feedbackinfo-btn" onclick="window.location.href = 'admin-feedback.php'"><i class="fa-solid fa-chevron-left"></i></button>
             <h1 class="feedback-page-header">Feedback Information</h1>
             <button class="feedbackinfo-btn hidden" onclick=""><i class="fa-solid fa-chevron-left"></i></button>
         </div>
@@ -64,26 +71,26 @@ $declinedResult = $con->query($declinedSql);
             <table id="accepted-feedback-table">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Patient</th>
+                        <th>Doctor</th>
                         <th>Rating</th>
                         <th>Feedback</th>
                     </tr>
                 </thead>
                 <tbody id="accepted-feedback-list">
                     <?php
-                        if ($acceptedResult->num_rows > 0) {
-                            while($row = $acceptedResult->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td>" . $row["id"] . "</td>";
-                                echo "<td>" . $row["Fname"] . "</td>";
-                                echo "<td>" . $row["rating"] . "</td>";
-                                echo "<td>" . $row["comment"] . "</td>";
-                                echo "</tr>";
-                            }
-                        } else {
-                            echo "<tr><td colspan='4'>No accepted feedback found</td></tr>";
+                    if ($acceptedResult->num_rows > 0) {
+                        while ($row = $acceptedResult->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row["PatientName"] . " " . $row["PatientLastName"] . "</td>";
+                            echo "<td>" . $row["DoctorName"] . "</td>";
+                            echo "<td>" . $row["rating"] . "</td>";
+                            echo "<td>" . $row["comment"] . "</td>";
+                            echo "</tr>";
                         }
+                    } else {
+                        echo "<tr><td colspan='4'>No accepted feedback found</td></tr>";
+                    }
                     ?>
                 </tbody>
             </table>
@@ -94,26 +101,26 @@ $declinedResult = $con->query($declinedSql);
             <table id="declined-feedback-table">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Patient</th>
+                        <th>Doctor</th>
                         <th>Rating</th>
                         <th>Feedback</th>
                     </tr>
                 </thead>
                 <tbody id="declined-feedback-list">
                     <?php
-                        if ($declinedResult->num_rows > 0) {
-                            while($row = $declinedResult->fetch_assoc()) {
-                                echo "<tr>";
-                                echo "<td>" . $row["id"] . "</td>";
-                                echo "<td>" . $row["Fname"] . "</td>";
-                                echo "<td>" . $row["rating"] . "</td>";
-                                echo "<td>" . $row["comment"] . "</td>";
-                                echo "</tr>";
-                            }
-                        } else {
-                            echo "<tr><td colspan='4'>No declined feedback found</td></tr>";
+                    if ($declinedResult->num_rows > 0) {
+                        while ($row = $declinedResult->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . $row["PatientName"] . " " . $row["PatientLastName"] . "</td>";
+                            echo "<td>" . $row["DoctorName"] . "</td>";
+                            echo "<td>" . $row["rating"] . "</td>";
+                            echo "<td>" . $row["comment"] . "</td>";
+                            echo "</tr>";
                         }
+                    } else {
+                        echo "<tr><td colspan='4'>No declined feedback found</td></tr>";
+                    }
                     ?>
                 </tbody>
             </table>
@@ -122,4 +129,5 @@ $declinedResult = $con->query($declinedSql);
 
     <script src="js/include.js"></script>
 </body>
+
 </html>

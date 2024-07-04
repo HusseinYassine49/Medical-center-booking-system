@@ -11,7 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $appointmentId = $data['id'];
 
         // Fetch appointment details
+<<<<<<< HEAD
         $stmt = $con->prepare("SELECT a.date_, a.time_, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id WHERE a.id = ?");
+=======
+        $stmt = $con->prepare("SELECT a.date_, a.time, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id WHERE a.id = ?");
+>>>>>>> 9a7da03ddd34dec038a6603af8b487aba36e98c5
         $stmt->bind_param("i", $appointmentId);
         $stmt->execute();
         $result = $stmt->get_result();

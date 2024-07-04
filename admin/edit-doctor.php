@@ -1,5 +1,12 @@
 <?php
+session_start();
+
 require "../include/connection.php";
+
+if (!isset($_SESSION['user_id']) || $_SESSION['user_role'] != 1) {
+  header("Location: ../login/login.php");
+  exit();
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $id = $_POST["id"];
@@ -49,13 +56,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <div class="main-page" id="main-page">
 
-  <div class="bread-container">
+    <div class="bread-container">
       <ul class="breadcrumbs">
         <li class="breadcrumbs-item">
-          <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>     
+          <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
         </li>
         <li class="breadcrumbs-item">
-          <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a> 
+          <a href="admin-dashboard.php" class="breadcrumbs-link">Dashboard</a>
         </li>
         <li class="breadcrumbs-item">
           <a href="admin-doctor-edit.php" class="breadcrumbs-link">Doctor</a>
@@ -63,11 +70,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <li class="breadcrumbs-item">
           <a href="#" class="breadcrumbs-link active">Edit Doctor</a>
         </li>
-    
       </ul>
     </div>
-
-
 
     <div class="edit-doctor" id="edit-doctor">
       <h1>Edit doctors</h1>
@@ -76,17 +80,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="input-row">
           <div class="input-group">
             <label>First Name</label>
-            <input type="text" name="fname" value="<?php echo $fname; ?>" />
+            <input type="text" name="fname" value="<?php echo $fname; ?>" required />
           </div>
           <div class="input-group">
             <label>Last Name</label>
-            <input type="text" name="lname" value="<?php echo $lname; ?>" />
+            <input type="text" name="lname" value="<?php echo $lname; ?>" required />
           </div>
         </div>
         <div class="input-row">
           <div class="input-group">
             <label>Gender</label>
-            <select class="select" name="gender">
+            <select class="select" name="gender" required>
               <option value="male" <?php if ($gender == 'male') echo 'selected'; ?>>Male</option>
               <option value="female" <?php if ($gender == 'female') echo 'selected'; ?>>Female</option>
               <option value="others" <?php if ($gender == 'others') echo 'selected'; ?>>Others</option>
@@ -94,13 +98,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="input-group">
             <label>Email</label>
-            <input type="email" name="email" value="<?php echo $email; ?>" />
+            <input type="email" name="email" value="<?php echo $email; ?>" required />
           </div>
         </div>
         <div class="input-row">
           <div class="input-group">
             <label>Date of Birth</label>
-            <input type="date" name="dob" value="<?php echo $dob; ?>" /> <!-- Adding DOB input field -->
+            <input type="date" name="dob" value="<?php echo $dob; ?>" required /> <!-- Adding DOB input field -->
           </div>
         </div>
         <div class="input-row">

@@ -20,6 +20,7 @@
   $doctor_active = '';
   $user_active = '';
   $feedback_active = '';
+  $appontfeedback_active = '';
 
 
 
@@ -31,6 +32,8 @@
     $user_active = 'h-active';
   } elseif ($current_page == 'feedback.php') {
     $feedback_active = 'h-active';
+  }elseif ($current_page == 'app_feedback.php'){
+    $appontfeedback_active = 'h-active';
   }
   ?>
 
@@ -53,15 +56,21 @@
         </a>
       </li>
       <li class="list <?php echo $user_active; ?>" style="--bg:#2262b1;">
-        <a href="appointment.php">
-          <span class="h-icon"><i class="fa-solid fa-user"></i></span>
+        <a href="try.php">
+          <span class="h-icon"><i class="fa-solid fa-calendar-days"></i></span>
           <span class="h-title">User</span>
         </a>
       </li>
       <li class="list <?php echo $feedback_active; ?>" style="--bg:#2262b1;">
         <a href="feedback.php">
-          <span class="h-icon"><i class="fa-solid fa-comment"></i></span>
+          <span class="h-icon"><i class="fa-solid fa-person-circle-check"></i></span>
           <span class="h-title">Feedback</span>
+        </a>
+      </li>
+      <li class="list <?php echo $appontfeedback_active; ?>" style="--bg:#2262b1;">
+        <a href="app_feedback.php">
+          <span class="h-icon"><i class="fa-solid fa-calendar-check"></i></span>
+          <span class="h-title">Appointment Feedback</span>
         </a>
       </li>
       <li class="list" style="--bg:#2262b1;">

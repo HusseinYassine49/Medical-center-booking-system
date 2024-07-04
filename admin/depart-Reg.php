@@ -6,13 +6,14 @@ $data = json_decode(file_get_contents('php://input'), true);
 
 $response = array('success' => false, 'message' => '');
 
-if (isset($data['name']) && isset($data['description'])) {
+if (isset($data['name']) && isset($data['description']) && isset($data['icon'])) {
     $name = $data['name'];
     $desc = $data['description'];
+    $icon = $data['icon']; // Get icon from data
 
-    $sql = "INSERT INTO department (Department_name, Description) VALUES (?, ?)";
+    $sql = "INSERT INTO department (Department_name, Description, Icon) VALUES (?, ?, ?)";
     $stmt = $con->prepare($sql);
-    $stmt->bind_param("ss", $name, $desc);
+    $stmt->bind_param("sss", $name, $desc, $icon);
 
     if ($stmt->execute()) {
         $response['success'] = true;
@@ -22,6 +23,8 @@ if (isset($data['name']) && isset($data['description'])) {
     }
 
     $stmt->close();
+} else {
+    $response['message'] = 'Name, description, and icon are required fields.';
 }
 
 $con->close();
