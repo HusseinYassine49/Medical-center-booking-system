@@ -27,6 +27,13 @@ if ($current_page == 'doctorDashboard.php') {
   $feedback_active = 'h-active';
 }
 ?>
+
+<div class="arrow-toggle">
+  <i class="fas fa-arrow-right"></i>
+</div>
+
+
+
 <div class="navigation">
   <ul>
     <div class="logo" style="--bg:#333;">
@@ -124,3 +131,23 @@ if ($current_page == 'doctorDashboard.php') {
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <!--SCRIPT FOR PIE CHART-->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const arrowToggle = document.querySelector('.arrow-toggle');
+    const hNavigation = document.querySelector('.h-navigation');
+    const arrowIcon = arrowToggle.querySelector('i');
+
+    arrowToggle.addEventListener('click', () => {
+        hNavigation.classList.toggle('open');
+        if (hNavigation.classList.contains('open')) {
+            arrowIcon.classList.remove('fa-arrow-right');
+            arrowIcon.classList.add('fa-arrow-left');
+        } else {
+            arrowIcon.classList.remove('fa-arrow-left');
+            arrowIcon.classList.add('fa-arrow-right');
+        }
+    });
+});
+
+</script>

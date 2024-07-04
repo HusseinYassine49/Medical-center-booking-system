@@ -2,12 +2,6 @@
 session_start();
 require "../include/connection.php";
 
-$query = "SELECT u.Fname, u.Lname, a.date_, a.time_, a.status, a.id,u.id as userID
-FROM appointment AS a
-INNER JOIN users AS u ON a.userID = u.id
-WHERE a.delete_ = 0 AND a.date_ >= CURDATE() and a.status = 0 and a.doctorID= $dr
-ORDER BY a.date_ ASC;
-"; 
 $userId = $_SESSION['user_info']['id'];
 
 // Fetch the doctor ID

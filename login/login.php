@@ -40,13 +40,13 @@
 
                             </p>
                             <div class="social-logins">
-                                <a href="" class="social-login facebook">
-                                    <img src="f.png" alt="">
-                                    <span>Login with Facebook</span>
+                                <a href="" class="social-login facebook" style="visibility: hidden;">
+                               
+                               
                                 </a>
-                                <a href="" class="social-login google">
-                                    <img src="g.png" alt="">
-                                    <span>Login with Google</span>
+                                <a href="" class="social-login google" style="visibility: hidden;">
+                              
+                                  
                                 </a>
                             </div>
                             <div class="or"></div>

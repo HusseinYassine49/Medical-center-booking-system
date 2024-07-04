@@ -294,10 +294,36 @@ body{
     z-index: -1;
 }
 
+.arrow-toggle {
+    position: fixed;
+    top: 5px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    background: red;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+    display: none;
+    transition: transform 0.8s ease;
+}
+
+.arrow-toggle i {
+    font-size: 1.2em;
+    transition: transform 0.8s ease;
+}
+
+.h-navigation.h-active + .main-page {
+    margin-left: 250px;
+}
+
 
 @media(max-width: 1450px){
     .main-page{
-        margin-left: 5%;
+        margin-left: 2%;
         transform: scale(0.9);
 
     }
@@ -315,7 +341,7 @@ body{
         width: 80px;
     }
     .main-page{
-        margin-left: 5%;
+        margin-left: 2%;
         width: 82%;
     }
     
@@ -325,126 +351,30 @@ body{
 /*-----------------------------------------------------------------------------------------*/
 /*THIS THE CODE FOR THE PAGE BELOW 500PX THAT PUT A NEW BAR THAT IS ON TOP*/
 @media(max-width: 520px){
+    
     .main-page{
         padding-top: 0px;
         margin-left: 0%;
         width: 100%;
         transition: margin 0.5s ease;
     }
-    .h-navigation{
-        display: none;
+    .arrow-toggle {
+        display: flex;
     }
-
-.navigation{
-    position: relative;
-    width: 100%;
-    height: 85px;
-    background-color: #2262b1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    left: 4%;
-    border-radius: 10px;
-    margin-top: 100px;
-    transition: width 0.5s ease;
-}
-
-.navigation ul{
-    display: flex; 
-    width: 350px;
-}
-.navigation ul li{
-    position: relative;
-    list-style: none;
-    width: 70px;
-    height: 70px;
-    z-index: 1;
-}
-.navigation ul li a{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    font-weight: 500;
-}
-.navigation ul li a .h-icon{
-    position: relative;
-    display: block;
-    line-height: 65px;
-    font-size: 1.7em;
-    text-align: center;
-    transition: 0.5s;
-    color: black;
-}
-.navigation ul li.active .h-icon{
-    transform: translateY(-32px);
-}
-.navigation ul li a .h-title{
-    position: absolute;
-    color: black;
-    font-weight: 400;
-    font-size: 1.35em;
-    letter-spacing: 0.05em;
-    transition: 0.5s;
-    opacity: 0;
-    transform: translateY(20px);
-}
-.navigation ul li.active a .h-title{
-    opacity: 1;
-    transform: translateY(10px);
-}
-
-.navigation .logo{
-    position: absolute;
-    top: -50%;
-    width: 70px;
-    height: 70px;
-    background-color: #ff6f61;
-    border-radius: 50%;
-    border: 6px solid var(--clr);
-    transition: width 0.5s ease; /* Add transition for smooth animation */
-}
-.logo::before{
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: -22px;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border-top-right-radius: 20px;
-    box-shadow: 1px -10px 0 0 var(--clr);
-}
-.logo::after{
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: -22px;
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border-top-left-radius: 20px;
-    box-shadow: -1px -10px 0 0 var(--clr);
-}
-
-.navigation ul li:nth-child(1).active ~ .logo {
-    transform: translateX(calc(70px * 0));
-}
-.navigation ul li:nth-child(2).active ~ .logo {
-    transform: translateX(calc(70px * 1));
-}
-.navigation ul li:nth-child(3).active ~ .logo {
-    transform: translateX(calc(70px * 2));
-}
-.h-navigation ul li:nth-child(4).active ~ .logo {
-    transform: translateX(calc(70px * 3));
-}
-.navigation ul li:nth-child(5).active ~ .logo {
-    transform: translateX(calc(70px * 4));
-}
-
-
+    .h-navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 550px;
+        height: 100%;
+        background: #2262b1;
+        transform: translateX(-100%);
+        transition: transform 0.8s ease;
+    }
+    .h-navigation.open {
+        transform: translateX(0);
+    }
+    .h-navigation ul {
+        height: calc(100vh - 100px); /* Adjusted for header space */
+    }
 }

@@ -20,6 +20,7 @@ $feedback_active = '';
 $department_active = '';
 $verify= '';
 $feedbackinfo_active = '';
+$feedbackappointmentinfo_active = '';
 
 
 if ($current_page == 'admin-dashboard.php') {
@@ -32,6 +33,8 @@ if ($current_page == 'admin-dashboard.php') {
   $feedback_active = 'h-active';
 }elseif ($current_page == 'feedbackinfo.php') {
   $feedbackinfo_active = 'h-active';
+}elseif ($current_page == 'feedbackappointmentinfo.php') {
+  $feedbackappointmentinfo_active = 'h-active';
 }
 elseif ($current_page == 'admin-department.php') {
   $department_active = 'h-active';
@@ -39,6 +42,12 @@ elseif ($current_page == 'admin-department.php') {
   $verify_active = 'h-active';
 }
 ?>
+
+
+<div class="arrow-toggle">
+  <i class="fas fa-arrow-right"></i>
+</div>
+
 
 <div class="h-navigation">
   <ul>
@@ -64,7 +73,7 @@ elseif ($current_page == 'admin-department.php') {
               <span class="h-title">User</span>
           </a>
       </li>
-      <li class="list <?php echo $feedback_active; ?>  <?php echo $feedbackinfo_active ?>" style="--bg:#2262b1;">
+      <li class="list <?php echo $feedback_active; ?>  <?php echo $feedbackinfo_active ?> <?php echo $feedbackappointmentinfo_active ?>" style="--bg:#2262b1;">
           <a href="../admin/admin-feedback.php">
               <span class="h-icon"><i class="fa-solid fa-comment"></i></span>
               <span class="h-title">Feedback</span>
@@ -100,3 +109,24 @@ elseif ($current_page == 'admin-department.php') {
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src="navbar/include.js"></script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const arrowToggle = document.querySelector('.arrow-toggle');
+    const hNavigation = document.querySelector('.h-navigation');
+    const arrowIcon = arrowToggle.querySelector('i');
+
+    arrowToggle.addEventListener('click', () => {
+        hNavigation.classList.toggle('open');
+        if (hNavigation.classList.contains('open')) {
+            arrowIcon.classList.remove('fa-arrow-right');
+            arrowIcon.classList.add('fa-arrow-left');
+        } else {
+            arrowIcon.classList.remove('fa-arrow-left');
+            arrowIcon.classList.add('fa-arrow-right');
+        }
+    });
+});
+
+</script>

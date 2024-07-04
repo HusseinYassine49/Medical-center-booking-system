@@ -10,9 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($data['id'])) {
         $appointmentId = $data['id'];
 
-
-        $stmt = $con->prepare("SELECT a.date_, a.time, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id WHERE a.id = ?");
-
+        // Fetch appointment details
+        $stmt = $con->prepare("SELECT a.date_, a.time_, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id WHERE a.id = ?");
         $stmt->bind_param("i", $appointmentId);
         $stmt->execute();
         $result = $stmt->get_result();
