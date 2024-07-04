@@ -1,6 +1,7 @@
 <?php
 require "../include/connection.php"; 
-
+$dr = $_SESSION['user_info']['Fname'];
+$drLname = $_SESSION['user_info']['Lname'];
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $data = json_decode(file_get_contents('php://input'), true);
