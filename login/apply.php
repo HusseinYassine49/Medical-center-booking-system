@@ -54,14 +54,14 @@ $con->close();
         <?php if ($has_submitted && $verified == 'notVerified') : ?>
             <div class="notification">
                 <p>You have already submitted your application. Please wait for verification.</p>
-                <button class="button" onclick="window.location.href='../home.php'">Continue</button>
+                <button class="button" onclick="window.location.href='../index.php'">Continue</button>
                 <label class="backhome-label">Continue To Home Page</label>
             </div>
 
         <?php elseif ($declined) : ?>
             <div class="notification">
                 <p class="declined">We are sorry to inform you but you are declined from becoming a doctor.</p>
-                <button class="button declined" onclick="window.location.href='../home.php'">Continue</button>
+                <button class="button declined" onclick="window.location.href='../index.php'">Continue</button>
                 <label class="backhome-label">Continue To Home Page</label>
             </div>
 

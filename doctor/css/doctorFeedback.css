@@ -49,7 +49,6 @@ body {
 .bread-container{
   width: 90%;
   background-color: #Fff;
-  max-width: 1440px;
   height: fit-content;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -82,11 +81,7 @@ body {
     text-decoration: underline;
   }
   .breadcrumbs-link.active{
-<<<<<<< HEAD
     color: #ff6f61;
-=======
-    color: #009578;
->>>>>>> 9923135071828ebed90908b3be98e95265a892e3
     font-weight: 500;
   }
 

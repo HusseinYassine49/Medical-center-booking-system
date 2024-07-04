@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $appointmentId = $data['id'];
 
         // Fetch appointment details
-        $stmt = $con->prepare("SELECT a.date_, a.time, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id
+        $stmt = $con->prepare("SELECT a.date_, a.time_, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id
                                WHERE a.id = ?");
         $stmt->bind_param("i", $appointmentId);
         $stmt->execute();
@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $mail->isHTML(true);
                     $mail->Subject = 'Appointment Approved';
                     $mail->Body    = "Dear " . $appointmentDetails['patient_name'] . ",<br><br>" .
-                        "Your appointment with Dr.".$dr. " ".$drLname."  on " . $appointmentDetails['date_'] . " at " . $appointmentDetails['time'] . " has been approved.<br><br>" .
+                        "Your appointment with Dr.".$dr. " ".$drLname."  on " . $appointmentDetails['date_'] . " at " . $appointmentDetails['time_'] . " has been approved.<br><br>" .
                         "Best regards,<br>Clinic Click";
 
                     $mail->send();

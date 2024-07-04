@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Terminate session and redirect to home
     session_destroy();
-    header("Location: ../home.php");
+    header("Location: ../index.php");
     exit();
 } else {
     echo "Invalid request method.";

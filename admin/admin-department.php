@@ -117,8 +117,7 @@ $result = $con->query($sql);
                 echo "<td data-label='Department Name'>" . $row["Department_name"] . "</td>";
                 echo "<td data-label='Description'>" . $row["Description"] . "</td>";
                 echo "<td data-label='Icon'>" . $row["icon"] . "</td>"; // Displaying the icon string from database
-                echo "<td data-label='Edit'><a href='edit-depart.php?id=" . $row["Id"] . "&name=" . $row["Department_name"] . "&desc=" . $row["Description"] . "&icon=" . $row["icon"] . "' class='btn-edit'><i class='fa-solid fa-pencil'></i></a></td>";
-                echo "<td data-label='Delete'><button class='btn-trash'><i class='fas fa-trash'></i></button></td>";
+                echo "<td data-label='Edit'><a href='edit-depart.php?id=" . urlencode($row["Id"]) . "&name=" . urlencode($row["Department_name"]) . "&desc=" . urlencode($row["Description"]) . "&icon=" . urlencode($row["icon"]) . "' class='btn-edit'><i class='fa-solid fa-pencil'></i></a></td>";                echo "<td data-label='Delete'><button class='btn-trash'><i class='fas fa-trash'></i></button></td>";
                 echo "</tr>";
               }
             } else {

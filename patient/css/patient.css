@@ -1,4 +1,15 @@
-
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+  }
+  /* Ensure Font Awesome icons keep their original font family */
+  .fa, .fas, .far, .fal, .fab {
+    font-family: 'Font Awesome 5 Free' !important;
+  }
+  
+  /* Additional Font Awesome 6 Free font-family if you're using Font Awesome 6 */
+  .fa-solid, .fa-regular, .fa-light, .fa-thin, .fa-duotone, .fa-brands {
+    font-family: 'Font Awesome 6 Free' !important;
+  }
 
 
 .main-page{
@@ -24,7 +35,6 @@
             margin-left: 250px;
         }
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;

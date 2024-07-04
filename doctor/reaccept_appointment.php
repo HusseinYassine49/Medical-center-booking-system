@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $appointmentId = $data['id'];
 
         // Fetch appointment details
-        $stmt = $con->prepare("SELECT a.date_, a.time, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id WHERE a.id = ?");
+        $stmt = $con->prepare("SELECT a.date_, a.time_, u.Email, u.Fname AS patient_name FROM appointment a JOIN users u ON a.userID = u.id WHERE a.id = ?");
         $stmt->bind_param("i", $appointmentId);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $mail->isHTML(true);
                 $mail->Subject = 'Appointment Approved';
                 $mail->Body = "Dear " . $appointmentDetails['patient_name'] . ",<br><br>" .
-                    "We are pleased to inform you that your previously canceled appointment with Dr. " . $dr . " " . $drLname . " on " . $appointmentDetails['date_'] . " at " . $appointmentDetails['time'] . " has been rescheduled.<br>" .
+                    "We are pleased to inform you that your previously canceled appointment with Dr. " . $dr . " " . $drLname . " on " . $appointmentDetails['date_'] . " at " . $appointmentDetails['time_'] . " has been rescheduled.<br>" .
                     "If this new appointment time is convenient for you, there is no need to take further action. However, if you need to reschedule, please contact us or respond to this email, and we will be happy to assist you.<br>" .
                     "Best regards,<br>Clinic Click";
 

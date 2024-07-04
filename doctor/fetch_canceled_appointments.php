@@ -3,7 +3,7 @@ session_start();
 $dr=$_SESSION['user_info']['id'];
 require "../include/connection.php";
 
-$query = "SELECT u.Fname, u.Lname, a.date_, a.time, a.status, a.id,u.id as userID
+$query = "SELECT u.Fname, u.Lname, a.date_, a.time_, a.status, a.id,u.id as userID
 FROM appointment AS a
 INNER JOIN users AS u ON a.userID = u.id
 WHERE a.delete_ = 1  and a.doctorID= $dr

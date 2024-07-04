@@ -37,7 +37,7 @@ function register(event) {
                         title: 'Registration Successful',
                         text: parsedResponse.success
                     }).then(() => {
-                        window.location.href = '../home.php';
+                        window.location.href = '../index.php';
                     });
                 } else if (parsedResponse.error) {
                     Swal.fire({

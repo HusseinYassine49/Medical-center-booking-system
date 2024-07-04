@@ -88,7 +88,7 @@ const displayAppointments = (appointments = []) => {
             appointmentsHTML += `
                 <div class="appointment">
                 <i class="fas fa-clock"></i>
-                 <strong class="info">${app.time}</strong>
+                 <strong class="info">${app.time_}</strong>
                  <strong><span style="margin-right:1%; margin-left:1%">||<span></strong>
                  <strong class="info">${app.patient} ${app.patientlastname}</strong>
                  
@@ -179,7 +179,7 @@ $(document).ready(function () {
                         appointmentsHtml += '<tr>';
                         appointmentsHtml += '<td data-label="Name"><a href="doctorPatients.php?id=' + appointment.userID + '">' + appointment.Fname + ' ' + appointment.Lname + '</a></td>';
                         appointmentsHtml += '<td data-label="Date">' + appointment.date_ + '</td>';
-                        appointmentsHtml += '<td data-label="Time">' + appointment.time + '</td>';
+                        appointmentsHtml += '<td data-label="Time">' + appointment.time_ + '</td>';
                         appointmentsHtml += '<td><button class="approve-btn" data-appointment-id="' + appointment.id + '"><i class="fas fa-check"></i></button></td>';
                         appointmentsHtml += '<td><button class="cancel-btn" data-appointment-id="' + appointment.id + '"><i class="fas fa-times"></i></td>';
                         appointmentsHtml += '</tr>';
@@ -248,7 +248,7 @@ $(document).ready(function () {
                         appointmentsHtml += '<tr>';
                         appointmentsHtml += '<td data-label="Name"><a href="doctorPatients.php?id=' + appointment.userID + '">' + appointment.Fname + ' ' + appointment.Lname + '</a></td>';
                         appointmentsHtml += '<td data-label="Date">' + appointment.date_ + '</td>';
-                        appointmentsHtml += '<td data-label="Time">' + appointment.time + '</td>';
+                        appointmentsHtml += '<td data-label="Time">' + appointment.time_ + '</td>';
                         appointmentsHtml += '<td><button class="Reaccept-btn" data-appointment-id="' + appointment.id + '">Send Email</button></td>';
                         appointmentsHtml += '</tr>';
                     });

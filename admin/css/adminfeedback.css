@@ -7,6 +7,8 @@ body::-webkit-scrollbar {
   }
 h1 {
     text-align: center;
+    z-index: 4;
+    position: relative;
 }
 .declined-feedback-container,
 .accepted-feedback-container,
@@ -42,12 +44,12 @@ button {
     border: 1px solid #f44336; /* Red border for declined status */
 }
 
-
-
 /* Feedback container */
 #feedback-table,
- #accepted-feedback-table,
- #declined-feedback-table{
+#appointment-feedback-table, 
+#accepted-feedback-table,
+#declined-feedback-table
+{
     width: 100%;
     background-color: #fff;
     border-radius: 10px;
@@ -56,32 +58,37 @@ button {
     margin-top: 40px;
 }
 
-#declined-feedback-table th,
-#declined-feedback-table td,
-#accepted-feedback-table th,
-#accepted-feedback-table td,
 #feedback-table th,
-#feedback-table td {
+#accepted-feedback-table th,
+#declined-feedback-table th,
+#appointment-feedback-table th,
+#feedback-table td,
+#accepted-feedback-table td,
+#declined-feedback-table td,
+#appointment-feedback-table td {
     padding: 10px;
     text-align: left;
 }
 
-#declined-feedback-table th,
+#feedback-table th,
 #accepted-feedback-table th,
-#feedback-table th {
+#declined-feedback-table th,
+#appointment-feedback-table th {
     background-color: #2262b1;
     color: #fff;
 }
 
-#declined-feedback-list tr:nth-child(even),
+#feedback-list tr:nth-child(even),
 #accepted-feedback-list tr:nth-child(even),
-#feedback-list tr:nth-child(even) {
+#declined-feedback-list tr:nth-child(even),
+#appointment-feedback-list tr:nth-child(even) {
     background-color: #ccc;
 }
 
-#declined-feedback-list tr:hover,
+#feedback-list tr:hover,
 #accepted-feedback-list tr:hover,
-#feedback-list tr:hover {
+#declined-feedback-list tr:hover,
+#appointment-feedback-list tr:hover {
     background-color: #f0f0f0;
 }
 
@@ -99,7 +106,8 @@ button {
 }
 
 /* Feedback actions buttons */
-#feedback-list button {
+#feedback-list button,
+#appointment-feedback-list button {
     cursor: pointer;
     padding: 5px 10px;
     margin-left: 5px;
@@ -109,29 +117,31 @@ button {
     color: #fff;
 }
 
-#feedback-list button:hover {
+#feedback-list button:hover,
+#appointment-feedback-list button:hover {
     background-color: #368ac0;
 }
 
-.feedback-page-header{
+.feedback-page-header {
     margin-bottom: 20px;
-    color: #2262b1;
+    color: #000000;
     font-weight: 900;
     font-size: 36px;
 }
 
-.accepted-feedback-container h2{
+.accepted-feedback-container h2 {
     margin-left: 20px;
     padding-top: 10px;
     color: #008000;
 }
-.declined-feedback-container h2{
+
+.declined-feedback-container h2 {
     margin-left: 20px;
     padding-top: 10px;
     color: #ff0000;
 }
 
-.feedbackinfo-btn{
+.feedbackinfo-btn {
     background-color: #4da6ff;
     padding: 20px;
     border-radius: 15px;
@@ -140,63 +150,57 @@ button {
     margin-left: 10px;
     color: #fff;
 }
+
 .feedbackinfo-btn:hover {
     background-color: #f0f0f0;
     color: #2262b1;
 }
 
-.middle-part{
+.middle-part {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-.hidden{
+
+.hidden {
     visibility: hidden;
 }
-
 
 .sphere {
     position: fixed;
     border-radius: 50%;
     z-index: 1;
-  }
+}
 
-  .top-sphere {
+.top-sphere {
     top: -300px;
     right: -300px;
     width: 1000px;
     height: 1000px;
     background-color: #2262b1;
-  }
+}
 
-
-  .mid-sphere-left {
+.mid-sphere-left {
     top: 50%;
     left: -200px;
     width: 500px;
     height: 500px;
     background-color: #ff6f61;
     transform: translateY(-50%);
-  }
-
-
-@media(max-width: 1450px){
-    .accepted-feedback-container,
-    .declined-feedback-container,
-    .feedback-container{
-        width: 100%;
-    }
-   
 }
 
-@media(max-width: 500px){
-    
+@media (max-width: 1450px) {
     .accepted-feedback-container,
     .declined-feedback-container,
-    .feedback-container{
+    .feedback-container {
         width: 100%;
     }
-   
 }
 
-
+@media (max-width: 500px) {
+    .accepted-feedback-container,
+    .declined-feedback-container,
+    .feedback-container {
+        width: 100%;
+    }
+}
