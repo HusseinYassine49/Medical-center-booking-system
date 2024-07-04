@@ -25,7 +25,7 @@
     transition: width 0.5s;
     padding-left: 10px;
     overflow: hidden;
-    z-index: 4;
+    z-index: 5;
 }
 
 .h-navigation.h-active {

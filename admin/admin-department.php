@@ -50,8 +50,10 @@ $result = $con->query($sql);
         <li class="breadcrumbs-item">
           <a href="#" class="breadcrumbs-link active">Department</a>
         </li>
-
       </ul>
+      <div class="left">
+        <button onclick="history.back()" class="goBack">Go Back</button>
+      </div>
     </div>
 
     <div class="add-department" id="add-department">

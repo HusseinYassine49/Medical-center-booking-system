@@ -34,16 +34,31 @@
         color: white;
         border: none;
         cursor: pointer;
+        transition: background-color 0.3s ease;
     }
     form button:hover {
         background-color: #45a049;
+    }
+    .emoji-rating input[type="radio"] {
+        display: none;
+    }
+    .emoji-rating label {
+        display: inline-block;
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    .emoji-rating label:hover {
+        transform: scale(1.2);
+    }
+    .emoji-rating input[type="radio"]:checked + label {
+        transform: scale(1.2);
     }
 </style>
 </head>
 <body>
 
 <?php include 'navbar/navbar.php'; ?>
-
 
 <div class="main-page">
 
@@ -53,13 +68,14 @@
     // Include your database connection file
     require_once "../include/connection.php";
 
-    // Function to generate static rating radio buttons
-    function generateStaticRatingRadioButtons() {
-        $options = '';
-        $ratings = [1, 2, 3, 4, 5];
+    // Function to generate static rating emojis
+    function generateStaticRatingEmojis() {
+        $emojis = ['😡', '😞', '😐', '😊', '😍'];
 
-        foreach ($ratings as $rating) {
-            $options .= "<input type='radio' name='rating' value='$rating'>$rating ";
+        $options = '';
+        foreach ($emojis as $index => $emoji) {
+            $options .= "<input type='radio' id='rating_$index' name='rating' value='$index'>
+                         <label for='rating_$index'>$emoji</label>";
         }
 
         return $options;
@@ -86,10 +102,10 @@
             $details = $row['details'];
 
             // Insert feedback into the appointment_feedback table
-            $feedbackQuery = "INSERT INTO appointment_feedback (User_ID, Doctor_ID, rating, date_, time_, comment, status)
-                              VALUES (?, ?, ?, ?, ?, ?, 0)";
+            $feedbackQuery = "INSERT INTO appointment_feedback (User_ID, Doctor_ID, rating, comment, status)
+                              VALUES (?, ?, ?, ?, 0)";
             $stmt = $con->prepare($feedbackQuery);
-            $stmt->bind_param("iiisss", $userID, $doctorID, $rating, $date_, $time_, $additionalInfo);
+            $stmt->bind_param("iiis", $userID, $doctorID, $rating, $additionalInfo);
 
             if ($stmt->execute()) {
                 echo "<p>Feedback submitted successfully!</p>";
@@ -134,10 +150,10 @@
                     <td>".$row["date_"]."</td>
                     <td>".$row["time_"]."</td>
                     <td>".$row["dr_notes"]."</td>
-                    <td>";
+                    <td class='emoji-rating'>";
             
-            // Generate static radio buttons for rating
-            echo generateStaticRatingRadioButtons();
+            // Generate static emoji ratings
+            echo generateStaticRatingEmojis();
             
             // Hidden input for appointment ID
             echo "<input type='hidden' name='appointment_id' value='".$row["id"]."'>";

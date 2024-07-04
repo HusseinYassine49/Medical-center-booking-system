@@ -61,6 +61,10 @@ $doctorsResult = $con->query($doctorsQuery);
                     <a href="admin-dashboard.php" class="breadcrumbs-link active">Appointment</a>
                 </li>
             </ul>
+            <div class="left">
+             <a href="../profile/profile.php?userID=<?php echo $userID; ?>" class="profile"><button class="profile-btn"><i class="fas fa-user"></i></button></a>
+             <button onclick="history.back()" class="goBack">Go Back</button>
+            </div>
         </div>
 
         <div class="main-content">

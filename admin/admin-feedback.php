@@ -64,6 +64,9 @@ $result_appointment_feedback = $con->query($sql_appointment_feedback);
                     <a href="#" class="breadcrumbs-link active">Feedback</a>
                 </li>
             </ul>
+            <div class="left">
+        <button onclick="history.back()" class="goBack">Go Back</button>
+      </div>
         </div>
 
         <!-- Feedback from 'feedback' Table -->

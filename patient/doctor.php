@@ -21,7 +21,8 @@
     <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
     <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
     <!-- 
     <link rel="stylesheet" href="../css/navbar.css"> -->
     <!-- <link rel="stylesheet" href="../css/doctorDashboard.css"> -->
@@ -29,10 +30,6 @@
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-<?php
-include "navbar/navbar.php";
-
-?>
 <style>
 .row {
     margin-left: 5%;
@@ -132,9 +129,10 @@ ul {
 
 <body>
 
-    <div class="toggle">
+<?php include 'navbar/navbar.php'; ?>
 
-    </div>
+<div class="main-page">
+
 
 
     <div class="row col1">
@@ -232,6 +230,8 @@ ul {
     </div>
 
 
+    </div>
+
 
 
     <!-- Icon SCRIPT-->
@@ -253,6 +253,12 @@ ul {
 
     <!-- Template Main JS File -->
     <script src="../assets/js/main.js"></script>
+
+    <script src="navbar/include.js"></script>
+
+
+
+
     <script>
     $(document).ready(function() {
         const multipleItemcarousel = document.querySelector('#carouselExampleControls');

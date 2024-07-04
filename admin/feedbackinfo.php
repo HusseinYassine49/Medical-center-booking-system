@@ -58,6 +58,9 @@ $declinedResult = $con->query($declinedSql);
                     <a href="#" class="breadcrumbs-link active">Feedback Information</a>
                 </li>
             </ul>
+            <div class="left">
+        <button onclick="history.back()" class="goBack">Go Back</button>
+      </div>
         </div>
 
         <div class="middle-part">

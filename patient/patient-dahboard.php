@@ -45,6 +45,7 @@ $userFname = $_SESSION['user_fname'];
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         const userFname = <?php echo json_encode($userFname); ?>;
     </script>
@@ -55,15 +56,19 @@ $userFname = $_SESSION['user_fname'];
 
     <div class="main-page">
 
-        <div class="bread-container">
+    <div class="bread-container">
             <ul class="breadcrumbs">
                 <li class="breadcrumbs-item">
                     <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
                 </li>
                 <li class="breadcrumbs-item">
-                    <a href="#" class="breadcrumbs-link active">Patient</a>
+                    <a href="doctorDashboard.php" class="breadcrumbs-link active">Dashboard</a>
                 </li>
-            </ul>
+             </ul>  
+             <div class="left">
+             <a href="../profile/profile.php?userID=<?php echo $userID; ?>" class="profile"><button class="profile-btn"><i class="fas fa-user"></i></button></a>
+             <button onclick="history.back()" class="goBack">Go Back</button>
+            </div>
         </div>
 
 
@@ -79,13 +84,6 @@ $userFname = $_SESSION['user_fname'];
                 <a class="image-container" href="appointment.php?userID=<?php echo $userID; ?>">
                     <img src="images/1.jpg" alt="Placeholder Image">
                 </a>
-            </div>
-            <div class="right">
-                <div class="calendar">
-                    <div class="calendar-container">
-                        <div id='calendar'></div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -168,7 +166,7 @@ $userFname = $_SESSION['user_fname'];
                         <th>Date</th>
                         <th>Time</th>
                         <th>Status</th>
-                        <th>Actions</th>
+
                     </tr>
                 </thead>
                 <tbody id="appointmentTableBody">
@@ -201,10 +199,6 @@ $userFname = $_SESSION['user_fname'];
                                 <td>' . htmlspecialchars($row['date_']) . '</td>
                                 <td>' . htmlspecialchars($time) . '</td>
                                 <td class="status-' . strtolower($status) . '">' . htmlspecialchars($status) . '</td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" onclick="showEditForm(this)">Edit</button>
-                                    <button class="btn btn-danger btn-sm" onclick="deleteAppointment(this)">Delete</button>
-                                </td>
                             </tr>';
                         }
                     }

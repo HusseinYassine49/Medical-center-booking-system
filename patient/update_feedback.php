@@ -5,29 +5,29 @@ require_once "../include/connection.php";
 
 // Assuming $_POST is used in your AJAX request
 
-$doctor = $_POST['doctor'];
-$comment = $_POST['comment'];
 $rating = $_POST['rating'];
-$userID = $_POST['userID']; // Adjust this line if userID is passed
+$comment = $_POST['comment'];
+
+// Adjust this line if userID is passed
 $ID = $_POST['ID'];
 // Perform SQL insertion (Example query, adjust as per your database structure)
-$insertQuery = "UPDATE `feedback` SET `rating`='$rating',`comment`='$commet' WHERE `id`=`$ID`";
+$insertQuery = "UPDATE feedback SET rating=?, comment=? WHERE id=?";
+$stmt = $con->prepare($insertQuery);
+$stmt->bind_param("isi", $rating, $comment, $ID);
 
-$response = array(); // Initialize response array
-
-if ($con->query($insertQuery) === TRUE) {
+// Execute the statement
+if ($stmt->execute()) {
     // Return success message
     $response['success'] = true;
     $response['message'] = 'Feedback submitted successfully';
+    $response['userid'] = $_SESSION['userid'];
 } else {
     // Return error message
     $response['success'] = false;
-    $response['message'] = 'Error: ' . $con->error;
+    $response['message'] = 'Error: ' . $stmt->error;
 }
 
-// Set content type to JSON and output the response
-header('Content-Type: application/json');
-echo json_encode($response);
-
-// Close database connection
+// Close statement and database connection
+$stmt->close();
 $con->close();
+

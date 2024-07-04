@@ -56,6 +56,31 @@ $doctorsResult = $con->query($doctorsQuery);
 
 <body>
     <div class="main-page">
+
+
+
+    <div class="bread-container">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a href="patient-dashboard.php" class="breadcrumbs-link ">Patient</a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a href="#" class="breadcrumbs-link active">Feedback</a>
+                </li>
+            </ul>
+            <div class="left">
+             <a href="../profile/profile.php?userID=<?php echo $userID; ?>" class="profile"><button class="profile-btn"><i class="fas fa-user"></i></button></a>
+             <button onclick="history.back()" class="goBack">Go Back</button>
+            </div>
+        </div>
+
+
+
+
+
         <div class="sphere top-sphere"></div>
         <div class="sphere mid-sphere-left"></div>
 
@@ -122,25 +147,37 @@ $doctorsResult = $con->query($doctorsQuery);
                                     </thead>
                                     <tbody>
                                         <?php
+                                        // Fetch feedback entries for the current user
                                         $query = "SELECT * FROM feedback WHERE status = '1' ORDER BY UserID = $userID DESC";
                                         $result = mysqli_query($con, $query);
 
                                         if ($result && mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_assoc($result)) {
-                                                $querydr = "SELECT `Fname`, `Lname` FROM `users` WHERE `id`=" . $row['drID'];
-                                                $resultdr = mysqli_query($con, $querydr);
-                                                $rowdr = mysqli_fetch_assoc($resultdr);
-                                                echo '<tr>';
-                                                echo '<td>' . $rowdr['Fname'] . ' ' . $rowdr['Lname'] . '</td>';
-                                                echo '<td>' . $row['rating'] . '</td>';
-                                                echo '<td>' . $row['comment'] . '</td>';
-                                                echo '<td>';
-                                                if ($row['UserID'] == $userID) {
-                                                    echo '<a href="edit_feedback.php?userID=' . $userID . '&id=' . $row['id'] . '" class="btn btn-primary">Edit</a>';
-                                                    echo '<button type="button" class="btn btn-danger ml-2" onclick="deletec(' . $row['id'] . ')">Delete</button>';
+                                                // Fetch the doctor's UserID from the doctor table using drID from feedback table
+                                                $queryDrUserID = "SELECT UserID FROM doctors WHERE DoctorID = " . $row['DoctorID'];
+                                                $resultDrUserID = mysqli_query($con, $queryDrUserID);
+                                                $rowDrUserID = mysqli_fetch_assoc($resultDrUserID);
+
+                                                if ($rowDrUserID) {
+                                                    // Fetch the doctor's name from the users table using the UserID from the doctor table
+                                                    $queryDrName = "SELECT Fname, Lname FROM users WHERE id = " . $rowDrUserID['UserID'];
+                                                    $resultDrName = mysqli_query($con, $queryDrName);
+                                                    $rowDrName = mysqli_fetch_assoc($resultDrName);
+
+                                                    if ($rowDrName) {
+                                                        echo '<tr>';
+                                                        echo '<td>' . $rowDrName['Fname'] . ' ' . $rowDrName['Lname'] . '</td>';
+                                                        echo '<td>' . $row['rating'] . '</td>';
+                                                        echo '<td>' . $row['comment'] . '</td>';
+                                                        echo '<td>';
+                                                        if ($row['UserID'] == $userID) {
+                                                            echo '<a href="edit_feedback.php?userID=' . $userID . '&id=' . $row['id'] . '" class="btn btn-primary">Edit</a>';
+                                                            echo '<button type="button" class="btn btn-danger ml-2" onclick="deletec(' . $row['id'] . ')">Delete</button>';
+                                                        }
+                                                        echo '</td>';
+                                                        echo '</tr>';
+                                                    }
                                                 }
-                                                echo '</td>';
-                                                echo '</tr>';
                                             }
                                         } else {
                                             echo '<tr><td colspan="4">No feedback found.</td></tr>';

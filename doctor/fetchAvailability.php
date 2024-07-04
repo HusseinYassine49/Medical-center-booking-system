@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once "../include/connection.php";
+require "../include/connection.php";
 
 $userId = $_SESSION['user_info']['id'];
 
@@ -21,24 +21,13 @@ if ($stmt->fetch()) {
 } else {
     $dr = null;
     echo "No doctor found for user ID: " . $userId;
-    exit;
+    exit; // Exit script if no doctor found
 }
 
 $stmt->close();
 
-// Prepare and execute query to fetch doctor availability
-$sql = "SELECT day, start_time, end_time 
-        FROM doctor_availability 
-        WHERE doctor_id = ? 
-        ORDER BY FIELD(day, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), start_time";
+$stmt = $con->prepare("SELECT day, start_time, end_time FROM doctor_availability WHERE doctor_id = $dr ORDER BY FIELD(day, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), start_time");
 
-$stmt = $con->prepare($sql);
-
-if ($stmt === false) {
-    die('Error preparing the statement: ' . $con->error);
-}
-
-$stmt->bind_param("i", $dr);
 $stmt->execute();
 $result = $stmt->get_result();
 
@@ -51,6 +40,5 @@ while ($row = $result->fetch_assoc()) {
 $stmt->close();
 $con->close();
 
-header('Content-Type: application/json');
 echo json_encode($availability);
 ?>

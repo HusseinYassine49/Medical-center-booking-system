@@ -11,7 +11,7 @@ $rating = $_POST['rating'];
 $userID = $_POST['userID']; // Adjust this line if userID is passed
 
 // Perform SQL insertion (Example query, adjust as per your database structure)
-$insertQuery = "INSERT INTO `feedback`( `UserID`, `rating`, `comment`, `status`, `drID`) VALUES ('$userID','$rating','$comment','0','$doctor')";
+$insertQuery = "INSERT INTO `feedback`( `UserID`, `rating`, `comment`, `status`, `DoctorID`) VALUES ('$userID','$rating','$comment','0','$doctor')";
 
 $response = array(); // Initialize response array
 

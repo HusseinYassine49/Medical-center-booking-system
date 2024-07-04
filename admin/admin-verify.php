@@ -46,6 +46,9 @@ $result = $con->query($sql);
                     <a href="#" class="breadcrumbs-link active">Verification</a>
                 </li>
             </ul>
+            <div class="left">
+        <button onclick="history.back()" class="goBack">Go Back</button>
+      </div>
         </div>
 
         <div class="container">

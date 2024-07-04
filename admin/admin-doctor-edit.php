@@ -54,6 +54,9 @@ $result = $con->query($sql);
           <a href="#" class="breadcrumbs-link active">Add Doctor</a>
         </li>
       </ul>
+      <div class="left">
+        <button onclick="history.back()" class="goBack">Go Back</button>
+      </div>
     </div>
 
     <div class="add-doctor" id="add-doctor" style="display: none;">

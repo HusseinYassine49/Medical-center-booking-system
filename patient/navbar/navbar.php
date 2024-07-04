@@ -12,21 +12,7 @@
     <div class="toggle"></div>
     <?php
   require_once '../include/connection.php';
-  if (session_status() === PHP_SESSION_NONE) {
-    session_start(); // Start the session only if it hasn't been started yet
-  }
-  if (isset($_GET['userID'])) {
-    $userID = $_GET['userID'];
-    echo "Welcome to Patient Dashboard, UserID: $userID";
 
-    if (isset($_SESSION['user_email'])) {
-      $userEmail = $_SESSION['user_email'];
-      echo "<br>Your email: $userEmail";
-    }
-  } else {
-    header("Location: login.php");
-    exit();
-  }
   $current_page = basename($_SERVER['PHP_SELF']);
 
   $dashboard_active = '';
@@ -35,11 +21,11 @@
   $feedback_active = '';
   $appontfeedback_active = '';
 
-  if ($current_page == 'patient.php') {
+  if ($current_page == 'patient-dahboard.php') {
     $dashboard_active = 'h-active';
   } elseif ($current_page == 'doctor.php') {
     $doctor_active = 'h-active';
-  } elseif ($current_page == 'appointment.php') {
+  } elseif ($current_page == 'try.php') {
     $user_active = 'h-active';
   } elseif ($current_page == 'feedback.php') {
     $feedback_active = 'h-active';
@@ -54,7 +40,7 @@
                 <a href="#"></a>
             </div>
             <li class="list <?php echo $dashboard_active; ?>" style="--bg:#2262b1;">
-                <a href="patient.php?userID=<?php echo $userID; ?>">
+                <a href="patient-dahboard.php?userID=<?php echo $userID; ?>">
                     <span class="h-icon"><i class="fa-solid fa-house"></i></span>
                     <span class="h-title">Home</span>
                 </a>
@@ -66,29 +52,25 @@
                 </a>
             </li>
             <li class="list <?php echo $user_active; ?>" style="--bg:#2262b1;">
-                <a href="user-edit.php?userID=<?php echo $userID; ?>">
-                    <span class="h-icon"><i class="fa-solid fa-user"></i></span>
-                    <a href="try.php">
+                    <a href="try.php?userID=<?php echo $userID; ?>">
                         <span class="h-icon"><i class="fa-solid fa-calendar-days"></i></span>
                         <span class="h-title">User</span>
                     </a>
             </li>
             <li class="list <?php echo $feedback_active; ?>" style="--bg:#2262b1;">
                 <a href="feedback.php?userID=<?php echo $userID; ?>">
-                    <span class="h-icon"><i class="fa-solid fa-comment"></i></span>
-                    <a href="feedback.php">
                         <span class="h-icon"><i class="fa-solid fa-person-circle-check"></i></span>
                         <span class="h-title">Feedback</span>
                     </a>
             </li>
             <li class="list <?php echo $appontfeedback_active; ?>" style="--bg:#2262b1;">
-                <a href="app_feedback.php">
+                <a href="app_feedback.php?userID=<?php echo $userID; ?>">
                     <span class="h-icon"><i class="fa-solid fa-calendar-check"></i></span>
                     <span class="h-title">Appointment Feedback</span>
                 </a>
             </li>
             <li class="list" style="--bg:#2262b1;">
-                <a href="login.php">
+                <a href="../login/logout.php">
                     <span class="h-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
                     <span class="h-title">Exit</span>
                 </a>

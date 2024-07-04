@@ -65,7 +65,7 @@ $rowf = mysqli_fetch_assoc($resultf);
 
                             <div class="col-md-4 mb-3">
                                 <label for="doctor"> Doctor</label>
-                                <input type="text" id="doctor" class="form-control" value="<?= $rowf['drID'] ?>">
+                                <input type="text" id="doctor" class="form-control" value="<?= $rowf['DoctorID'] ?>">
                             </div>
                             <div class="col-md-4 mb-3">
                                 <label for="comment">Comment</label>

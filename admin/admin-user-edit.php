@@ -46,7 +46,10 @@ $result = $con->query($sql);
         <li class="breadcrumbs-item">
           <a href="#" class="breadcrumbs-link active">Add Patient</a>
         </li>
-      </ul>
+      </ul>        
+      <div class="left">
+        <button onclick="history.back()" class="goBack">Go Back</button>
+      </div>
     </div>
 
     <div class="add-doctor" id="add-doctor" style="display: none;">

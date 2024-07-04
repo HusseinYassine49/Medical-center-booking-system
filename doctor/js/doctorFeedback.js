@@ -20,7 +20,6 @@ $(document).ready(function() {
                   var feedbackCardHtml = `
                       <div class="feedback-card">
                           <div class="d-flex align-items-center mb-2">
-                              <img src="../img/images.jpeg" alt="Sender Image">
                               <div class="star-rating">
                                   <h5>${feedback.Fname} ${feedback.Lname}</h5>
                                   ${starsHtml}
