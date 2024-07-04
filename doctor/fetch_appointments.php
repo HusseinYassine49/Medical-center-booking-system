@@ -1,6 +1,5 @@
 <?php
 session_start();
-$dr=$_SESSION['user_info']['id'];
 require "../include/connection.php";
 
 $query = "SELECT u.Fname, u.Lname, a.date_, a.time_, a.status, a.id,u.id as userID
@@ -9,19 +8,60 @@ INNER JOIN users AS u ON a.userID = u.id
 WHERE a.delete_ = 0 AND a.date_ >= CURDATE() and a.status = 0 and a.doctorID= $dr
 ORDER BY a.date_ ASC;
 "; 
+$userId = $_SESSION['user_info']['id'];
 
-$result = mysqli_query($con, $query);
+// Fetch the doctor ID
+$sql = "SELECT DoctorID FROM doctors WHERE UserID = ?";
+$stmt = $con->prepare($sql);
 
-if (!$result) {
-    die('Query failed: ' . mysqli_error($con));
+if ($stmt === false) {
+    die('Error preparing the statement: ' . $con->error);
 }
 
-$appointments = array();
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$stmt->bind_result($doctorID);
 
-while ($row = mysqli_fetch_assoc($result)) {
-    $appointments[] = $row;
+if ($stmt->fetch()) {
+    $dr = $doctorID;
+} else {
+    $dr = null;
+    echo "No doctor found for user ID: " . $userId;
 }
-header('Content-Type: application/json');
-echo json_encode($appointments);
-mysqli_close($con);
+
+$stmt->close(); // Close the first statement
+
+if ($dr !== null) {
+    // Fetch appointments
+    $query = "SELECT u.Fname, u.Lname, a.date_, a.time_, a.status, a.id, u.id as userID
+              FROM appointment AS a
+              INNER JOIN users AS u ON a.userID = u.id
+              WHERE a.delete_ = 0 AND a.date_ >= CURDATE() AND a.status = 0 AND a.doctorID = ?
+              ORDER BY a.date_ ASC";
+
+    $stmt = $con->prepare($query);
+
+    if ($stmt === false) {
+        die('Error preparing the statement: ' . $con->error);
+    }
+
+    $stmt->bind_param("i", $dr);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $appointments = array();
+
+    while ($row = $result->fetch_assoc()) {
+        $appointments[] = $row;
+    }
+
+    header('Content-Type: application/json');
+    echo json_encode($appointments);
+
+    $stmt->close(); // Close the second statement
+} else {
+    echo json_encode([]);
+}
+
+$con->close();
 ?>
