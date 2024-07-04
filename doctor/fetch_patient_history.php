@@ -46,7 +46,7 @@ if (!empty($patient_id)) {
         $response['upcoming_appointments'] = $upcoming_appointments['count'];
 
         // Fetch appointment history
-        $sql = "SELECT date_, time, dr_notes FROM appointment WHERE userID = ? AND date_ < NOW() ORDER BY date_ DESC";
+        $sql = "SELECT date_, time_, dr_notes FROM appointment WHERE userID = ? AND date_ < NOW() ORDER BY date_ DESC";
         $stmt = $con->prepare($sql);
         $stmt->bind_param("i", $patient_id);
         $stmt->execute();

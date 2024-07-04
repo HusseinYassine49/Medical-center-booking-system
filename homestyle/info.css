@@ -107,7 +107,7 @@ form .terms input[type="checkbox"]{
     cursor: pointer;
 }
 form .btn{
-    width: 107%;
+    width: 80%;
     height: 50px;
     border: none;
     border-radius: 5px;
@@ -115,7 +115,7 @@ form .btn{
     color: #fff;
     font-size: 20px;
     font-weight: 400 ;
-    cursor: pointer;
+    cursor: pointer;margin-top: -15%;margin-left: 5%;
 }
 form .btn:disabled{
     background-color: #7291b9;

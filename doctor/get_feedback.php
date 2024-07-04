@@ -5,7 +5,7 @@ session_start();
 $doctor_id = $_SESSION['user_info']['id'];
 $sql = "SELECT feedback.rating, feedback.comment, users.Fname , users.Lname
         FROM feedback 
-        INNER JOIN users ON feedback.UserID = users.id where feedback.drID=$doctor_id";
+        INNER JOIN users ON feedback.UserID = users.id where feedback.drID=$doctor_id and status=1" ;
 
 $result = $con->query($sql);
 

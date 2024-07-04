@@ -290,7 +290,7 @@ if ($result_feedback->num_rows > 0) {
 
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="card col-md-3 col-sm-1 clinics-card" style="width: 18rem;">';
-                        echo '<img class="card-img-top" src="' . $row["icon"] . '" alt="Card image cap">';
+                        echo '<div>'.$row["icon"].'</div';
                         echo '<div class="card-body">';
                         echo '<p class="card-text clinic_name">' . $row["Department_name"] . '</p>';
                         echo '</div>';
@@ -309,7 +309,7 @@ if ($result_feedback->num_rows > 0) {
         <h3>Meet Our Expert Doctors</h3><br>
         <div class="container">
 
-            <?php $sql = "SELECT drID, AVG(rating) AS average_rating FROM feedback WHERE status = 'accepted' GROUP BY drID ORDER BY average_rating DESC LIMIT 2";
+            <?php $sql = "SELECT doctorID, AVG(rating) AS average_rating FROM feedback WHERE status = 'accepted' GROUP BY doctorID ORDER BY average_rating DESC LIMIT 2";
             $result = $con->query($sql);
 
             if ($result->num_rows > 0) {

@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 daysOfWeek.forEach(day => {
                     const slots = data.filter(slot => slot.day === day);
-
+                  
                     if (slots.length > 0) {
                         const card = createAvailabilityCard(day, slots);
                         container.appendChild(card);
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
             contentType: 'application/json',
             success: function (response) {
                 alert('Availability saved successfully!');
-                fetchAndDisplayAvailability();
+                window.location.reload();
             },
             error: function (error) {
                 alert('Error saving availability.');
