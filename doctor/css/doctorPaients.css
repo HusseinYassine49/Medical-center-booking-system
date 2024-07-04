@@ -48,6 +48,8 @@ body {
   padding-top: 20px;
   box-shadow: 0 0 5px rgba(27, 18, 70, 0.993);
   border-radius: 15px;
+  z-index: 4;
+  position: relative;
 }
 
 
@@ -75,7 +77,7 @@ body {
 }
 
 .breadcrumbs-link.active {
-  color: #850f0f;
+  color: #ff6f61;
   font-weight: 500;
 }
 
@@ -88,7 +90,8 @@ body {
 }
 
 .table-content {
-
+  z-index: 4;
+  position: relative;
   font-family: Arial, Helvetica, sans-serif !important;
   height: fit-content;
   width: 60%;
@@ -167,7 +170,7 @@ body {
 }
 
 .btn-edit {
-  background-color: #850f0f;
+  background-color: #ff6f61;
   color: #fff;
   font-size: 1rem;
   width: 60%;
@@ -176,7 +179,7 @@ body {
 }
 
 .btn-edit:hover {
-  color: #850f0f;
+  color: #ff6f61;
   background-color: #faf8f8;
   transform: scale(1.2);
   font-size: 1.2;
@@ -189,6 +192,30 @@ b {
 input {
   width: 50vh;
   height: 4vh;
+}
+
+
+.sphere {
+  position: fixed;
+  border-radius: 50%;
+  z-index: 1;
+
+}
+
+.top-sphere {
+  top: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  background-color: #ff6f61;
+}
+
+.bottom-sphere {
+  bottom: -100px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  background-color: #2262b1;
 }
 
 
@@ -219,7 +246,7 @@ input {
 }
 #return-to-table-btn{
   text-align: center;
-  background-color: #850f0f;
+  background-color: #ff6f61;
   border-radius: 5px;
   margin-left: 30%;
   margin-top: 2%;
@@ -227,7 +254,7 @@ input {
   padding: 3px;
 }
 #return-to-table-btn:hover{
-  color:#850f0f;
+  color:#ff6f61;
   background-color: #ddd;
   transform: scale(1.1);
 }
@@ -253,7 +280,7 @@ input {
 
 .row2 h5 {
   font-size: 1.2rem;
-  color: #850f0f;
+  color: #ff6f61;
   margin-top: 2%;
   text-align: center;
   font-weight: bold;
@@ -262,7 +289,7 @@ input {
 .patient-history-container h4 {
   margin: 3% 0% 3% 0%;
   font-size: 1.5rem;
-  color: #850f0f;
+  color: #ff6f61;
   text-align: center;
   font-weight: bold;
 }
@@ -332,7 +359,7 @@ input {
 
 .notes h5 {
   font-size: 1.2rem;
-  color: #850f0f;
+  color: #ff6f61;
   margin-top: 2%;
   text-align: center;
   font-weight: bold;
@@ -345,6 +372,7 @@ input {
   background-color: #fff;
   margin-left: 3%;
   width: 60%;
+  z-index: 4;
 }
 
 @media (max-width: 1024px) {

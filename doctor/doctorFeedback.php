@@ -15,6 +15,12 @@ include 'session_check.php';
 </head>
 <body>
   <?php include 'navbar/navbar.php';?>
+
+  <div class="main-page">
+
+  <div class="sphere top-sphere"></div>
+  <div class="sphere mid-sphere-left"></div>
+
   <div class="bread-container">
     <ul class="breadcrumbs">
       <li class="breadcrumbs-item">
@@ -31,7 +37,7 @@ include 'session_check.php';
   <div class="container" id="feedback-container">
    
   </div>
-  
+    </div>
   <script src="js/doctorFeedback.js"></script>
 </body>
 </html>

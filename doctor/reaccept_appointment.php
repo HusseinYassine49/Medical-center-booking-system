@@ -1,6 +1,8 @@
 <?php
 require "../include/connection.php";
-
+session_start();
+$dr=$_SESSION['user_info']['Fname'];
+$drLname=$_SESSION['user_info']['Lname'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
@@ -16,11 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $appointmentDetails = $result->fetch_assoc();
 
         if ($appointmentDetails) {
-            // Update appointment status
-            $stmt = $con->prepare("UPDATE appointment SET status = 1 WHERE id = ?");
-            $stmt->bind_param("i", $appointmentId);
-
-            if ($stmt->execute()) {
                 echo json_encode(['success' => true]);
 
                 // Send email to the patient
@@ -49,24 +46,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $mail->isHTML(true);
                     $mail->Subject = 'Appointment Approved';
                     $mail->Body    = "Dear " . $appointmentDetails['patient_name'] . ",<br><br>" .
-                        "Your appointment with Dr.".$dr. " ".$drLname."  on " . $appointmentDetails['date_'] . " at " . $appointmentDetails['time'] . " has been approved.<br><br>" .
+                        "We are pleased to inform you that your previously canceled appointment with Dr.".$dr. " ".$drLname."  on " . $appointmentDetails['date_'] . " at " . $appointmentDetails['time'] . " has been rescheduled.<br>
+                        If this new appointment time is convenient for you, there is no need to take further action. However, if you need to reschedule, please contact us or respond to this email, and we will be happy to assist you.<br>" .
                         "Best regards,<br>Clinic Click";
 
                     $mail->send();
                 } catch (Exception $e) {
                     echo json_encode(['success' => false, 'message' => 'Email could not be sent. Mailer Error: ' . $mail->ErrorInfo]);
                 }
-            } else {
-                echo json_encode(['success' => false, 'message' => 'Failed to update status']);
+            } } else {
+                echo json_encode(['success' => false, 'message' => 'Appointment not found']);
             }
-        } else {
-            echo json_encode(['success' => false, 'message' => 'Appointment not found']);
-        }
+    
+        
 
         $stmt->close();
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Invalid appointment ID']);
-    }
+    
 } else {
     http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Method not allowed']);

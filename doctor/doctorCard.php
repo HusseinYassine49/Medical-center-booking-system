@@ -35,6 +35,14 @@ $optionalLink2 = $doctor['optional_link2'];
 
 <body>
   <?php include 'navbar/navbar.php'; ?>
+
+
+  <div class="main-page">
+
+
+  <div class="top-sphere"></div>
+  <div class="bottom-sphere"></div>
+ 
   <div class="bread-container">
     <ul class="breadcrumbs">
       <li class="breadcrumbs-item">
@@ -126,7 +134,9 @@ $optionalLink2 = $doctor['optional_link2'];
       </form>
     </div>
   </div>
+  </div>
 
+  
   <script src="js/include.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

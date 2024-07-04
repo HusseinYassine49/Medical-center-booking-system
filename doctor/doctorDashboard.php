@@ -18,65 +18,95 @@ include 'session_check.php';
 
 <body>
     <?php include 'navbar/navbar.php'; ?>
-    <div class="bread-container">
-        <ul class="breadcrumbs">
-            <li class="breadcrumbs-item">
-                <a href="../index.html" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
-            </li>
-            <li class="breadcrumbs-item">
-                <a href="doctorDashboard.php" class="breadcrumbs-link active">Dashboard</a>
-            </li>
-        </ul>
-    </div>
 
-    <div class="container dashboard">
-        <div class="row col1">
-            <div class="card mb-4 calendar">
-                <div class="row g-0">
-                    <div class="header">
-                        <button id="prev-btn">
-                            <i class="fas fa-arrow-left"></i>
-                        </button>
 
-                        <div class="monthYear" id="monthYear"></div>
+    <div class="main-page">
 
-                        <button id="next-btn">
-                            <i class="fas fa-arrow-right"></i>
-                        </button>
+        <div class="sphere top-sphere"></div>
+        <div class="sphere bottom-sphere"></div>
+
+
+        <div class="bread-container">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a href="doctorDashboard.php" class="breadcrumbs-link active">Dashboard</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="container dashboard">
+            <div class="row col1">
+                <div class="card mb-4 calendar">
+                    <div class="row g-0">
+                        <div class="header">
+                            <button id="prev-btn">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+
+                            <div class="monthYear" id="monthYear"></div>
+
+                            <button id="next-btn">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <div class="days">
+                            <div class="day">Mon</div>
+                            <div class="day">Tue</div>
+                            <div class="day">Wed</div>
+                            <div class="day">Thu</div>
+                            <div class="day">Fri</div>
+                            <div class="day">Sat</div>
+                            <div class="day">Sun</div>
+                        </div>
+                        <div class="dates" id="dates"></div>
                     </div>
-                    <div class="days">
-                        <div class="day">Mon</div>
-                        <div class="day">Tue</div>
-                        <div class="day">Wed</div>
-                        <div class="day">Thu</div>
-                        <div class="day">Fri</div>
-                        <div class="day">Sat</div>
-                        <div class="day">Sun</div>
+                    <div class="modal" id="modal">
+                        <div class="modal-content">
+                            <span class="close-btn">&times;</span>
+                            <div id="modal-appointments" class="modal-appointments"></div>
+                        </div>
                     </div>
-                    <div class="dates" id="dates"></div>
                 </div>
-                <div class="modal" id="modal">
-                    <div class="modal-content">
-                        <span class="close-btn">&times;</span>
-                        <div id="modal-appointments" class="modal-appointments"></div>
+
+                <div class="upcomingApp">
+                    <div style="display: flex;flex-direction: column">
+                        <div class="table1">
+                            <h6>Pending Appointments, Awaiting Acceptance:</h6>
+                            <table class="tbl" id="appointmentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Accept</th>
+                                        <th>Cancel</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="appointmentsBody"></tbody>
+                            </table>
+                        </div>
+                        <div class="table2"style="">
+                        <h6>Canceled Appointments</h6>
+                            <table class="tbl" id="appointmentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Patient Name</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Reschedule</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody id="CanceledappointmentsBody"></tbody>
+                            </table>
+
+
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="upcomingApp">
-                <h6>Pending Appointments, Awaiting Acceptance:</h6>
-                <table class="tbl" id="appointmentsTable">
-                    <thead>
-                        <tr>
-                            <th>Patient Name</th>
-                            <th>Date</th>
-                            <th>Time</th>
-                            <th>Accept</th>
-                            <th>Cancel</th>
-                        </tr>
-                    </thead>
-                    <tbody id="appointmentsBody"></tbody>
-                </table>
             </div>
         </div>
     </div>
