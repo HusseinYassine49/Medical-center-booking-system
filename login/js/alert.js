@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', function() {
             email.parentElement.classList.remove("error");
             isEmailValid = true;
         }
-        updateLoginButton();
     });
 
     password.addEventListener('blur', function() {
@@ -37,16 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             password.parentElement.classList.remove("error");
             isPasswordValid = true;
         }
-        updateLoginButton();
+
     });
 
-    function updateLoginButton() {
-        if (isEmailValid && isPasswordValid) {
-            button.disabled = false;
-        } else {
-            button.disabled = true;
-        }
-    }
 });
 
 

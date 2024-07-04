@@ -68,7 +68,6 @@ if ($result_feedback->num_rows > 0) {
     <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
 </head>
 
 <body>

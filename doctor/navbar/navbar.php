@@ -14,6 +14,7 @@ $Appointments_active = '';
 $Patients_active = '';
 $Card_active = '';
 $feedback_active='';
+
 if ($current_page == 'doctorDashboard.php') {
     $dashboard_active = 'h-active';
 } elseif ($current_page == 'doctorAppointments.php') {

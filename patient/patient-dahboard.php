@@ -10,11 +10,14 @@ $userID = $_SESSION['user_id']; // Fetch user ID from session
 
 // Fetch user data from the database
 include "../include/connection.php";
-$query = "SELECT Fname, Email FROM users WHERE id = $userID";
-$result = mysqli_query($con, $query);
 
-if ($result && mysqli_num_rows($result) > 0) {
-    $row = mysqli_fetch_assoc($result);
+$stmt = $con->prepare("SELECT Fname, Email FROM users WHERE id = ?");
+$stmt->bind_param("i", $userID);
+$stmt->execute();
+$result = $stmt->get_result();
+
+if ($result && $result->num_rows > 0) {
+    $row = $result->fetch_assoc();
     $_SESSION['user_fname'] = $row['Fname'];
     $_SESSION['Email'] = $row['Email'];
 } else {
@@ -22,6 +25,8 @@ if ($result && mysqli_num_rows($result) > 0) {
     header("Location: login.php");
     exit();
 }
+
+$userFname = $_SESSION['user_fname'];
 ?>
 
 <!DOCTYPE html>
@@ -30,67 +35,57 @@ if ($result && mysqli_num_rows($result) > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Patient Page</title>
+    <link href="css/patient.css" rel="stylesheet">
+    <link href="css/appointment.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <link href="css/patient.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://kit.fontawesome.com/077562f806.js" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
     <script>
         const userFname = <?php echo json_encode($userFname); ?>;
     </script>
-
 </head>
 
 <body>
-
     <?php include 'navbar/navbar.php'; ?>
-
-
 
     <div class="main-page">
 
-
-        <div class="navbar">
-            <ul>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i> Make Appointments</a></li>
-                <li><a href="#"><i class="fas fa-calendar-alt"></i> clinics </a></li>
-                <li><a href="{{ url('feedback') }}"><i class="fas fa-envelope"></i> Feedback</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                <li><a href="#" id="toggle-sidebar"><i class="fas fa-bars"></i> Sidebar</a></li>
+        <div class="bread-container">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a href="../home.php" class="breadcrumbs-link"><i class="fa-solid fa-house"></i></a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a href="#" class="breadcrumbs-link active">Patient</a>
+                </li>
             </ul>
         </div>
 
-            <div class="welcome-message">
-                <h1 id="welcome-heading"></h1>
-                <p id="welcome-text" style="display:none;">Welcome to our website!</p>
 
-            </div>
+    <div class="sphere top-sphere"></div>
+    <div class="sphere mid-sphere-left"></div>
 
+    
+        <h1 id="welcome-heading"></h1>
+        <p id="welcome-text" style="display:none;">Welcome to our website!</p>
 
         <div class="main-content" id="main-content">
             <div class="left">
-
-                <a class="image-container" href="{{ url('/appointment') }}">
+                <a class="image-container" href="appointment.php?userID=<?php echo $userID; ?>">
                     <img src="images/1.jpg" alt="Placeholder Image">
                 </a>
-
-
-
             </div>
             <div class="right">
-
                 <div class="calendar">
                     <div class="calendar-container">
                         <div id='calendar'></div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -121,7 +116,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 id="modalTitle" class="modal-title">Add Appointment</h5>
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <button type="button" class="close" data-dismiss="modal">&times;"></button>
                     </div>
                     <div class="modal-body">
                         <form id="appointmentForm">
@@ -160,18 +155,16 @@ if ($result && mysqli_num_rows($result) > 0) {
             </div>
         </div>
 
-
         <div class="appointments">
             <h2>Appointments</h2>
             <div class="container">
-                <button id="addAppointmentBtn" class="btn btn-primary mb-3" onclick="goToAppointment()">Add
-                    Appointment</button>
+                <button id="addAppointmentBtn" class="btn btn-primary mb-3" onclick="goToAppointment()">Add Appointment</button>
             </div>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
                         <th>Doctor</th>
-                        <th>Specialty</th>
+                        <th>Description</th>
                         <th>Date</th>
                         <th>Time</th>
                         <th>Status</th>
@@ -180,54 +173,86 @@ if ($result && mysqli_num_rows($result) > 0) {
                 </thead>
                 <tbody id="appointmentTableBody">
                     <?php
-
-
-                    $query = 'SELECT `id`, `doctorID`, `userID`, `details`, `delete_`, `date_` FROM `appointment` where `id`=' . $userID . '';
-                    $result = mysqli_query($con, $query);
-
+                    // Assuming $userID is set from the session or another secure source
+                    $userID = $_SESSION['user_id']; // Corrected session variable
+                    $query = '
+                        SELECT a.id, a.doctorID, a.details, a.delete_, a.date_, u.Fname, u.Lname 
+                        FROM appointment a
+                        JOIN doctors d ON a.doctorID = d.DoctorID
+                        JOIN users u ON d.UserID = u.id
+                        WHERE a.userID = ?';
+                    $stmt = $con->prepare($query);
+                    $stmt->bind_param("i", $userID);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
                     if ($result) {
+                        while ($row = $result->fetch_assoc()) {
+                            // Convert delete_ column to a readable status
+                            $status = $row['delete_'] == 0 ? 'Active' : 'Deleted';
 
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $queryd = 'SELECT `id`, `Fname`, `Lname`, `Email`, `Password`, `DOB`, `Gender`, `Role`, `BloodType`, `reset_token_hash`, `reset_token_expires_at` FROM `users` WHERE `id`=' . $row["doctorID"] . '';
-                            $resultd = mysqli_query($con, $queryd);
-                            $rowd = mysqli_fetch_assoc($resultd);
-                            echo '         <tr>
+                            // Extract time from date_
+                            $dateTime = new DateTime($row['date_']);
+                            $time = $dateTime->format('H:i');
 
-                      <td>' . $rowd['Fname'] . '' . $rowd['Lname'] . '</td>
-                        <td>${specialty}</td>
-                        <td>' . $row['date_'] . '</td>
-                        <td>' . $row['date_'] . '</td>
-                        <td class="status-${status.toLowerCase()}">${status}</td>
-                        <td>
-                            <button class="btn btn-warning btn-sm" onclick="showEditForm(this)">Edit</button>
-                            <button class="btn btn-danger btn-sm" onclick="deleteAppointment(this)">Delete</button>
-                        </td>
-                        
-                    </tr>';
-                        };
-                    } ?>
+                            echo '<tr>
+                                <td>' . htmlspecialchars($row['Fname'] . ' ' . $row['Lname']) . '</td>
+                                <td>' . htmlspecialchars($row['details']) . '</td>
+                                <td>' . htmlspecialchars($row['date_']) . '</td>
+                                <td>' . htmlspecialchars($time) . '</td>
+                                <td class="status-' . strtolower($status) . '">' . htmlspecialchars($status) . '</td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" onclick="showEditForm(this)">Edit</button>
+                                    <button class="btn btn-danger btn-sm" onclick="deleteAppointment(this)">Delete</button>
+                                </td>
+                            </tr>';
+                        }
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
-
     </div>
 
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
-
-    <script src="js/patient.js"></script>
     <script>
         function goToAppointment() {
             const userID = '<?php echo $userID; ?>';
-            window.location.href = 'appointment.php?userID=' + userID;
+            window.location.href = 'try.php?userID=' + userID;
         }
+
+        const welcomeHeading = document.getElementById('welcome-heading');
+        const welcomeText = document.getElementById('welcome-text');
+
+        let welcomeMessage = `Good Morning, ${userFname}!`;
+        let messageIndex = 0;
+        let typingSpeed = 100;
+
+        function typeWelcomeMessage() {
+            if (messageIndex < welcomeMessage.length) {
+                welcomeHeading.textContent += welcomeMessage.charAt(messageIndex);
+                messageIndex++;
+                setTimeout(typeWelcomeMessage, typingSpeed);
+            } else {
+                welcomeText.style.display = 'block';
+            }
+        }
+
+        typeWelcomeMessage();
+
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,agendaWeek,agendaDay'
+                },
+                editable: true,
+                events: [
+                    // Array of event objects can be fetched here
+                ]
+            });
+        });
     </script>
-
-
 </body>
 
 </html>

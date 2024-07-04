@@ -1,19 +1,22 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Forget Password</title>
-    </head>
-    <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Reset</title>
+    <link rel="stylesheet" href="../css/ForgetPassword.css">
+</head>
+<body>
 
-    <h1>MedicalBookingSystem@gmail.com</h1>
-    <h2>MedicalSystem1</h2>
-    <h2>ubug cqjg ksps wknf</h2>
+<div class="container">
+    <h1>Password Reset</h1>
+    
+    <form class="password-reset-form" action="send-password-reset.php" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit" name="send">Send</button>
+    </form>
+</div>
 
-        <form class="" action="send-password-reset.php" method="post">
-            email <input type="email" name="email" value=""><br>
-            <button type="submit" name="send">Send</button>
-        </form>
-    </body>
-    </html>
+</body>
+</html>
